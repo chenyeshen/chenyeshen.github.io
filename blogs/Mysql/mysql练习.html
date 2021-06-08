@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Mysql练习 | 喵ฅ仙 | BLOG</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content=" 初识, (ฅ>ω<*ฅ)你的世界但愿都好">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="preload" href="/assets/css/0.styles.8d7646a3.css" as="style"><link rel="preload" href="/assets/js/app.1be1c75e.js" as="script"><link rel="preload" href="/assets/js/4.203b416b.js" as="script"><link rel="preload" href="/assets/js/1.5105d566.js" as="script"><link rel="preload" href="/assets/js/75.257893e3.js" as="script"><link rel="preload" href="/assets/js/9.0c7239d7.js" as="script"><link rel="prefetch" href="/assets/js/10.9546f30b.js"><link rel="prefetch" href="/assets/js/100.0b157907.js"><link rel="prefetch" href="/assets/js/101.88f773b1.js"><link rel="prefetch" href="/assets/js/102.5b0eb634.js"><link rel="prefetch" href="/assets/js/103.6b915f4d.js"><link rel="prefetch" href="/assets/js/104.fb34fa5c.js"><link rel="prefetch" href="/assets/js/105.aec4f988.js"><link rel="prefetch" href="/assets/js/106.29087525.js"><link rel="prefetch" href="/assets/js/107.2f90a807.js"><link rel="prefetch" href="/assets/js/108.a7698b72.js"><link rel="prefetch" href="/assets/js/109.6ae46ab8.js"><link rel="prefetch" href="/assets/js/11.5c9a5dbc.js"><link rel="prefetch" href="/assets/js/110.0ef815ca.js"><link rel="prefetch" href="/assets/js/111.2d08fffb.js"><link rel="prefetch" href="/assets/js/112.95c490c0.js"><link rel="prefetch" href="/assets/js/113.52edbe3f.js"><link rel="prefetch" href="/assets/js/114.8bfe55e5.js"><link rel="prefetch" href="/assets/js/115.3508208c.js"><link rel="prefetch" href="/assets/js/116.fbb47d15.js"><link rel="prefetch" href="/assets/js/117.9c3eb5d0.js"><link rel="prefetch" href="/assets/js/118.50627277.js"><link rel="prefetch" href="/assets/js/119.4b0b8c0a.js"><link rel="prefetch" href="/assets/js/12.35c7c41b.js"><link rel="prefetch" href="/assets/js/120.597b42c6.js"><link rel="prefetch" href="/assets/js/121.9fefe8fc.js"><link rel="prefetch" href="/assets/js/122.0dcecba3.js"><link rel="prefetch" href="/assets/js/123.f6ec0b4a.js"><link rel="prefetch" href="/assets/js/124.366a90b2.js"><link rel="prefetch" href="/assets/js/125.6f3d4e8d.js"><link rel="prefetch" href="/assets/js/126.ac695406.js"><link rel="prefetch" href="/assets/js/127.dc8ec30f.js"><link rel="prefetch" href="/assets/js/128.fdaa71bc.js"><link rel="prefetch" href="/assets/js/129.cdab2dab.js"><link rel="prefetch" href="/assets/js/13.182cb146.js"><link rel="prefetch" href="/assets/js/130.1e3ead36.js"><link rel="prefetch" href="/assets/js/131.9b5696b0.js"><link rel="prefetch" href="/assets/js/132.467a0c2b.js"><link rel="prefetch" href="/assets/js/133.68d6fe84.js"><link rel="prefetch" href="/assets/js/134.9bfa4f3b.js"><link rel="prefetch" href="/assets/js/135.c31b152b.js"><link rel="prefetch" href="/assets/js/136.62a89fcb.js"><link rel="prefetch" href="/assets/js/137.80bda48f.js"><link rel="prefetch" href="/assets/js/138.ff7dd913.js"><link rel="prefetch" href="/assets/js/139.7cfc0167.js"><link rel="prefetch" href="/assets/js/14.a948cc0d.js"><link rel="prefetch" href="/assets/js/140.0ec515f8.js"><link rel="prefetch" href="/assets/js/141.11cdf755.js"><link rel="prefetch" href="/assets/js/142.5577aca4.js"><link rel="prefetch" href="/assets/js/143.947a5600.js"><link rel="prefetch" href="/assets/js/144.15b9da9e.js"><link rel="prefetch" href="/assets/js/145.4fcc02eb.js"><link rel="prefetch" href="/assets/js/146.b9187d7f.js"><link rel="prefetch" href="/assets/js/147.12c5da8f.js"><link rel="prefetch" href="/assets/js/148.0f9f49bd.js"><link rel="prefetch" href="/assets/js/149.42fd3520.js"><link rel="prefetch" href="/assets/js/15.0eadcb4a.js"><link rel="prefetch" href="/assets/js/150.6482637d.js"><link rel="prefetch" href="/assets/js/151.1b640f98.js"><link rel="prefetch" href="/assets/js/152.b1512c03.js"><link rel="prefetch" href="/assets/js/153.6b2e3ecf.js"><link rel="prefetch" href="/assets/js/154.27bd8f90.js"><link rel="prefetch" href="/assets/js/155.c63a680c.js"><link rel="prefetch" href="/assets/js/156.ffc1c42c.js"><link rel="prefetch" href="/assets/js/157.17ec751c.js"><link rel="prefetch" href="/assets/js/158.b4de6b3a.js"><link rel="prefetch" href="/assets/js/159.71127089.js"><link rel="prefetch" href="/assets/js/16.5c0e41ec.js"><link rel="prefetch" href="/assets/js/160.79487ce0.js"><link rel="prefetch" href="/assets/js/161.70dcaa40.js"><link rel="prefetch" href="/assets/js/162.23896540.js"><link rel="prefetch" href="/assets/js/163.d7cde447.js"><link rel="prefetch" href="/assets/js/164.783b098c.js"><link rel="prefetch" href="/assets/js/165.801f1139.js"><link rel="prefetch" href="/assets/js/166.7fc0d61f.js"><link rel="prefetch" href="/assets/js/167.d2bbaa7f.js"><link rel="prefetch" href="/assets/js/168.a1d9e53b.js"><link rel="prefetch" href="/assets/js/169.56c7559f.js"><link rel="prefetch" href="/assets/js/17.a292c872.js"><link rel="prefetch" href="/assets/js/170.d97e5974.js"><link rel="prefetch" href="/assets/js/171.b0c5b6b6.js"><link rel="prefetch" href="/assets/js/172.78b4b762.js"><link rel="prefetch" href="/assets/js/173.302d9958.js"><link rel="prefetch" href="/assets/js/174.ef7332f1.js"><link rel="prefetch" href="/assets/js/175.4bb1906d.js"><link rel="prefetch" href="/assets/js/176.d75460bc.js"><link rel="prefetch" href="/assets/js/177.79f2f4e7.js"><link rel="prefetch" href="/assets/js/178.10668a3b.js"><link rel="prefetch" href="/assets/js/179.c97b6427.js"><link rel="prefetch" href="/assets/js/18.9a94be73.js"><link rel="prefetch" href="/assets/js/180.44b7e6e6.js"><link rel="prefetch" href="/assets/js/181.6fe0eb94.js"><link rel="prefetch" href="/assets/js/182.1cdcbe49.js"><link rel="prefetch" href="/assets/js/183.057f43ff.js"><link rel="prefetch" href="/assets/js/184.8c244a43.js"><link rel="prefetch" href="/assets/js/185.5be17ea7.js"><link rel="prefetch" href="/assets/js/186.bea8ba57.js"><link rel="prefetch" href="/assets/js/187.172971d4.js"><link rel="prefetch" href="/assets/js/188.84c9c2a8.js"><link rel="prefetch" href="/assets/js/189.b7c0e881.js"><link rel="prefetch" href="/assets/js/19.caac52e6.js"><link rel="prefetch" href="/assets/js/190.45e9a3e5.js"><link rel="prefetch" href="/assets/js/191.24f203f4.js"><link rel="prefetch" href="/assets/js/192.37c8abb5.js"><link rel="prefetch" href="/assets/js/20.8c922dad.js"><link rel="prefetch" href="/assets/js/21.fb869426.js"><link rel="prefetch" href="/assets/js/22.93620482.js"><link rel="prefetch" href="/assets/js/23.2364328e.js"><link rel="prefetch" href="/assets/js/24.799abd57.js"><link rel="prefetch" href="/assets/js/25.6d4226af.js"><link rel="prefetch" href="/assets/js/26.54da3c7e.js"><link rel="prefetch" href="/assets/js/27.d4e16342.js"><link rel="prefetch" href="/assets/js/28.4ff448d7.js"><link rel="prefetch" href="/assets/js/29.e98cfed8.js"><link rel="prefetch" href="/assets/js/30.a9094936.js"><link rel="prefetch" href="/assets/js/31.0cdeedff.js"><link rel="prefetch" href="/assets/js/32.282485ec.js"><link rel="prefetch" href="/assets/js/33.a7a22eb2.js"><link rel="prefetch" href="/assets/js/34.7c530301.js"><link rel="prefetch" href="/assets/js/35.b3bea9c8.js"><link rel="prefetch" href="/assets/js/36.60907581.js"><link rel="prefetch" href="/assets/js/37.44f78250.js"><link rel="prefetch" href="/assets/js/38.22aa262c.js"><link rel="prefetch" href="/assets/js/39.61bbfd2f.js"><link rel="prefetch" href="/assets/js/40.32de6b2c.js"><link rel="prefetch" href="/assets/js/41.c0feee50.js"><link rel="prefetch" href="/assets/js/42.caab53c9.js"><link rel="prefetch" href="/assets/js/43.2b9d1a26.js"><link rel="prefetch" href="/assets/js/44.e3a361c0.js"><link rel="prefetch" href="/assets/js/45.a21037b1.js"><link rel="prefetch" href="/assets/js/46.7b9ae63c.js"><link rel="prefetch" href="/assets/js/47.96c3d47c.js"><link rel="prefetch" href="/assets/js/48.849f0aee.js"><link rel="prefetch" href="/assets/js/49.49cf3d60.js"><link rel="prefetch" href="/assets/js/5.4d5ac209.js"><link rel="prefetch" href="/assets/js/50.9c98605d.js"><link rel="prefetch" href="/assets/js/51.a4cc5ee7.js"><link rel="prefetch" href="/assets/js/52.eb697507.js"><link rel="prefetch" href="/assets/js/53.0e923818.js"><link rel="prefetch" href="/assets/js/54.02c6a5e2.js"><link rel="prefetch" href="/assets/js/55.178ced5a.js"><link rel="prefetch" href="/assets/js/56.88a62e6f.js"><link rel="prefetch" href="/assets/js/57.4715280d.js"><link rel="prefetch" href="/assets/js/58.0f321170.js"><link rel="prefetch" href="/assets/js/59.8bbee93b.js"><link rel="prefetch" href="/assets/js/6.31aca4b9.js"><link rel="prefetch" href="/assets/js/60.0a361287.js"><link rel="prefetch" href="/assets/js/61.b473b99c.js"><link rel="prefetch" href="/assets/js/62.ae007a89.js"><link rel="prefetch" href="/assets/js/63.90636060.js"><link rel="prefetch" href="/assets/js/64.4ebe57d1.js"><link rel="prefetch" href="/assets/js/65.b431d146.js"><link rel="prefetch" href="/assets/js/66.d12fab24.js"><link rel="prefetch" href="/assets/js/67.16ae556e.js"><link rel="prefetch" href="/assets/js/68.da369989.js"><link rel="prefetch" href="/assets/js/69.baab95a8.js"><link rel="prefetch" href="/assets/js/7.078dd09f.js"><link rel="prefetch" href="/assets/js/70.409d55d5.js"><link rel="prefetch" href="/assets/js/71.52e98172.js"><link rel="prefetch" href="/assets/js/72.2564c189.js"><link rel="prefetch" href="/assets/js/73.7df2e3cc.js"><link rel="prefetch" href="/assets/js/74.63969480.js"><link rel="prefetch" href="/assets/js/76.352574ef.js"><link rel="prefetch" href="/assets/js/77.ceb0de4d.js"><link rel="prefetch" href="/assets/js/78.cf52d54c.js"><link rel="prefetch" href="/assets/js/79.f6845a4d.js"><link rel="prefetch" href="/assets/js/8.ad0a3193.js"><link rel="prefetch" href="/assets/js/80.5041852b.js"><link rel="prefetch" href="/assets/js/81.86068da2.js"><link rel="prefetch" href="/assets/js/82.1cd30fda.js"><link rel="prefetch" href="/assets/js/83.76259bd9.js"><link rel="prefetch" href="/assets/js/84.76afdbbe.js"><link rel="prefetch" href="/assets/js/85.681d0c22.js"><link rel="prefetch" href="/assets/js/86.07e3082f.js"><link rel="prefetch" href="/assets/js/87.94b5d727.js"><link rel="prefetch" href="/assets/js/88.1d27e21d.js"><link rel="prefetch" href="/assets/js/89.e13a2ec5.js"><link rel="prefetch" href="/assets/js/90.9f491a9f.js"><link rel="prefetch" href="/assets/js/91.903ea74c.js"><link rel="prefetch" href="/assets/js/92.1164609c.js"><link rel="prefetch" href="/assets/js/93.bd71d8a5.js"><link rel="prefetch" href="/assets/js/94.4324a5f9.js"><link rel="prefetch" href="/assets/js/95.b87497eb.js"><link rel="prefetch" href="/assets/js/96.f6d863cd.js"><link rel="prefetch" href="/assets/js/97.1f8214e8.js"><link rel="prefetch" href="/assets/js/98.e0897c97.js"><link rel="prefetch" href="/assets/js/99.20b36c38.js"><link rel="prefetch" href="/assets/js/vendors~flowchart.a8366e02.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8d7646a3.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-2d5f533b><div data-v-2d5f533b><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-2d5f533b data-v-2d5f533b><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-64685f0e data-v-2d5f533b data-v-2d5f533b><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>喵ฅ仙 | BLOG</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>喵ฅ仙 | BLOG</span>
+            
+          <span data-v-64685f0e>2017 - </span>
+          2021
+        </a></span></div></div> <div class="hide" data-v-2d5f533b><header class="navbar" data-v-2d5f533b><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="喵ฅ仙 | BLOG" class="logo"> <span class="site-name">喵ฅ仙 | BLOG</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Docker/" class="nav-link"><i class="iconfont undefined"></i>
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Element/" class="nav-link"><i class="iconfont undefined"></i>
+  Element
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Git/" class="nav-link"><i class="iconfont undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Vue/" class="nav-link"><i class="iconfont undefined"></i>
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/大数据/" class="nav-link"><i class="iconfont undefined"></i>
+  大数据
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Java/" class="nav-link"><i class="iconfont undefined"></i>
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringBoot/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringBoot
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Kafka/" class="nav-link"><i class="iconfont undefined"></i>
+  Kafka
+</a></li><li class="dropdown-item"><!----> <a href="/categories/K8S/" class="nav-link"><i class="iconfont undefined"></i>
+  K8S
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Linux/" class="nav-link"><i class="iconfont undefined"></i>
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/categories/MyBatis/" class="nav-link"><i class="iconfont undefined"></i>
+  MyBatis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Mysql/" class="nav-link"><i class="iconfont undefined"></i>
+  Mysql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Nginx/" class="nav-link"><i class="iconfont undefined"></i>
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/categories/MongoDB/" class="nav-link"><i class="iconfont undefined"></i>
+  MongoDB
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Node/" class="nav-link"><i class="iconfont undefined"></i>
+  Node
+</a></li><li class="dropdown-item"><!----> <a href="/categories/RabbitMQ/" class="nav-link"><i class="iconfont undefined"></i>
+  RabbitMQ
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Redis/" class="nav-link"><i class="iconfont undefined"></i>
+  Redis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Skywalking/" class="nav-link"><i class="iconfont undefined"></i>
+  Skywalking
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringCloud/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringCloud
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringCloudAlibaba/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringCloudAlibaba
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringSecurity/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringSecurity
+</a></li><li class="dropdown-item"><!----> <a href="/categories/ZooKeeper/" class="nav-link"><i class="iconfont undefined"></i>
+  ZooKeeper
+</a></li><li class="dropdown-item"><!----> <a href="/categories/FastDFS/" class="nav-link"><i class="iconfont undefined"></i>
+  FastDFS
+</a></li><li class="dropdown-item"><!----> <a href="/categories/工作区/" class="nav-link"><i class="iconfont undefined"></i>
+  工作区
+</a></li><li class="dropdown-item"><!----> <a href="/categories/图床/" class="nav-link"><i class="iconfont undefined"></i>
+  图床
+</a></li><li class="dropdown-item"><!----> <a href="/categories/V2Ray/" class="nav-link"><i class="iconfont undefined"></i>
+  V2Ray
+</a></li><li class="dropdown-item"><!----> <a href="/categories/百度网盘/" class="nav-link"><i class="iconfont undefined"></i>
+  百度网盘
+</a></li><li class="dropdown-item"><!----> <a href="/categories/WorkBook/" class="nav-link"><i class="iconfont undefined"></i>
+  WorkBook
+</a></li><li class="dropdown-item"><!----> <a href="/categories/学习记/" class="nav-link"><i class="iconfont undefined"></i>
+  学习记
+</a></li><li class="dropdown-item"><!----> <a href="/categories/面试题/" class="nav-link"><i class="iconfont undefined"></i>
+  面试题
+</a></li><li class="dropdown-item"><!----> <a href="/categories/NoteBook/" class="nav-link"><i class="iconfont undefined"></i>
+  NoteBook
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/mukeyeshen" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-2d5f533b></div> <aside class="sidebar" data-v-2d5f533b><div class="personal-info-wrapper" data-v-ca798c94 data-v-2d5f533b><img src="/avatar.png" alt="author-avatar" class="personal-img" data-v-ca798c94> <h3 class="name" data-v-ca798c94>
+    喵ฅ仙 | BLOG
+  </h3> <div class="num" data-v-ca798c94><div data-v-ca798c94><h3 data-v-ca798c94>161</h3> <h6 data-v-ca798c94>Article</h6></div> <div data-v-ca798c94><h3 data-v-ca798c94>60</h3> <h6 data-v-ca798c94>Tag</h6></div></div> <hr data-v-ca798c94></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Docker/" class="nav-link"><i class="iconfont undefined"></i>
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Element/" class="nav-link"><i class="iconfont undefined"></i>
+  Element
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Git/" class="nav-link"><i class="iconfont undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Vue/" class="nav-link"><i class="iconfont undefined"></i>
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/大数据/" class="nav-link"><i class="iconfont undefined"></i>
+  大数据
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Java/" class="nav-link"><i class="iconfont undefined"></i>
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringBoot/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringBoot
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Kafka/" class="nav-link"><i class="iconfont undefined"></i>
+  Kafka
+</a></li><li class="dropdown-item"><!----> <a href="/categories/K8S/" class="nav-link"><i class="iconfont undefined"></i>
+  K8S
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Linux/" class="nav-link"><i class="iconfont undefined"></i>
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/categories/MyBatis/" class="nav-link"><i class="iconfont undefined"></i>
+  MyBatis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Mysql/" class="nav-link"><i class="iconfont undefined"></i>
+  Mysql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Nginx/" class="nav-link"><i class="iconfont undefined"></i>
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/categories/MongoDB/" class="nav-link"><i class="iconfont undefined"></i>
+  MongoDB
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Node/" class="nav-link"><i class="iconfont undefined"></i>
+  Node
+</a></li><li class="dropdown-item"><!----> <a href="/categories/RabbitMQ/" class="nav-link"><i class="iconfont undefined"></i>
+  RabbitMQ
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Redis/" class="nav-link"><i class="iconfont undefined"></i>
+  Redis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Skywalking/" class="nav-link"><i class="iconfont undefined"></i>
+  Skywalking
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringCloud/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringCloud
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringCloudAlibaba/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringCloudAlibaba
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringSecurity/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringSecurity
+</a></li><li class="dropdown-item"><!----> <a href="/categories/ZooKeeper/" class="nav-link"><i class="iconfont undefined"></i>
+  ZooKeeper
+</a></li><li class="dropdown-item"><!----> <a href="/categories/FastDFS/" class="nav-link"><i class="iconfont undefined"></i>
+  FastDFS
+</a></li><li class="dropdown-item"><!----> <a href="/categories/工作区/" class="nav-link"><i class="iconfont undefined"></i>
+  工作区
+</a></li><li class="dropdown-item"><!----> <a href="/categories/图床/" class="nav-link"><i class="iconfont undefined"></i>
+  图床
+</a></li><li class="dropdown-item"><!----> <a href="/categories/V2Ray/" class="nav-link"><i class="iconfont undefined"></i>
+  V2Ray
+</a></li><li class="dropdown-item"><!----> <a href="/categories/百度网盘/" class="nav-link"><i class="iconfont undefined"></i>
+  百度网盘
+</a></li><li class="dropdown-item"><!----> <a href="/categories/WorkBook/" class="nav-link"><i class="iconfont undefined"></i>
+  WorkBook
+</a></li><li class="dropdown-item"><!----> <a href="/categories/学习记/" class="nav-link"><i class="iconfont undefined"></i>
+  学习记
+</a></li><li class="dropdown-item"><!----> <a href="/categories/面试题/" class="nav-link"><i class="iconfont undefined"></i>
+  面试题
+</a></li><li class="dropdown-item"><!----> <a href="/categories/NoteBook/" class="nav-link"><i class="iconfont undefined"></i>
+  NoteBook
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/mukeyeshen" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-64685f0e data-v-2d5f533b><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>Mysql练习</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>喵ฅ仙 | BLOG</span>
+            
+          <span data-v-64685f0e>2017 - </span>
+          2021
+        </a></span></div></div> <div data-v-2d5f533b><main class="page" style="padding-right:0;"><div class="page-title" style="display:none;"><h1 class="title">Mysql练习</h1> <div data-v-3b7f5bdf><i class="iconfont reco-account" data-v-3b7f5bdf><span data-v-3b7f5bdf>喵ฅ仙 | BLOG</span></i> <!----> <i class="iconfont reco-eye" data-v-3b7f5bdf><span id="/blogs/Mysql/mysql%E7%BB%83%E4%B9%A0.html" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-3b7f5bdf><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <i class="iconfont reco-tag tags" data-v-3b7f5bdf><span class="tag-item" data-v-3b7f5bdf>Mysql</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><div class="language-mysql line-numbers-mode"><pre class="language-text"><code>/*
+ Navicat Premium Data Transfer
+
+ Source Server         : localhost
+ Source Server Type    : MySQL
+ Source Server Version : 50726
+ Source Host           : localhost:3306
+ Source Schema         : sys
+
+ Target Server Type    : MySQL
+ Target Server Version : 50726
+ File Encoding         : 65001
+
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for bonus
+-- ----------------------------
+DROP TABLE IF EXISTS `bonus`;
+CREATE TABLE `bonus`  (
+  `ename` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '雇员姓名',
+  `job` varchar(9) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '雇员职位',
+  `sal` int(11) NULL DEFAULT NULL COMMENT '雇员工资',
+  `comm` int(11) NULL DEFAULT NULL COMMENT '雇员资金'
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '工资表' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for dept
+-- ----------------------------
+DROP TABLE IF EXISTS `dept`;
+CREATE TABLE `dept`  (
+  `deptno` int(2) NOT NULL COMMENT '部门编号',
+  `dname` varchar(14) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '部门名称',
+  `loc` varchar(13) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '部门所在位置',
+  PRIMARY KEY (`deptno`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '部门' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of dept
+-- ----------------------------
+INSERT INTO `dept` VALUES (10, 'ACCOUNTING', 'NEW YORK');
+INSERT INTO `dept` VALUES (20, 'RESEARCH', 'DALLAS');
+INSERT INTO `dept` VALUES (30, 'SALES', 'CHICAGO');
+INSERT INTO `dept` VALUES (40, 'OPERATIONS', 'BOSTON');
+
+-- ----------------------------
+-- Table structure for emp
+-- ----------------------------
+DROP TABLE IF EXISTS `emp`;
+CREATE TABLE `emp`  (
+  `empno` int(4) NOT NULL COMMENT '雇员编号',
+  `ename` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '雇员姓名',
+  `job` varchar(9) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '雇员职位',
+  `mgr` int(4) NULL DEFAULT NULL COMMENT '雇员对应的领导的编号',
+  `hiredate` date NULL DEFAULT NULL COMMENT '雇员的雇佣日期',
+  `sal` float(7, 2) NULL DEFAULT NULL COMMENT '雇员的基本工资',
+  `comm` float(7, 2) NULL DEFAULT NULL COMMENT '奖金',
+  `deptno` int(2) NULL DEFAULT NULL COMMENT '所在部门',
+  PRIMARY KEY (`empno`) USING BTREE,
+  INDEX `fk_deptno`(`deptno`) USING BTREE,
+  CONSTRAINT `fk_deptno` FOREIGN KEY (`deptno`) REFERENCES `dept` (`deptno`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '雇员' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of emp
+-- ----------------------------
+INSERT INTO `emp` VALUES (7369, 'SMITH', 'CLERK', 7902, '1980-12-17', 800.00, NULL, 20);
+INSERT INTO `emp` VALUES (7499, 'ALLEN', 'SALESMAN', 7698, '1981-02-20', 1600.00, 300.00, 30);
+INSERT INTO `emp` VALUES (7521, 'WARD', 'SALESMAN', 7698, '1981-02-22', 1250.00, 500.00, 30);
+INSERT INTO `emp` VALUES (7566, 'JONES', 'MANAGER', 7839, '1981-04-02', 2975.00, NULL, 20);
+INSERT INTO `emp` VALUES (7654, 'MARTIN', 'SALESMAN', 7698, '1981-09-28', 1250.00, 1400.00, 30);
+INSERT INTO `emp` VALUES (7698, 'BLAKE', 'MANAGER', 7839, '1981-05-01', 2850.00, NULL, 30);
+INSERT INTO `emp` VALUES (7782, 'CLARK', 'MANAGER', 7839, '1981-06-09', 2450.00, NULL, 10);
+INSERT INTO `emp` VALUES (7788, 'SCOTT', 'ANALYST', 7566, '1987-07-13', 3000.00, NULL, 20);
+INSERT INTO `emp` VALUES (7839, 'KING', 'PRESIDENT', NULL, '1981-11-07', 5000.00, NULL, 10);
+INSERT INTO `emp` VALUES (7844, 'TURNER', 'SALESMAN', 7698, '1981-09-08', 1500.00, 0.00, 30);
+INSERT INTO `emp` VALUES (7876, 'ADAMS', 'CLERK', 7788, '1987-07-13', 1100.00, NULL, 20);
+INSERT INTO `emp` VALUES (7900, 'JAMES', 'CLERK', 7698, '1981-12-03', 950.00, NULL, 30);
+INSERT INTO `emp` VALUES (7902, 'FORD', 'ANALYST', 7566, '1981-12-03', 3000.00, NULL, 20);
+INSERT INTO `emp` VALUES (7934, 'MILLER', 'CLERK', 7782, '1982-01-23', 1300.00, NULL, 10);
+
+-- ----------------------------
+-- Table structure for salgrade
+-- ----------------------------
+DROP TABLE IF EXISTS `salgrade`;
+CREATE TABLE `salgrade`  (
+  `grade` int(11) NULL DEFAULT NULL COMMENT '工资等级',
+  `losal` int(11) NULL DEFAULT NULL COMMENT '此等级的最低工资',
+  `hisal` int(11) NULL DEFAULT NULL COMMENT '此等级的最高工资'
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '工资等级表' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of salgrade
+-- ----------------------------
+INSERT INTO `salgrade` VALUES (1, 700, 1200);
+INSERT INTO `salgrade` VALUES (2, 1201, 1400);
+INSERT INTO `salgrade` VALUES (3, 1401, 2000);
+INSERT INTO `salgrade` VALUES (4, 2001, 3000);
+INSERT INTO `salgrade` VALUES (5, 3001, 9999);
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br></div></div><p>1.查询所有的部门编号：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>select  deptno FROM dept 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>2.查询所有有人的部门编号：</p> <div class="language-mysql line-numbers-mode"><pre class="language-text"><code>select  deptno FROM dept WHERE deptno IN (SELECT emp.deptno FROM emp WHERE emp.deptno=dept.deptno)
+
+或者
+select DISTINCT deptno FROM emp WHERE deptno IS NOT NULL
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>3.查询所有岗位名称：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>select  distinct emp.job from emp
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>4.查询所有薪水超过两千的员工信息</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>select * from emp WHERE sal &gt; 2000 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>5.查询所有20部门的员工姓名，编号及薪水</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>select emp.ename,emp.empno, emp.sal from emp WHERE emp.deptno=20 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>6.查询所有没有奖金的员工信息</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT * FROM emp WHERE emp.comm IS  NULL
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>7.查询所有有奖金的员工信息</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT * FROM emp WHERE emp.comm IS NOT NULL
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>8.查询最高领导的员工信息</p> <p>9.查询所有81年之后入职的员工信息</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT * FROM emp WHERE emp.hiredate &gt;= '1981-01-01'
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>10.查询所有薪水在2000-4000范围内的员工信息</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT * FROM emp WHERE sal BETWEEN 2000 AND 4000
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>11.查询所有部门编号是10或30的员工信息</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT * FROM emp  WHERE emp.deptno IN (10,30)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>12.查询所有20部门并且薪水超过2000的员工信息：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT * FROM emp WHERE deptno=20 AND sal &gt;2000 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>13.查询所有薪水不在2000-4000范围内的员工信息</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT * FROM  emp WHERE sal NOT BETWEEN 2000 AND 4000
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>14.查询所有部门编号不是10，30的员工信息</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>select * FROM emp WHERE deptno NOT IN(10,30)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>15.查询用户名为scott的员工信息</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>select * FROM emp WHERE ename='scott'
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>16.查询姓名里面包含ALL的员工姓名</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>select * FROM emp WHERE ename LIKE '%ALL%'
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>17.查询所有以”S”开头的同学</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT emp.ename  FROM emp WHERE emp.ename LIKE 'S%'
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>18.查询第二个字母为A的员工姓名</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT * FROM emp WHERE emp.ename LIKE '_A%'
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>19.查询所有员工的编号、姓名、部门编号、职位、薪水，按照薪水降序排列</p> <p>20.查询所有员工信息，按照部门降序排列，部门内按照薪水升序排列</p> <p>21.查询姓名中包含‘A’员工的姓名，编号，薪水，按照薪水降序排列</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT emp.empno,emp.job,emp.sal FROM emp WHERE emp.ename LIKE '%A%' ORDER BY emp.sal DESC
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>22.查询年收入超过10000的员工的姓名，编号，薪水，年收入，按照年收入降序排列</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT *, emp.sal*12 年薪 FROM emp WHERE emp.sal*12  &gt;10000 ORDER BY emp.sal*12  DESC
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>23.查询年薪超过10000的员工的姓名，编号，薪水，年收入，按照年薪降序排列</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT *, (emp.sal+IFNULL(emp.comm,0))*12 年薪 FROM emp WHERE (emp.sal+IFNULL(emp.comm,0))*12 &gt;10000 ORDER BY 年薪  DESC
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>24.查询雇员表中，姓名为SMITH的雇员，截止到今天共工作了多少周</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT DATEDIFF(NOW(),emp.hiredate)/7 工作周期,DATEDIFF(NOW(),emp.hiredate)  工作总天数 FROM emp WHERE emp.ename='SMITH'
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>25.查询各部门的最高薪水、最低薪水、平均薪水….</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT MAX(emp.sal) 最高工资, MIN(emp.sal) 最低工资,AVG(emp.sal) 平均工资 FROM emp  GROUP BY emp.deptno
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>25.1查询各部门的最高薪水大于2900</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT MAX(emp.sal) 最高工资 FROM emp  GROUP BY emp.deptno HAVING  最高工资 &gt;2900
+
+或者
+
+SELECT MAX(emp.sal) 最高工资 FROM emp  WHERE emp.sal &gt;2900 GROUP  BY emp.deptno
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>26.查询‘SMITH’的领导姓名</p> <p>27.查询部门名称是‘SALES’的员工信息</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>select emp.* from dept,emp WHERE dept.dname='SALES'
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>28.查询公司中薪水最高的员工信息</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT emp.ename FROM emp WHERE emp.sal IN (SELECT MAX(emp.sal) FROM emp)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>29.查询公司所有员工的个数</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT COUNT(*) FROM emp 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>30.查询公司中最高薪水是多少</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT MAX(emp.sal) FROM emp
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>31.查询公司中平均奖金是多少</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT AVG(emp.sal) FROM emp
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>32.查询公司中最晚入职的时间</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT max(emp.hiredate) FROM emp 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>33.查询公司中有奖金的人数</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT COUNT(*) FROM emp  WHERE emp.comm IS NOT NULL
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>34.查询20部门的最高薪水是多少</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT MAX(emp.sal) FROM emp  WHERE emp.deptno=20
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>35.查询各部门的平均薪水及部门编号，部门名称。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT AVG(emp.sal) 平均工资,dept.deptno 部门编号,dept.dname 部门名称 FROM emp  LEFT JOIN dept ON emp.deptno=dept.deptno GROUP BY dept.deptno
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>36.查询各部门中最高薪水的员工编号，姓名…</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT emp.empno,emp.ename FROM emp WHERE emp.sal IN (SELECT MAX(emp.sal) 最高工资 FROM emp  LEFT JOIN dept ON emp.deptno=dept.deptno GROUP BY dept.deptno)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>37.查询所有员工姓名中包含‘A’的最高薪水</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT MAX(emp.sal) 最高工资 FROM emp WHERE emp.ename LIKE '%A%'
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>38.查询各岗位的最高薪水，最低薪水。要求只统计薪水&gt;1000的</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT MAX(emp.sal) 最高工资,MIN(emp.sal) 最低工资,COUNT(emp.sal) FROM emp WHERE emp.sal&gt; 1000
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>39.查询各部门的平均薪水及部门编号，要求只列出平均薪水&gt;2000</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT AVG(emp.sal) 平均工资, emp.deptno 部门编号 FROM emp  GROUP BY emp.deptno HAVING 平均工资&gt;2000
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>40.查询各部门的平均薪水及部门编号，要求只有员工姓名中包含‘A’才参与统计，只列出平均薪水&gt;1500的，按照平均薪水降序排列</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT AVG(emp.sal) 平均工资,emp.deptno 部门编号 FROM emp 
+WHERE emp.ename LIKE '%A%'
+GROUP BY emp.deptno HAVING  AVG(emp.sal) &gt;1500 ORDER BY  平均工资 DESC
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>41.查询各部门最高薪水的员工信息（有坑）（薪水和部门编号都需要匹配）</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT * FROM  emp 
+LEFT JOIN (SELECT MAX(sal) AS sal, deptno AS deptno  FROM  emp GROUP BY emp.deptno) AS t2 
+ON emp.deptno=t2.deptno WHERE emp.sal = t2.sal
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>42.查询最高薪水的员工信息</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT * FROM  emp WHERE sal IN (SELECT MAX(sal) FROM  emp)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>43.查询薪水大于该部门平均薪水的员工信息</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT * FROM emp,(SELECT AVG(sal) AS sal, deptno AS deptno FROM emp GROUP BY deptno) AS d2
+WHERE emp.deptno=d2.deptno and emp.sal&gt; d2.sal
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>44.查询最高薪水的员工信息</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT * FROM emp WHERE sal IN (SELECT MAX(sal) FROM emp)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>45.查询各部门最高薪水的员工信息</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT * FROM emp,(SELECT MAX(sal) AS sal, deptno AS deptno FROM emp GROUP BY deptno) AS d2
+WHERE emp.deptno=d2.deptno AND emp.sal=d2.sal
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>46.查询‘SMITH’的领导姓名</p> <p>47.查询部门名称是‘SALES’的员工信息</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT * FROM emp LEFT JOIN dept ON emp.deptno=dept.deptno WHERE dept.dname='SALES'
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>48.查询公司中薪水最高的员工信息</p> <p>49.查询薪水等级为4的员工信息</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT * FROM emp ,(SELECT losal AS losal, hisal AS hisal FROM salgrade  WHERE salgrade.grade=4
+) AS t2
+WHERE emp.sal BETWEEN  t2.losal AND t2.hisal
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>50.查询领导者是‘BLAKE’的员工信息</p> <p>51.查询最高领导者的薪水等级</p> <p>52.查询薪水最低的员工信息</p> <p>53.查询和SMITH工作相同的员工信息</p> <p>54.查询不是领导的员工信息</p> <p>55.查询平均工资比10部门低的部门编号</p> <p>56.查询在纽约工作的所有员工</p> <p>57.查询‘SALES’部门平均薪水的等级</p> <p>58.查询10号部门的员工在整个公司中所占的比例：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT ( (SELECT COUNT(*) FROM emp WHERE emp.deptno=10) / (SELECT COUNT(*) FROM emp ) )
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>按照薪水降序排列，每页显示5条,显示第二页的内容:</p> <p>(page-1) size     size</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT emp.sal FROM emp ORDER BY emp.sal DESC LIMIT 5,5    // (page-1) size   size
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>60.查询各部门工资大于该部门平均工资的员工信息：</p> <p>61.查询各岗位工资小于该岗位平均工资的员工信息；</p> <p>62.查询所有领导的信息：要求使用exists关键字</p> <p>63.查询所有员工的姓名，薪水，部门名称</p> <p>64.查询所有员工的姓名，薪水，部门名称,薪水等级</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT emp.sal 薪水, emp.ename 员工名称, dept.dname 部门名称, t2.grade AS 工资等级 FROM emp 
+LEFT JOIN dept 
+ON emp.deptno=dept.deptno 
+LEFT JOIN (SELECT * FROM salgrade ) AS t2 
+ON emp.sal BETWEEN t2.losal AND t2.hisal
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>65.查询员工姓名及领导者姓名</p> <p>66.查询所有员工的姓名，部门名称</p> <p>1.查询员工表中工资大于1600的员工的姓名和工资</p> <p>2.查询员工表中员工号是17的员工的姓名和部门编号</p> <p>3.选择员工表中工资不在4000到5000内的员工的姓名和工资</p> <p>4.选择员工表中在20和30部门工作的员工的姓名和部门号</p> <p>5.选择员工表中没有管理者的员工姓名及职位，按职位排序</p> <p>6.选择员工表中有奖金的员工姓名，工资和奖金，按工资倒序排列</p> <p>7.选择员工表中员工姓名的第三个字母是A的员工姓名</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT * FROM emp WHERE ename LIKE '__A%'
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>8.列出部门表中的部门名称和所在城市</p> <p>9.显示员工表中的不重复的岗位job</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT DISTINCT job FROM emp 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>10.连接员工表中的员工姓名、职位、薪水，列之间用逗号连接，列头显示成out_put</p> <p>11.查询员工表中员工号，姓名，工资，以及工资提高百分之20之后的结果</p> <p>12.查询员工的姓名和工资数，条件限定为工资数必须大于1200，并且查询结果按入职时间进行排序。早入职的员工排在前面</p> <p>13.列出除了ACCOUNTING部门之外还有什么部门</p> <p>14.把雇员按部门分组，求最高薪水，部门号 要求过滤掉名字中第二个字母是’A’的员工， 并且部门的平均薪水 &gt; 3000,按照部门编号倒序排列</p> <p>15.求工作职位是’manager’的员工姓名，部门名称和薪水等级</p> <p>16.按照部门分组统计，求最高薪水，平均薪水，最低薪水，只有薪水是1200以上的员工才参与统计，并且分组结果中只包含平均薪水在1500以上的部门，并且按照平均薪水倒序排列</p> <p>17.求薪水最高的员工姓名;</p> <p>18.查询各部门平均薪水等级，并且按平均薪水等级的降序排列</p> <p>19.查询所有员工姓名以S或s开头的所有员工信息</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT * FROM emp WHERE ename LIKE 'S%' 
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>20.查询所有工作时间超过一年的员工编号，姓名及入职时间,要求雇用时间的格式为’yyyy年mm月dd日’</p> <p>21.查询20部门的所有员工的员工姓名，实际收入</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT emp.ename 员工姓名 ,(emp.sal+IFNULL(emp.comm,0)) 实际收入 FROM emp  WHERE emp.deptno=20
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>22.查询10部门工资大于3000的员工信息，要求按员工的入职时间由前到后排序</p> <p>23.查询10部门或20部门的所有员工的姓名，并截取前三位，按员工姓名升序排列</p> <p>24、查询所有员工的姓名，要求所有员工的姓名显示成小写，雇用日期显示为”yyyy-mm-dd”这种格式，薪水转换成’99,999.999′</p> <p>25、查询所有员工的姓名，所在部门名称，薪水，薪水等级、直接领导的姓名 （有问题，不显示最高领导）</p> <p>26、查询部门名称是’ACCOUNTING’的员工姓名及薪水等级</p> <p>27、查询薪水的最高值</p> <p>28、统计平均薪水最高的部门名称</p> <p>29、查询平均薪水等级最低的部门名称</p> <p>1、查询平均薪水最低的部门名称，要求：只有领导才参加统计</p> <p>2、查询比普通员工的最高薪水还要高的领导者姓名</p> <p>3、找出薪水最高的五个人</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT * FROM emp ORDER BY sal DESC LIMIT 5
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>4、查询第2到第7名的员工，按薪水降序排列</p> <p>5、查询最后入职的5名员工</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>SELECT * FROM emp ORDER BY emp.hiredate DESC LIMIT 5
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div></div> <footer class="page-edit" style="display:none;"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">11/22/2020, 7:46:20 PM</span></div></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><!----><!----><div class="vuepress-canvas-nest-element"></div><div class="kanbanniang" data-v-48c06019><div class="banniang-container" style="display:;" data-v-48c06019><div class="messageBox" style="position:fixed;right:80px;bottom:200px;display:none;" data-v-48c06019>
+      欢迎来到 喵ฅ仙 | BLOG
+    </div> <div class="operation" style="bottom:10px;right:60px;display:;" data-v-48c06019><i class="kbnfont kbn-ban-home ban-home" data-v-48c06019></i> <i class="kbnfont kbn-ban-message message" data-v-48c06019></i> <i class="kbnfont kbn-ban-close close" data-v-48c06019></i> <a target="_blank" href="https://vuepress-theme-reco.recoluan.com/views/plugins/kanbanniang.html" data-v-48c06019><i class="kbnfont kbn-ban-info info" data-v-48c06019></i></a> <i class="kbnfont kbn-ban-theme skin" style="display:;" data-v-48c06019></i></div> <canvas id="banniang" width="120" height="280" class="live2d" style="position:fixed;right:120px;bottom:20px;opacity:1.2;" data-v-48c06019></canvas></div> <div class="showBanNiang" style="display:none;" data-v-48c06019>
+    看板娘
+  </div></div><div class="reco-bgm-panel" data-v-39f9e6e0><audio id="bgm" src="http://music.163.com/song/media/outer/url?id=29004400.mp3" data-v-39f9e6e0></audio> <div class="reco-float-box" style="bottom:200px;z-index:999999;display:none;" data-v-39f9e6e0 data-v-41bcba48 data-v-39f9e6e0><img src="https://i.loli.net/2020/01/06/3gAnevw2xfzk4dY.png" data-v-39f9e6e0></div> <div class="reco-bgm-box" style="left:10px;bottom:10px;z-index:999999;" data-v-39f9e6e0 data-v-41bcba48 data-v-39f9e6e0><div class="reco-bgm-cover" style="background-image:url(https://i.loli.net/2020/01/06/3gAnevw2xfzk4dY.png);" data-v-39f9e6e0><div class="mini-operation" style="display:none;" data-v-39f9e6e0><i class="reco-bgm reco-bgm-pause" style="display:none;" data-v-39f9e6e0></i> <i class="reco-bgm reco-bgm-play" style="display:none;" data-v-39f9e6e0></i></div> <div class="falut-message" style="display:none;" data-v-39f9e6e0>
+          播放失败
+        </div></div> <div class="reco-bgm-info" data-v-39f9e6e0 data-v-41bcba48 data-v-39f9e6e0><div class="info-box" data-v-39f9e6e0><i class="reco-bgm reco-bgm-music music" data-v-39f9e6e0></i>烟火里的尘埃</div> <div class="info-box" data-v-39f9e6e0><i class="reco-bgm reco-bgm-artist" data-v-39f9e6e0></i>华晨宇</div> <div class="reco-bgm-progress" data-v-39f9e6e0><div class="progress-bar" data-v-39f9e6e0><div class="bar" data-v-39f9e6e0></div></div></div> <div class="reco-bgm-operation" data-v-39f9e6e0><i class="reco-bgm reco-bgm-last last" data-v-39f9e6e0></i> <i class="reco-bgm reco-bgm-pause pause" style="display:none;" data-v-39f9e6e0></i> <i class="reco-bgm reco-bgm-play play" data-v-39f9e6e0></i> <i class="reco-bgm reco-bgm-next next" data-v-39f9e6e0></i> <i class="reco-bgm reco-bgm-volume1 volume" data-v-39f9e6e0></i> <i class="reco-bgm reco-bgm-mute mute" style="display:none;" data-v-39f9e6e0></i> <div class="volume-bar" data-v-39f9e6e0><div class="bar" data-v-39f9e6e0></div></div></div></div> <div class="reco-bgm-left-box" data-v-39f9e6e0 data-v-41bcba48 data-v-39f9e6e0><i class="reco-bgm reco-bgm-left" data-v-39f9e6e0></i></div></div></div><!----><canvas id="vuepress-canvas-ribbon"></canvas><canvas id="vuepress-canvas-cursor"></canvas><div></div><div id="goTop" class="hide-cat" data-v-6454e75c></div></div></div>
+    <script src="/assets/js/app.1be1c75e.js" defer></script><script src="/assets/js/4.203b416b.js" defer></script><script src="/assets/js/1.5105d566.js" defer></script><script src="/assets/js/75.257893e3.js" defer></script><script src="/assets/js/9.0c7239d7.js" defer></script>
+  </body>
+</html>

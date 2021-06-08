@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SpringSecurity入门学习 | 喵ฅ仙 | BLOG</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content=" 初识, (ฅ>ω<*ฅ)你的世界但愿都好">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="preload" href="/assets/css/0.styles.8d7646a3.css" as="style"><link rel="preload" href="/assets/js/app.1be1c75e.js" as="script"><link rel="preload" href="/assets/js/4.203b416b.js" as="script"><link rel="preload" href="/assets/js/1.5105d566.js" as="script"><link rel="preload" href="/assets/js/138.ff7dd913.js" as="script"><link rel="preload" href="/assets/js/9.0c7239d7.js" as="script"><link rel="prefetch" href="/assets/js/10.9546f30b.js"><link rel="prefetch" href="/assets/js/100.0b157907.js"><link rel="prefetch" href="/assets/js/101.88f773b1.js"><link rel="prefetch" href="/assets/js/102.5b0eb634.js"><link rel="prefetch" href="/assets/js/103.6b915f4d.js"><link rel="prefetch" href="/assets/js/104.fb34fa5c.js"><link rel="prefetch" href="/assets/js/105.aec4f988.js"><link rel="prefetch" href="/assets/js/106.29087525.js"><link rel="prefetch" href="/assets/js/107.2f90a807.js"><link rel="prefetch" href="/assets/js/108.a7698b72.js"><link rel="prefetch" href="/assets/js/109.6ae46ab8.js"><link rel="prefetch" href="/assets/js/11.5c9a5dbc.js"><link rel="prefetch" href="/assets/js/110.0ef815ca.js"><link rel="prefetch" href="/assets/js/111.2d08fffb.js"><link rel="prefetch" href="/assets/js/112.95c490c0.js"><link rel="prefetch" href="/assets/js/113.52edbe3f.js"><link rel="prefetch" href="/assets/js/114.8bfe55e5.js"><link rel="prefetch" href="/assets/js/115.3508208c.js"><link rel="prefetch" href="/assets/js/116.fbb47d15.js"><link rel="prefetch" href="/assets/js/117.9c3eb5d0.js"><link rel="prefetch" href="/assets/js/118.50627277.js"><link rel="prefetch" href="/assets/js/119.4b0b8c0a.js"><link rel="prefetch" href="/assets/js/12.35c7c41b.js"><link rel="prefetch" href="/assets/js/120.597b42c6.js"><link rel="prefetch" href="/assets/js/121.9fefe8fc.js"><link rel="prefetch" href="/assets/js/122.0dcecba3.js"><link rel="prefetch" href="/assets/js/123.f6ec0b4a.js"><link rel="prefetch" href="/assets/js/124.366a90b2.js"><link rel="prefetch" href="/assets/js/125.6f3d4e8d.js"><link rel="prefetch" href="/assets/js/126.ac695406.js"><link rel="prefetch" href="/assets/js/127.dc8ec30f.js"><link rel="prefetch" href="/assets/js/128.fdaa71bc.js"><link rel="prefetch" href="/assets/js/129.cdab2dab.js"><link rel="prefetch" href="/assets/js/13.182cb146.js"><link rel="prefetch" href="/assets/js/130.1e3ead36.js"><link rel="prefetch" href="/assets/js/131.9b5696b0.js"><link rel="prefetch" href="/assets/js/132.467a0c2b.js"><link rel="prefetch" href="/assets/js/133.68d6fe84.js"><link rel="prefetch" href="/assets/js/134.9bfa4f3b.js"><link rel="prefetch" href="/assets/js/135.c31b152b.js"><link rel="prefetch" href="/assets/js/136.62a89fcb.js"><link rel="prefetch" href="/assets/js/137.80bda48f.js"><link rel="prefetch" href="/assets/js/139.7cfc0167.js"><link rel="prefetch" href="/assets/js/14.a948cc0d.js"><link rel="prefetch" href="/assets/js/140.0ec515f8.js"><link rel="prefetch" href="/assets/js/141.11cdf755.js"><link rel="prefetch" href="/assets/js/142.5577aca4.js"><link rel="prefetch" href="/assets/js/143.947a5600.js"><link rel="prefetch" href="/assets/js/144.15b9da9e.js"><link rel="prefetch" href="/assets/js/145.4fcc02eb.js"><link rel="prefetch" href="/assets/js/146.b9187d7f.js"><link rel="prefetch" href="/assets/js/147.12c5da8f.js"><link rel="prefetch" href="/assets/js/148.0f9f49bd.js"><link rel="prefetch" href="/assets/js/149.42fd3520.js"><link rel="prefetch" href="/assets/js/15.0eadcb4a.js"><link rel="prefetch" href="/assets/js/150.6482637d.js"><link rel="prefetch" href="/assets/js/151.1b640f98.js"><link rel="prefetch" href="/assets/js/152.b1512c03.js"><link rel="prefetch" href="/assets/js/153.6b2e3ecf.js"><link rel="prefetch" href="/assets/js/154.27bd8f90.js"><link rel="prefetch" href="/assets/js/155.c63a680c.js"><link rel="prefetch" href="/assets/js/156.ffc1c42c.js"><link rel="prefetch" href="/assets/js/157.17ec751c.js"><link rel="prefetch" href="/assets/js/158.b4de6b3a.js"><link rel="prefetch" href="/assets/js/159.71127089.js"><link rel="prefetch" href="/assets/js/16.5c0e41ec.js"><link rel="prefetch" href="/assets/js/160.79487ce0.js"><link rel="prefetch" href="/assets/js/161.70dcaa40.js"><link rel="prefetch" href="/assets/js/162.23896540.js"><link rel="prefetch" href="/assets/js/163.d7cde447.js"><link rel="prefetch" href="/assets/js/164.783b098c.js"><link rel="prefetch" href="/assets/js/165.801f1139.js"><link rel="prefetch" href="/assets/js/166.7fc0d61f.js"><link rel="prefetch" href="/assets/js/167.d2bbaa7f.js"><link rel="prefetch" href="/assets/js/168.a1d9e53b.js"><link rel="prefetch" href="/assets/js/169.56c7559f.js"><link rel="prefetch" href="/assets/js/17.a292c872.js"><link rel="prefetch" href="/assets/js/170.d97e5974.js"><link rel="prefetch" href="/assets/js/171.b0c5b6b6.js"><link rel="prefetch" href="/assets/js/172.78b4b762.js"><link rel="prefetch" href="/assets/js/173.302d9958.js"><link rel="prefetch" href="/assets/js/174.ef7332f1.js"><link rel="prefetch" href="/assets/js/175.4bb1906d.js"><link rel="prefetch" href="/assets/js/176.d75460bc.js"><link rel="prefetch" href="/assets/js/177.79f2f4e7.js"><link rel="prefetch" href="/assets/js/178.10668a3b.js"><link rel="prefetch" href="/assets/js/179.c97b6427.js"><link rel="prefetch" href="/assets/js/18.9a94be73.js"><link rel="prefetch" href="/assets/js/180.44b7e6e6.js"><link rel="prefetch" href="/assets/js/181.6fe0eb94.js"><link rel="prefetch" href="/assets/js/182.1cdcbe49.js"><link rel="prefetch" href="/assets/js/183.057f43ff.js"><link rel="prefetch" href="/assets/js/184.8c244a43.js"><link rel="prefetch" href="/assets/js/185.5be17ea7.js"><link rel="prefetch" href="/assets/js/186.bea8ba57.js"><link rel="prefetch" href="/assets/js/187.172971d4.js"><link rel="prefetch" href="/assets/js/188.84c9c2a8.js"><link rel="prefetch" href="/assets/js/189.b7c0e881.js"><link rel="prefetch" href="/assets/js/19.caac52e6.js"><link rel="prefetch" href="/assets/js/190.45e9a3e5.js"><link rel="prefetch" href="/assets/js/191.24f203f4.js"><link rel="prefetch" href="/assets/js/192.37c8abb5.js"><link rel="prefetch" href="/assets/js/20.8c922dad.js"><link rel="prefetch" href="/assets/js/21.fb869426.js"><link rel="prefetch" href="/assets/js/22.93620482.js"><link rel="prefetch" href="/assets/js/23.2364328e.js"><link rel="prefetch" href="/assets/js/24.799abd57.js"><link rel="prefetch" href="/assets/js/25.6d4226af.js"><link rel="prefetch" href="/assets/js/26.54da3c7e.js"><link rel="prefetch" href="/assets/js/27.d4e16342.js"><link rel="prefetch" href="/assets/js/28.4ff448d7.js"><link rel="prefetch" href="/assets/js/29.e98cfed8.js"><link rel="prefetch" href="/assets/js/30.a9094936.js"><link rel="prefetch" href="/assets/js/31.0cdeedff.js"><link rel="prefetch" href="/assets/js/32.282485ec.js"><link rel="prefetch" href="/assets/js/33.a7a22eb2.js"><link rel="prefetch" href="/assets/js/34.7c530301.js"><link rel="prefetch" href="/assets/js/35.b3bea9c8.js"><link rel="prefetch" href="/assets/js/36.60907581.js"><link rel="prefetch" href="/assets/js/37.44f78250.js"><link rel="prefetch" href="/assets/js/38.22aa262c.js"><link rel="prefetch" href="/assets/js/39.61bbfd2f.js"><link rel="prefetch" href="/assets/js/40.32de6b2c.js"><link rel="prefetch" href="/assets/js/41.c0feee50.js"><link rel="prefetch" href="/assets/js/42.caab53c9.js"><link rel="prefetch" href="/assets/js/43.2b9d1a26.js"><link rel="prefetch" href="/assets/js/44.e3a361c0.js"><link rel="prefetch" href="/assets/js/45.a21037b1.js"><link rel="prefetch" href="/assets/js/46.7b9ae63c.js"><link rel="prefetch" href="/assets/js/47.96c3d47c.js"><link rel="prefetch" href="/assets/js/48.849f0aee.js"><link rel="prefetch" href="/assets/js/49.49cf3d60.js"><link rel="prefetch" href="/assets/js/5.4d5ac209.js"><link rel="prefetch" href="/assets/js/50.9c98605d.js"><link rel="prefetch" href="/assets/js/51.a4cc5ee7.js"><link rel="prefetch" href="/assets/js/52.eb697507.js"><link rel="prefetch" href="/assets/js/53.0e923818.js"><link rel="prefetch" href="/assets/js/54.02c6a5e2.js"><link rel="prefetch" href="/assets/js/55.178ced5a.js"><link rel="prefetch" href="/assets/js/56.88a62e6f.js"><link rel="prefetch" href="/assets/js/57.4715280d.js"><link rel="prefetch" href="/assets/js/58.0f321170.js"><link rel="prefetch" href="/assets/js/59.8bbee93b.js"><link rel="prefetch" href="/assets/js/6.31aca4b9.js"><link rel="prefetch" href="/assets/js/60.0a361287.js"><link rel="prefetch" href="/assets/js/61.b473b99c.js"><link rel="prefetch" href="/assets/js/62.ae007a89.js"><link rel="prefetch" href="/assets/js/63.90636060.js"><link rel="prefetch" href="/assets/js/64.4ebe57d1.js"><link rel="prefetch" href="/assets/js/65.b431d146.js"><link rel="prefetch" href="/assets/js/66.d12fab24.js"><link rel="prefetch" href="/assets/js/67.16ae556e.js"><link rel="prefetch" href="/assets/js/68.da369989.js"><link rel="prefetch" href="/assets/js/69.baab95a8.js"><link rel="prefetch" href="/assets/js/7.078dd09f.js"><link rel="prefetch" href="/assets/js/70.409d55d5.js"><link rel="prefetch" href="/assets/js/71.52e98172.js"><link rel="prefetch" href="/assets/js/72.2564c189.js"><link rel="prefetch" href="/assets/js/73.7df2e3cc.js"><link rel="prefetch" href="/assets/js/74.63969480.js"><link rel="prefetch" href="/assets/js/75.257893e3.js"><link rel="prefetch" href="/assets/js/76.352574ef.js"><link rel="prefetch" href="/assets/js/77.ceb0de4d.js"><link rel="prefetch" href="/assets/js/78.cf52d54c.js"><link rel="prefetch" href="/assets/js/79.f6845a4d.js"><link rel="prefetch" href="/assets/js/8.ad0a3193.js"><link rel="prefetch" href="/assets/js/80.5041852b.js"><link rel="prefetch" href="/assets/js/81.86068da2.js"><link rel="prefetch" href="/assets/js/82.1cd30fda.js"><link rel="prefetch" href="/assets/js/83.76259bd9.js"><link rel="prefetch" href="/assets/js/84.76afdbbe.js"><link rel="prefetch" href="/assets/js/85.681d0c22.js"><link rel="prefetch" href="/assets/js/86.07e3082f.js"><link rel="prefetch" href="/assets/js/87.94b5d727.js"><link rel="prefetch" href="/assets/js/88.1d27e21d.js"><link rel="prefetch" href="/assets/js/89.e13a2ec5.js"><link rel="prefetch" href="/assets/js/90.9f491a9f.js"><link rel="prefetch" href="/assets/js/91.903ea74c.js"><link rel="prefetch" href="/assets/js/92.1164609c.js"><link rel="prefetch" href="/assets/js/93.bd71d8a5.js"><link rel="prefetch" href="/assets/js/94.4324a5f9.js"><link rel="prefetch" href="/assets/js/95.b87497eb.js"><link rel="prefetch" href="/assets/js/96.f6d863cd.js"><link rel="prefetch" href="/assets/js/97.1f8214e8.js"><link rel="prefetch" href="/assets/js/98.e0897c97.js"><link rel="prefetch" href="/assets/js/99.20b36c38.js"><link rel="prefetch" href="/assets/js/vendors~flowchart.a8366e02.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8d7646a3.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-2d5f533b><div data-v-2d5f533b><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-2d5f533b data-v-2d5f533b><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-64685f0e data-v-2d5f533b data-v-2d5f533b><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>喵ฅ仙 | BLOG</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>喵ฅ仙 | BLOG</span>
+            
+          <span data-v-64685f0e>2017 - </span>
+          2021
+        </a></span></div></div> <div class="hide" data-v-2d5f533b><header class="navbar" data-v-2d5f533b><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="喵ฅ仙 | BLOG" class="logo"> <span class="site-name">喵ฅ仙 | BLOG</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Docker/" class="nav-link"><i class="iconfont undefined"></i>
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Element/" class="nav-link"><i class="iconfont undefined"></i>
+  Element
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Git/" class="nav-link"><i class="iconfont undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Vue/" class="nav-link"><i class="iconfont undefined"></i>
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/大数据/" class="nav-link"><i class="iconfont undefined"></i>
+  大数据
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Java/" class="nav-link"><i class="iconfont undefined"></i>
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringBoot/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringBoot
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Kafka/" class="nav-link"><i class="iconfont undefined"></i>
+  Kafka
+</a></li><li class="dropdown-item"><!----> <a href="/categories/K8S/" class="nav-link"><i class="iconfont undefined"></i>
+  K8S
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Linux/" class="nav-link"><i class="iconfont undefined"></i>
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/categories/MyBatis/" class="nav-link"><i class="iconfont undefined"></i>
+  MyBatis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Mysql/" class="nav-link"><i class="iconfont undefined"></i>
+  Mysql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Nginx/" class="nav-link"><i class="iconfont undefined"></i>
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/categories/MongoDB/" class="nav-link"><i class="iconfont undefined"></i>
+  MongoDB
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Node/" class="nav-link"><i class="iconfont undefined"></i>
+  Node
+</a></li><li class="dropdown-item"><!----> <a href="/categories/RabbitMQ/" class="nav-link"><i class="iconfont undefined"></i>
+  RabbitMQ
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Redis/" class="nav-link"><i class="iconfont undefined"></i>
+  Redis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Skywalking/" class="nav-link"><i class="iconfont undefined"></i>
+  Skywalking
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringCloud/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringCloud
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringCloudAlibaba/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringCloudAlibaba
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringSecurity/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringSecurity
+</a></li><li class="dropdown-item"><!----> <a href="/categories/ZooKeeper/" class="nav-link"><i class="iconfont undefined"></i>
+  ZooKeeper
+</a></li><li class="dropdown-item"><!----> <a href="/categories/FastDFS/" class="nav-link"><i class="iconfont undefined"></i>
+  FastDFS
+</a></li><li class="dropdown-item"><!----> <a href="/categories/工作区/" class="nav-link"><i class="iconfont undefined"></i>
+  工作区
+</a></li><li class="dropdown-item"><!----> <a href="/categories/图床/" class="nav-link"><i class="iconfont undefined"></i>
+  图床
+</a></li><li class="dropdown-item"><!----> <a href="/categories/V2Ray/" class="nav-link"><i class="iconfont undefined"></i>
+  V2Ray
+</a></li><li class="dropdown-item"><!----> <a href="/categories/百度网盘/" class="nav-link"><i class="iconfont undefined"></i>
+  百度网盘
+</a></li><li class="dropdown-item"><!----> <a href="/categories/WorkBook/" class="nav-link"><i class="iconfont undefined"></i>
+  WorkBook
+</a></li><li class="dropdown-item"><!----> <a href="/categories/学习记/" class="nav-link"><i class="iconfont undefined"></i>
+  学习记
+</a></li><li class="dropdown-item"><!----> <a href="/categories/面试题/" class="nav-link"><i class="iconfont undefined"></i>
+  面试题
+</a></li><li class="dropdown-item"><!----> <a href="/categories/NoteBook/" class="nav-link"><i class="iconfont undefined"></i>
+  NoteBook
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/mukeyeshen" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-2d5f533b></div> <aside class="sidebar" data-v-2d5f533b><div class="personal-info-wrapper" data-v-ca798c94 data-v-2d5f533b><img src="/avatar.png" alt="author-avatar" class="personal-img" data-v-ca798c94> <h3 class="name" data-v-ca798c94>
+    喵ฅ仙 | BLOG
+  </h3> <div class="num" data-v-ca798c94><div data-v-ca798c94><h3 data-v-ca798c94>161</h3> <h6 data-v-ca798c94>Article</h6></div> <div data-v-ca798c94><h3 data-v-ca798c94>60</h3> <h6 data-v-ca798c94>Tag</h6></div></div> <hr data-v-ca798c94></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Docker/" class="nav-link"><i class="iconfont undefined"></i>
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Element/" class="nav-link"><i class="iconfont undefined"></i>
+  Element
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Git/" class="nav-link"><i class="iconfont undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Vue/" class="nav-link"><i class="iconfont undefined"></i>
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/大数据/" class="nav-link"><i class="iconfont undefined"></i>
+  大数据
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Java/" class="nav-link"><i class="iconfont undefined"></i>
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringBoot/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringBoot
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Kafka/" class="nav-link"><i class="iconfont undefined"></i>
+  Kafka
+</a></li><li class="dropdown-item"><!----> <a href="/categories/K8S/" class="nav-link"><i class="iconfont undefined"></i>
+  K8S
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Linux/" class="nav-link"><i class="iconfont undefined"></i>
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/categories/MyBatis/" class="nav-link"><i class="iconfont undefined"></i>
+  MyBatis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Mysql/" class="nav-link"><i class="iconfont undefined"></i>
+  Mysql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Nginx/" class="nav-link"><i class="iconfont undefined"></i>
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/categories/MongoDB/" class="nav-link"><i class="iconfont undefined"></i>
+  MongoDB
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Node/" class="nav-link"><i class="iconfont undefined"></i>
+  Node
+</a></li><li class="dropdown-item"><!----> <a href="/categories/RabbitMQ/" class="nav-link"><i class="iconfont undefined"></i>
+  RabbitMQ
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Redis/" class="nav-link"><i class="iconfont undefined"></i>
+  Redis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Skywalking/" class="nav-link"><i class="iconfont undefined"></i>
+  Skywalking
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringCloud/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringCloud
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringCloudAlibaba/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringCloudAlibaba
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringSecurity/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringSecurity
+</a></li><li class="dropdown-item"><!----> <a href="/categories/ZooKeeper/" class="nav-link"><i class="iconfont undefined"></i>
+  ZooKeeper
+</a></li><li class="dropdown-item"><!----> <a href="/categories/FastDFS/" class="nav-link"><i class="iconfont undefined"></i>
+  FastDFS
+</a></li><li class="dropdown-item"><!----> <a href="/categories/工作区/" class="nav-link"><i class="iconfont undefined"></i>
+  工作区
+</a></li><li class="dropdown-item"><!----> <a href="/categories/图床/" class="nav-link"><i class="iconfont undefined"></i>
+  图床
+</a></li><li class="dropdown-item"><!----> <a href="/categories/V2Ray/" class="nav-link"><i class="iconfont undefined"></i>
+  V2Ray
+</a></li><li class="dropdown-item"><!----> <a href="/categories/百度网盘/" class="nav-link"><i class="iconfont undefined"></i>
+  百度网盘
+</a></li><li class="dropdown-item"><!----> <a href="/categories/WorkBook/" class="nav-link"><i class="iconfont undefined"></i>
+  WorkBook
+</a></li><li class="dropdown-item"><!----> <a href="/categories/学习记/" class="nav-link"><i class="iconfont undefined"></i>
+  学习记
+</a></li><li class="dropdown-item"><!----> <a href="/categories/面试题/" class="nav-link"><i class="iconfont undefined"></i>
+  面试题
+</a></li><li class="dropdown-item"><!----> <a href="/categories/NoteBook/" class="nav-link"><i class="iconfont undefined"></i>
+  NoteBook
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/mukeyeshen" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-64685f0e data-v-2d5f533b><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>SpringSecurity入门学习</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>喵ฅ仙 | BLOG</span>
+            
+          <span data-v-64685f0e>2017 - </span>
+          2021
+        </a></span></div></div> <div data-v-2d5f533b><main class="page"><div class="page-title" style="display:none;"><h1 class="title">SpringSecurity入门学习</h1> <div data-v-3b7f5bdf><i class="iconfont reco-account" data-v-3b7f5bdf><span data-v-3b7f5bdf>喵ฅ仙 | BLOG</span></i> <!----> <i class="iconfont reco-eye" data-v-3b7f5bdf><span id="/blogs/SpringSecurity/SpringSecurity.html" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-3b7f5bdf><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <i class="iconfont reco-tag tags" data-v-3b7f5bdf><span class="tag-item" data-v-3b7f5bdf>SpringSecurity</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><h2 id="login-html"><a href="#login-html" class="header-anchor">#</a> login.html</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;SpringSecurity&lt;/title&gt;
+
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/font-awesome-4.7.0/css/font-awesome.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class=&quot;materialContainer&quot;&gt;
+    &lt;div class=&quot;box&quot;&gt;
+        &lt;div class=&quot;title&quot;&gt;登录&lt;/div&gt;
+        &lt;form action=&quot;/login.do&quot; method=&quot;post&quot;&gt;
+            &lt;div class=&quot;input&quot;&gt;
+                &lt;label for=&quot;name&quot;&gt;用户名&lt;/label&gt;
+                &lt;input type=&quot;text&quot; name=&quot;username&quot; id=&quot;name&quot;&gt;
+                &lt;span class=&quot;spin&quot;&gt;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;input&quot;&gt;
+                &lt;label for=&quot;pass&quot;&gt;密码&lt;/label&gt;
+                &lt;input type=&quot;password&quot; name=&quot;password&quot; id=&quot;pass&quot;&gt;
+                &lt;span class=&quot;spin&quot;&gt;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;button login&quot;&gt;
+                &lt;button type=&quot;submit&quot;&gt;
+                    &lt;span&gt;登录&lt;/span&gt;
+                    &lt;i class=&quot;fa fa-check&quot;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+        &lt;a href=&quot;javascript:&quot; class=&quot;pass-forgot&quot;&gt;忘记密码？&lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;overbox&quot;&gt;
+        &lt;div class=&quot;material-button alt-2&quot;&gt;
+            &lt;span class=&quot;shape&quot;&gt;&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;title&quot;&gt;注册&lt;/div&gt;
+        &lt;div class=&quot;input&quot;&gt;
+            &lt;label for=&quot;regname&quot;&gt;用户名&lt;/label&gt;
+            &lt;input type=&quot;text&quot; name=&quot;regname&quot; id=&quot;regname&quot;&gt;
+            &lt;span class=&quot;spin&quot;&gt;&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;input&quot;&gt;
+            &lt;label for=&quot;regpass&quot;&gt;密码&lt;/label&gt;
+            &lt;input type=&quot;password&quot; name=&quot;regpass&quot; id=&quot;regpass&quot;&gt;
+            &lt;span class=&quot;spin&quot;&gt;&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;input&quot;&gt;
+            &lt;label for=&quot;reregpass&quot;&gt;确认密码&lt;/label&gt;
+            &lt;input type=&quot;password&quot; name=&quot;reregpass&quot; id=&quot;reregpass&quot;&gt;
+            &lt;span class=&quot;spin&quot;&gt;&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;button&quot;&gt;
+            &lt;button&gt;
+                &lt;span&gt;注册&lt;/span&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/index.js&quot;&gt;&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br></div></div><h2 id="websecurityconfig"><a href="#websecurityconfig" class="header-anchor">#</a> WebSecurityConfig</h2> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>example<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>config</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>annotation</span><span class="token punctuation">.</span><span class="token class-name">Autowired</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>annotation</span><span class="token punctuation">.</span><span class="token class-name">Bean</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>annotation</span><span class="token punctuation">.</span><span class="token class-name">Configuration</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token punctuation">.</span>config<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>authentication<span class="token punctuation">.</span>builders</span><span class="token punctuation">.</span><span class="token class-name">AuthenticationManagerBuilder</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token punctuation">.</span>config<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>method<span class="token punctuation">.</span>configuration</span><span class="token punctuation">.</span><span class="token class-name">EnableGlobalMethodSecurity</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token punctuation">.</span>config<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>web<span class="token punctuation">.</span>builders</span><span class="token punctuation">.</span><span class="token class-name">HttpSecurity</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token punctuation">.</span>config<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>web<span class="token punctuation">.</span>builders</span><span class="token punctuation">.</span><span class="token class-name">WebSecurity</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token punctuation">.</span>config<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>web<span class="token punctuation">.</span>configuration</span><span class="token punctuation">.</span><span class="token class-name">EnableWebSecurity</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token punctuation">.</span>config<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>web<span class="token punctuation">.</span>configuration</span><span class="token punctuation">.</span><span class="token class-name">WebSecurityConfigurerAdapter</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token punctuation">.</span>core</span><span class="token punctuation">.</span><span class="token class-name">GrantedAuthority</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token punctuation">.</span>core<span class="token punctuation">.</span>authority</span><span class="token punctuation">.</span><span class="token class-name">SimpleGrantedAuthority</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token punctuation">.</span>core<span class="token punctuation">.</span>userdetails</span><span class="token punctuation">.</span><span class="token class-name">User</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token punctuation">.</span>core<span class="token punctuation">.</span>userdetails</span><span class="token punctuation">.</span><span class="token class-name">UserDetails</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token punctuation">.</span>core<span class="token punctuation">.</span>userdetails</span><span class="token punctuation">.</span><span class="token class-name">UserDetailsService</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token punctuation">.</span>core<span class="token punctuation">.</span>userdetails</span><span class="token punctuation">.</span><span class="token class-name">UsernameNotFoundException</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token punctuation">.</span>crypto<span class="token punctuation">.</span>bcrypt</span><span class="token punctuation">.</span><span class="token class-name">BCryptPasswordEncoder</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token punctuation">.</span>crypto<span class="token punctuation">.</span>password</span><span class="token punctuation">.</span><span class="token class-name">NoOpPasswordEncoder</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token punctuation">.</span>crypto<span class="token punctuation">.</span>password</span><span class="token punctuation">.</span><span class="token class-name">PasswordEncoder</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token punctuation">.</span>provisioning</span><span class="token punctuation">.</span><span class="token class-name">InMemoryUserDetailsManager</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">javax<span class="token punctuation">.</span>jws<span class="token punctuation">.</span>soap</span><span class="token punctuation">.</span><span class="token class-name">SOAPBinding</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util</span><span class="token punctuation">.</span><span class="token class-name">ArrayList</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util</span><span class="token punctuation">.</span><span class="token class-name">List</span><span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@Configuration</span>
+<span class="token annotation punctuation">@EnableWebSecurity</span>
+<span class="token comment">//@EnableGlobalMethodSecurity(securedEnabled=true)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">WebSecurityConfig</span> <span class="token keyword">extends</span> <span class="token class-name">WebSecurityConfigurerAdapter</span> <span class="token punctuation">{</span>
+
+ 
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">PasswordEncoder</span> <span class="token function">passwordEncoder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token class-name">NoOpPasswordEncoder</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//指定认证对象的来源</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">configure</span><span class="token punctuation">(</span><span class="token class-name">AuthenticationManagerBuilder</span> auth<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        auth<span class="token punctuation">.</span><span class="token function">inMemoryAuthentication</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+               <span class="token punctuation">.</span><span class="token function">withUser</span><span class="token punctuation">(</span><span class="token string">&quot;admin&quot;</span><span class="token punctuation">)</span>
+               <span class="token punctuation">.</span><span class="token function">password</span><span class="token punctuation">(</span><span class="token string">&quot;1234&quot;</span><span class="token punctuation">)</span>
+               <span class="token punctuation">.</span><span class="token function">roles</span><span class="token punctuation">(</span><span class="token string">&quot;admin&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+    
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">configure</span><span class="token punctuation">(</span><span class="token class-name">WebSecurity</span> web<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        web<span class="token punctuation">.</span><span class="token function">ignoring</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">antMatchers</span><span class="token punctuation">(</span> <span class="token string">&quot;/css/**&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;/images/**&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;/js/**&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//SpringSecurity配置信息</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">configure</span><span class="token punctuation">(</span><span class="token class-name">HttpSecurity</span> http<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        http<span class="token punctuation">.</span><span class="token function">authorizeRequests</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">anyRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">authenticated</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">and</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">formLogin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">loginPage</span><span class="token punctuation">(</span><span class="token string">&quot;/login&quot;</span><span class="token punctuation">)</span>   <span class="token operator">/</span><span class="token operator">/</span>登录页面
+                <span class="token punctuation">.</span><span class="token function">loginProcessingUrl</span><span class="token punctuation">(</span><span class="token string">&quot;/login.do&quot;</span><span class="token punctuation">)</span>   <span class="token operator">/</span><span class="token operator">/</span> 登录接口
+               <span class="token operator">/</span><span class="token operator">/</span> <span class="token punctuation">.</span><span class="token function">successForwardUrl</span><span class="token punctuation">(</span><span class="token string">&quot;/index&quot;</span><span class="token punctuation">)</span>      <span class="token operator">/</span><span class="token operator">/</span>登录成功跳转  服务器跳转
+                <span class="token punctuation">.</span><span class="token function">defaultSuccessUrl</span><span class="token punctuation">(</span><span class="token string">&quot;/index&quot;</span><span class="token punctuation">)</span>     <span class="token operator">/</span><span class="token operator">/</span>客户端重定向url
+                <span class="token punctuation">.</span><span class="token function">usernameParameter</span><span class="token punctuation">(</span><span class="token string">&quot;username&quot;</span><span class="token punctuation">)</span>      <span class="token operator">/</span><span class="token operator">/</span>设置登录页面name <span class="token operator">=</span><span class="token string">&quot;username&quot;</span>
+                <span class="token punctuation">.</span><span class="token function">passwordParameter</span><span class="token punctuation">(</span><span class="token string">&quot;password&quot;</span><span class="token punctuation">)</span>      <span class="token operator">/</span><span class="token operator">/</span>设置登录页面name <span class="token operator">=</span><span class="token string">&quot;password&quot;</span>
+                <span class="token punctuation">.</span><span class="token function">permitAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">and</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">csrf</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">disable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br></div></div><h2 id="logincontroller"><a href="#logincontroller" class="header-anchor">#</a> LoginController</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>@Controller
+public class LoginController {
+    @RequestMapping(&quot;/login&quot;)
+    public String login(){
+        return &quot;login&quot;;
+    }
+    @RequestMapping(&quot;/index&quot;)
+    public String index() {
+      return &quot;index&quot;;
+    }
+
+    @RequestMapping(&quot;/hello&quot;)
+    @ResponseBody
+    public String hello() {
+        return &quot;hello&quot;;
+    }
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><h2 id="配置登录成功、失败、注销返回数据"><a href="#配置登录成功、失败、注销返回数据" class="header-anchor">#</a> 配置登录成功、失败、注销返回数据</h2> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">package</span> <span class="token namespace">org<span class="token punctuation">.</span>yybb<span class="token punctuation">.</span>securitylogin<span class="token punctuation">.</span>config</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>fasterxml<span class="token punctuation">.</span>jackson<span class="token punctuation">.</span>databind</span><span class="token punctuation">.</span><span class="token class-name">ObjectMapper</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>annotation</span><span class="token punctuation">.</span><span class="token class-name">Autowired</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>annotation</span><span class="token punctuation">.</span><span class="token class-name">Bean</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>annotation</span><span class="token punctuation">.</span><span class="token class-name">Configuration</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token punctuation">.</span>authentication</span><span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token punctuation">.</span>config<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>authentication<span class="token punctuation">.</span>builders</span><span class="token punctuation">.</span><span class="token class-name">AuthenticationManagerBuilder</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token punctuation">.</span>config<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>web<span class="token punctuation">.</span>builders</span><span class="token punctuation">.</span><span class="token class-name">HttpSecurity</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token punctuation">.</span>config<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>web<span class="token punctuation">.</span>configuration</span><span class="token punctuation">.</span><span class="token class-name">WebSecurityConfigurerAdapter</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token punctuation">.</span>core</span><span class="token punctuation">.</span><span class="token class-name">Authentication</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token punctuation">.</span>core</span><span class="token punctuation">.</span><span class="token class-name">AuthenticationException</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token punctuation">.</span>crypto<span class="token punctuation">.</span>bcrypt</span><span class="token punctuation">.</span><span class="token class-name">BCryptPasswordEncoder</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token punctuation">.</span>crypto<span class="token punctuation">.</span>password</span><span class="token punctuation">.</span><span class="token class-name">PasswordEncoder</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token punctuation">.</span>web<span class="token punctuation">.</span>authentication</span><span class="token punctuation">.</span><span class="token class-name">AuthenticationFailureHandler</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token punctuation">.</span>web<span class="token punctuation">.</span>authentication</span><span class="token punctuation">.</span><span class="token class-name">AuthenticationSuccessHandler</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>security<span class="token punctuation">.</span>web<span class="token punctuation">.</span>authentication<span class="token punctuation">.</span>logout</span><span class="token punctuation">.</span><span class="token class-name">LogoutSuccessHandler</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>yybb<span class="token punctuation">.</span>securitylogin<span class="token punctuation">.</span>model</span><span class="token punctuation">.</span><span class="token class-name">Hr</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>yybb<span class="token punctuation">.</span>securitylogin<span class="token punctuation">.</span>model</span><span class="token punctuation">.</span><span class="token class-name">RespBean</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>yybb<span class="token punctuation">.</span>securitylogin<span class="token punctuation">.</span>service</span><span class="token punctuation">.</span><span class="token class-name">HrService</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">javax<span class="token punctuation">.</span>servlet</span><span class="token punctuation">.</span><span class="token class-name">ServletException</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http</span><span class="token punctuation">.</span><span class="token class-name">HttpServletRequest</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http</span><span class="token punctuation">.</span><span class="token class-name">HttpServletResponse</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>io</span><span class="token punctuation">.</span><span class="token class-name">IOException</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>io</span><span class="token punctuation">.</span><span class="token class-name">PrintWriter</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * @Author: Ben
+ * @CreateTime: 2020-03-12 06:28
+ */</span>
+<span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SecurityConfig</span> <span class="token keyword">extends</span> <span class="token class-name">WebSecurityConfigurerAdapter</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token class-name">HrService</span> hrService<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token class-name">PasswordEncoder</span> <span class="token function">passwordEncoder</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">BCryptPasswordEncoder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">configure</span><span class="token punctuation">(</span><span class="token class-name">AuthenticationManagerBuilder</span> auth<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        auth<span class="token punctuation">.</span><span class="token function">userDetailsService</span><span class="token punctuation">(</span>hrService<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">configure</span><span class="token punctuation">(</span><span class="token class-name">HttpSecurity</span> http<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        http<span class="token punctuation">.</span><span class="token function">authorizeRequests</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">anyRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">authenticated</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment">//所有请求必须认证过才能访问[没有配置MyFilter，DecisionManager之前]</span>
+                <span class="token punctuation">.</span><span class="token function">and</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">formLogin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">usernameParameter</span><span class="token punctuation">(</span><span class="token string">&quot;username&quot;</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">passwordParameter</span><span class="token punctuation">(</span><span class="token string">&quot;password&quot;</span><span class="token punctuation">)</span>
+                <span class="token comment">//真正的登录接口，必须是key-value形式</span>
+                <span class="token punctuation">.</span><span class="token function">loginProcessingUrl</span><span class="token punctuation">(</span><span class="token string">&quot;/login.do&quot;</span><span class="token punctuation">)</span>
+                <span class="token comment">//返回未登录json</span>
+                <span class="token punctuation">.</span><span class="token function">loginPage</span><span class="token punctuation">(</span><span class="token string">&quot;/login&quot;</span><span class="token punctuation">)</span>
+                <span class="token comment">//登录成功回调</span>
+                <span class="token punctuation">.</span><span class="token function">successHandler</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">AuthenticationSuccessHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token annotation punctuation">@Override</span>  <span class="token comment">//Authentication登录成功的用户信息保存地</span>
+                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onAuthenticationSuccess</span><span class="token punctuation">(</span><span class="token class-name">HttpServletRequest</span> request<span class="token punctuation">,</span> <span class="token class-name">HttpServletResponse</span> response<span class="token punctuation">,</span> <span class="token class-name">Authentication</span> authentication<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span><span class="token punctuation">,</span> <span class="token class-name">ServletException</span> <span class="token punctuation">{</span>
+                        response<span class="token punctuation">.</span><span class="token function">setContentType</span><span class="token punctuation">(</span><span class="token string">&quot;application/json;charset=utf-8&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token class-name">PrintWriter</span> out <span class="token operator">=</span> response<span class="token punctuation">.</span><span class="token function">getWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token comment">//从authentication得到对象强转成Hr对象</span>
+                        <span class="token class-name">Hr</span> hr <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Hr</span><span class="token punctuation">)</span> authentication<span class="token punctuation">.</span><span class="token function">getPrincipal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token comment">//避免返回给页面</span>
+                        hr<span class="token punctuation">.</span><span class="token function">setPassword</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token class-name">RespBean</span> success <span class="token operator">=</span> <span class="token class-name">RespBean</span><span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span><span class="token string">&quot;登录成功!&quot;</span><span class="token punctuation">,</span> hr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token comment">//转成字符串以便输出</span>
+                        <span class="token class-name">String</span> str <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectMapper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">writeValueAsString</span><span class="token punctuation">(</span>success<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        out<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        out<span class="token punctuation">.</span><span class="token function">flush</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        out<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">failureHandler</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">AuthenticationFailureHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>  <span class="token comment">//登录失败</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onAuthenticationFailure</span><span class="token punctuation">(</span><span class="token class-name">HttpServletRequest</span> request<span class="token punctuation">,</span> <span class="token class-name">HttpServletResponse</span> response<span class="token punctuation">,</span> <span class="token class-name">AuthenticationException</span> exception<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span><span class="token punctuation">,</span> <span class="token class-name">ServletException</span> <span class="token punctuation">{</span>
+                response<span class="token punctuation">.</span><span class="token function">setContentType</span><span class="token punctuation">(</span><span class="token string">&quot;application/json;charset=utf-8&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">PrintWriter</span> out <span class="token operator">=</span> response<span class="token punctuation">.</span><span class="token function">getWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">RespBean</span> error <span class="token operator">=</span> <span class="token class-name">RespBean</span><span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">&quot;登录失败！&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>exception <span class="token keyword">instanceof</span> <span class="token class-name">LockedException</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    error<span class="token punctuation">.</span><span class="token function">setMsg</span><span class="token punctuation">(</span><span class="token string">&quot;账户被锁定，请联系管理员！&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>exception <span class="token keyword">instanceof</span> <span class="token class-name">CredentialsExpiredException</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    error<span class="token punctuation">.</span><span class="token function">setMsg</span><span class="token punctuation">(</span><span class="token string">&quot;密码过期，请联系管理员！&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>exception <span class="token keyword">instanceof</span> <span class="token class-name">AccountExpiredException</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    error<span class="token punctuation">.</span><span class="token function">setMsg</span><span class="token punctuation">(</span><span class="token string">&quot;账户过期，请联系管理员！&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>exception <span class="token keyword">instanceof</span> <span class="token class-name">DisabledException</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    error<span class="token punctuation">.</span><span class="token function">setMsg</span><span class="token punctuation">(</span><span class="token string">&quot;账户被禁用，请联系管理员！&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>exception <span class="token keyword">instanceof</span> <span class="token class-name">BadCredentialsException</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    error<span class="token punctuation">.</span><span class="token function">setMsg</span><span class="token punctuation">(</span><span class="token string">&quot;用户名或密码输入错误，请重新输入！&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token comment">//转成字符串以便输出</span>
+                out<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ObjectMapper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">writeValueAsString</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                out<span class="token punctuation">.</span><span class="token function">flush</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                out<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">permitAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">and</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">logout</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">logoutSuccessHandler</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">LogoutSuccessHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token annotation punctuation">@Override</span>  <span class="token comment">//注销功能，默认接口logout</span>
+                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onLogoutSuccess</span><span class="token punctuation">(</span><span class="token class-name">HttpServletRequest</span> request<span class="token punctuation">,</span> <span class="token class-name">HttpServletResponse</span> response<span class="token punctuation">,</span> <span class="token class-name">Authentication</span> authentication<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span><span class="token punctuation">,</span> <span class="token class-name">ServletException</span> <span class="token punctuation">{</span>
+                        response<span class="token punctuation">.</span><span class="token function">setContentType</span><span class="token punctuation">(</span><span class="token string">&quot;application/json;charset=utf-8&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token class-name">PrintWriter</span> out <span class="token operator">=</span> response<span class="token punctuation">.</span><span class="token function">getWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        out<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ObjectMapper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">writeValueAsString</span><span class="token punctuation">(</span><span class="token class-name">RespBean</span><span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span><span class="token string">&quot;注销成功！&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        out<span class="token punctuation">.</span><span class="token function">flush</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        out<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">permitAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token comment">//postman测试</span>
+                <span class="token punctuation">.</span><span class="token function">and</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">csrf</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">disable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br></div></div><p><img src="https://gitee.com/daixiaomao/Images/raw/master/img/20200819182119.png" alt=""></p> <h2 id="spring-security-中的角色继承"><a href="#spring-security-中的角色继承" class="header-anchor">#</a> Spring Security 中的角色继承</h2> <p><strong>版本分割线</strong></p> <p>SpringSecurity 在角色继承上有两种不同的写法，在 Spring Boot2.0.8（对应 Spring Security 也是 5.0.11）上面是一种写法，从 Spring Boot2.1.0（对应 Spring Security5.1.1）又是另外一种写法，本文将从这两种角度出发，向读者介绍两种不同的角色继承写法。</p> <p>以前的写法
+这里说的以前写法，就是指 SpringBoot2.0.8（含）之前的写法，在之前的写法中，角色继承只需要开发者提供一个 RoleHierarchy 接口的实例即可，例如下面这样：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token annotation punctuation">@Bean</span>
+<span class="token class-name">RoleHierarchy</span> <span class="token function">roleHierarchy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">RoleHierarchyImpl</span> roleHierarchy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RoleHierarchyImpl</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">String</span> hierarchy <span class="token operator">=</span> <span class="token string">&quot;ROLE_dba &gt; ROLE_admin ROLE_admin &gt; ROLE_user&quot;</span><span class="token punctuation">;</span>
+    roleHierarchy<span class="token punctuation">.</span><span class="token function">setHierarchy</span><span class="token punctuation">(</span>hierarchy<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> roleHierarchy<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>在这里我们提供了一个 RoleHierarchy 接口的实例，使用字符串来描述了角色之间的继承关系， ROLE_dba 具备 ROLE_admin 的所有权限，而 ROLE_admin 则具备 ROLE_user 的所有权限，继承与继承之间用一个空格隔开。提供了这个 Bean 之后，以后所有具备 ROLE_user 角色才能访问的资源， ROLE_dba 和 ROLE_admin 也都能访问，具备 ROLE_amdin 角色才能访问的资源， ROLE_dba 也能访问。</p> <p>现在的写法     参考 参考  参考 参考  参考 参考  参考 参考<br>
+但是上面这种写法仅限于 Spring Boot2.0.8（含）之前的版本，在之后的版本中，这种写法则不被支持，新版的写法是下面这样： 个人 测试Spring Security 5.3版的 上面那种方式也可以  建议先使用上种方式，不行在使用这个方式。</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token annotation punctuation">@Bean</span>
+<span class="token class-name">RoleHierarchy</span> <span class="token function">roleHierarchy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">RoleHierarchyImpl</span> roleHierarchy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RoleHierarchyImpl</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">String</span> hierarchy <span class="token operator">=</span> <span class="token string">&quot;ROLE_dba &gt; ROLE_admin \n ROLE_admin &gt; ROLE_user&quot;</span><span class="token punctuation">;</span>
+    roleHierarchy<span class="token punctuation">.</span><span class="token function">setHierarchy</span><span class="token punctuation">(</span>hierarchy<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> roleHierarchy<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>变化主要就是分隔符，将原来用空格隔开的地方，现在用换行符了。这里表达式的含义依然和上面一样，不再赘述。</p> <p>将代码复制进SecurityConfig配之类</p> <h2 id="读取数据库用户"><a href="#读取数据库用户" class="header-anchor">#</a> 读取数据库用户</h2> <h3 id="yml"><a href="#yml" class="header-anchor">#</a> <strong>yml</strong></h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>server:
+  port: 9001
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springsecurity?serverTimezone=GMT%2B8&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false
+    username: root
+    password: root
+  main:
+    allow-bean-definition-overriding: true
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h3 id="sysrole"><a href="#sysrole" class="header-anchor">#</a> <strong>SysRole</strong></h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.security.core.GrantedAuthority;
+
+public class SysRole implements GrantedAuthority {
+
+    private Integer id;
+    private String roleName;
+    private String roleDesc;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
+
+    public String getRoleDesc() {
+        return roleDesc;
+    }
+
+    public void setRoleDesc(String roleDesc) {
+        this.roleDesc = roleDesc;
+    }
+
+    @JsonIgnore
+    @Override
+    public String getAuthority() {
+        return roleName;
+    }
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br></div></div><h3 id="sysuser"><a href="#sysuser" class="header-anchor">#</a> <strong>SysUser</strong></h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>package com.example.demo.domain;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
+import java.util.List;
+
+public class SysUser implements UserDetails {
+
+    private Integer id;
+    private String username;
+    private String password;
+    private Integer status;
+    private List&lt;SysRole&gt; roles;
+
+    public List&lt;SysRole&gt; getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List&lt;SysRole&gt; roles) {
+        this.roles = roles;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    @JsonIgnore
+    @Override
+    public Collection&lt;? extends GrantedAuthority&gt; getAuthorities() {
+        return roles;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return username;
+    }
+
+    @JsonIgnore
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @JsonIgnore
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @JsonIgnore
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @JsonIgnore
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br></div></div><h3 id="websecurityconfig-2"><a href="#websecurityconfig-2" class="header-anchor">#</a> <strong>WebSecurityConfig</strong></h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+import com.example.demo.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.access.hierarchicalroles.RoleHierarchy;
+import org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configurers.userdetails.DaoAuthenticationConfigurer;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+
+import javax.jws.soap.SOAPBinding;
+import java.util.ArrayList;
+import java.util.List;
+
+@Configuration
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(securedEnabled = true)
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private UserService userService;
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
+    //指定认证对象的来源
+    @Override
+    public void configure(AuthenticationManagerBuilder auth) throws Exception {
+      auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
+    }
+
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers( &quot;/css/**&quot;, &quot;/images/**&quot;, &quot;/js/**&quot;);
+    }
+
+    //SpringSecurity配置信息
+    @Override
+    public void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+               // .antMatchers(&quot;/product&quot;).hasAnyRole(&quot;USER&quot;)
+              //  .antMatchers(&quot;/ok/**&quot;).hasAnyRole(&quot;ok&quot;)
+              //  .antMatchers(&quot;/user/**&quot;).hasAnyRole(&quot;user&quot;)
+              //  .antMatchers(&quot;/admin/**&quot;).hasAnyRole(&quot;admin&quot;)
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage(&quot;/login&quot;)   //登录页面
+                .loginProcessingUrl(&quot;/login.do&quot;)   // 登录接口
+               // .successForwardUrl(&quot;/index&quot;)      //登录成功跳转  服务器跳转
+                .defaultSuccessUrl(&quot;/index&quot;)     //客户端重定向url
+                .usernameParameter(&quot;username&quot;)      //设置登录页面name =&quot;username&quot;
+                .passwordParameter(&quot;password&quot;)      //设置登录页面name =&quot;password&quot;
+                .permitAll()
+                .and()
+                .csrf()
+                .disable();
+    }
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br></div></div><h3 id="rolecontroller"><a href="#rolecontroller" class="header-anchor">#</a> RoleController</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>package com.example.demo.controller;
+
+import com.example.demo.domain.SysRole;
+import com.example.demo.service.RoleService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
+
+@Controller
+@RequestMapping(&quot;/role&quot;)
+public class RoleController {
+
+    @Autowired
+    private RoleService roleService;
+
+    @RequestMapping(&quot;/findAll&quot;)
+    @ResponseBody
+    public List&lt;SysRole&gt; findAll(Model model){
+        return roleService.findAll();
+    }
+
+    @RequestMapping(&quot;/save&quot;)
+    public String save(SysRole role){
+        roleService.save(role);
+        return &quot;redirect:findAll&quot;;
+    }
+    
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br></div></div><h3 id="logincontroller-2"><a href="#logincontroller-2" class="header-anchor">#</a> LoginController</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>package com.example.demo.controller;
+
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class LoginController {
+    @RequestMapping(&quot;/login&quot;)
+    public String login(){
+        return &quot;login&quot;;
+    }
+    @RequestMapping(&quot;/index&quot;)
+    public String index() {
+      return &quot;index&quot;;
+    }
+
+    @RequestMapping(&quot;/user/hello&quot;)
+    @ResponseBody
+    @Secured(&quot;ROLE_user&quot;)
+    public String userhello() {
+        return &quot;hello user&quot;;
+    }
+
+    @RequestMapping(&quot;/user/nihao&quot;)
+    @ResponseBody
+    @Secured(&quot;ROLE_user&quot;)
+    public String usernihao() {
+        return &quot;nihao user&quot;;
+    }
+
+
+    @RequestMapping(&quot;/admin/hello&quot;)
+    @ResponseBody
+    @Secured(&quot;ROLE_admin&quot;)
+    public String adminhello() {
+        return &quot;hello admin&quot;;
+    }
+
+    @RequestMapping(&quot;/admin/nihao&quot;)
+    @ResponseBody
+    @Secured(&quot;ROLE_admin&quot;)
+    public String adminrnihao() {
+        return &quot;nihao admin&quot;;
+    }
+
+    @RequestMapping(&quot;/ok/hello&quot;)
+    @ResponseBody
+    @Secured({&quot;ROLE_admin&quot;,&quot;ROLE_ok&quot;})
+    public String okhello() {
+        return &quot;hello ok&quot;;
+    }
+    @RequestMapping(&quot;/ok/nihao&quot;)
+    @ResponseBody
+    @Secured({&quot;ROLE_admin&quot;,&quot;ROLE_ok&quot;})
+    public String oknihao() {
+        return &quot;nihao ok&quot;;
+    }
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br></div></div><h3 id="sql"><a href="#sql" class="header-anchor">#</a> <strong>sql</strong></h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>/*
+ Navicat Premium Data Transfer
+
+ Source Server         : localhost
+ Source Server Type    : MySQL
+ Source Server Version : 80012
+ Source Host           : localhost:3306
+ Source Schema         : springsecurity
+
+ Target Server Type    : MySQL
+ Target Server Version : 80012
+ File Encoding         : 65001
+
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+
+-- ----------------------------
+-- Table structure for sys_role
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_role`;
+CREATE TABLE `sys_role`  (
+  `rid` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `role_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT 'roleName',
+  `role_desc` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT 'roleDesc',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = 'sys_role' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_role
+-- ----------------------------
+INSERT INTO `sys_role` VALUES (0, 1, 'ROLE_admin', '管理员');
+INSERT INTO `sys_role` VALUES (0, 2, 'ROLE_user', '用户');
+
+-- ----------------------------
+-- Table structure for sys_user
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_user`;
+CREATE TABLE `sys_user`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `username` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT 'username',
+  `password` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT 'password',
+  `status` int(11) NOT NULL DEFAULT -1 COMMENT 'status',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = 'sys_user' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_user
+-- ----------------------------
+INSERT INTO `sys_user` VALUES (1, 'admin', '$2a$10$iXyjOE3usKDAsf0SulhazeY.JO0lnujdZbMYIFxuefuawp/2cRLHS', 1);
+INSERT INTO `sys_user` VALUES (2, 'user', '$2a$10$8cNCz6Qs7VIuQpu0MaACy.AceYWl1C/4c0II07X0pFGPb7Ho9V2pC', 1);
+INSERT INTO `sys_user` VALUES (3, 'yeshen', '$2a$10$8cNCz6Qs7VIuQpu0MaACy.AceYWl1C/4c0II07X0pFGPb7Ho9V2pC', 1);
+INSERT INTO `sys_user` VALUES (4, 'hao', '$2a$10$5AlFEeMPG8/buxbaMzYgSuUAURw164iSzfmNDerFQaLAPML.ZeIMa', 1);
+
+-- ----------------------------
+-- Table structure for sys_user_role
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_user_role`;
+CREATE TABLE `sys_user_role`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `rid` int(11) NOT NULL DEFAULT -1 COMMENT 'rid',
+  `uid` int(11) NOT NULL DEFAULT -1 COMMENT 'uid',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = 'user_role' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_user_role
+-- ----------------------------
+INSERT INTO `sys_user_role` VALUES (1, 1, 1);
+INSERT INTO `sys_user_role` VALUES (2, 2, 2);
+INSERT INTO `sys_user_role` VALUES (3, 2, 3);
+INSERT INTO `sys_user_role` VALUES (4, 1, 4);
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br></div></div></div> <footer class="page-edit" style="display:none;"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">11/22/2020, 7:46:20 PM</span></div></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><!----><!----><div class="vuepress-canvas-nest-element"></div><div class="kanbanniang" data-v-48c06019><div class="banniang-container" style="display:;" data-v-48c06019><div class="messageBox" style="position:fixed;right:80px;bottom:200px;display:none;" data-v-48c06019>
+      欢迎来到 喵ฅ仙 | BLOG
+    </div> <div class="operation" style="bottom:10px;right:60px;display:;" data-v-48c06019><i class="kbnfont kbn-ban-home ban-home" data-v-48c06019></i> <i class="kbnfont kbn-ban-message message" data-v-48c06019></i> <i class="kbnfont kbn-ban-close close" data-v-48c06019></i> <a target="_blank" href="https://vuepress-theme-reco.recoluan.com/views/plugins/kanbanniang.html" data-v-48c06019><i class="kbnfont kbn-ban-info info" data-v-48c06019></i></a> <i class="kbnfont kbn-ban-theme skin" style="display:;" data-v-48c06019></i></div> <canvas id="banniang" width="120" height="280" class="live2d" style="position:fixed;right:120px;bottom:20px;opacity:1.2;" data-v-48c06019></canvas></div> <div class="showBanNiang" style="display:none;" data-v-48c06019>
+    看板娘
+  </div></div><div class="reco-bgm-panel" data-v-39f9e6e0><audio id="bgm" src="http://music.163.com/song/media/outer/url?id=29004400.mp3" data-v-39f9e6e0></audio> <div class="reco-float-box" style="bottom:200px;z-index:999999;display:none;" data-v-39f9e6e0 data-v-41bcba48 data-v-39f9e6e0><img src="https://i.loli.net/2020/01/06/3gAnevw2xfzk4dY.png" data-v-39f9e6e0></div> <div class="reco-bgm-box" style="left:10px;bottom:10px;z-index:999999;" data-v-39f9e6e0 data-v-41bcba48 data-v-39f9e6e0><div class="reco-bgm-cover" style="background-image:url(https://i.loli.net/2020/01/06/3gAnevw2xfzk4dY.png);" data-v-39f9e6e0><div class="mini-operation" style="display:none;" data-v-39f9e6e0><i class="reco-bgm reco-bgm-pause" style="display:none;" data-v-39f9e6e0></i> <i class="reco-bgm reco-bgm-play" style="display:none;" data-v-39f9e6e0></i></div> <div class="falut-message" style="display:none;" data-v-39f9e6e0>
+          播放失败
+        </div></div> <div class="reco-bgm-info" data-v-39f9e6e0 data-v-41bcba48 data-v-39f9e6e0><div class="info-box" data-v-39f9e6e0><i class="reco-bgm reco-bgm-music music" data-v-39f9e6e0></i>烟火里的尘埃</div> <div class="info-box" data-v-39f9e6e0><i class="reco-bgm reco-bgm-artist" data-v-39f9e6e0></i>华晨宇</div> <div class="reco-bgm-progress" data-v-39f9e6e0><div class="progress-bar" data-v-39f9e6e0><div class="bar" data-v-39f9e6e0></div></div></div> <div class="reco-bgm-operation" data-v-39f9e6e0><i class="reco-bgm reco-bgm-last last" data-v-39f9e6e0></i> <i class="reco-bgm reco-bgm-pause pause" style="display:none;" data-v-39f9e6e0></i> <i class="reco-bgm reco-bgm-play play" data-v-39f9e6e0></i> <i class="reco-bgm reco-bgm-next next" data-v-39f9e6e0></i> <i class="reco-bgm reco-bgm-volume1 volume" data-v-39f9e6e0></i> <i class="reco-bgm reco-bgm-mute mute" style="display:none;" data-v-39f9e6e0></i> <div class="volume-bar" data-v-39f9e6e0><div class="bar" data-v-39f9e6e0></div></div></div></div> <div class="reco-bgm-left-box" data-v-39f9e6e0 data-v-41bcba48 data-v-39f9e6e0><i class="reco-bgm reco-bgm-left" data-v-39f9e6e0></i></div></div></div><!----><canvas id="vuepress-canvas-ribbon"></canvas><canvas id="vuepress-canvas-cursor"></canvas><div></div><div id="goTop" class="hide-cat" data-v-6454e75c></div></div></div>
+    <script src="/assets/js/app.1be1c75e.js" defer></script><script src="/assets/js/4.203b416b.js" defer></script><script src="/assets/js/1.5105d566.js" defer></script><script src="/assets/js/138.ff7dd913.js" defer></script><script src="/assets/js/9.0c7239d7.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SpringBoot注解最全详解 | 喵ฅ仙 | BLOG</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content=" 初识, (ฅ>ω<*ฅ)你的世界但愿都好">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="preload" href="/assets/css/0.styles.8d7646a3.css" as="style"><link rel="preload" href="/assets/js/app.1be1c75e.js" as="script"><link rel="preload" href="/assets/js/4.203b416b.js" as="script"><link rel="preload" href="/assets/js/1.5105d566.js" as="script"><link rel="preload" href="/assets/js/106.29087525.js" as="script"><link rel="preload" href="/assets/js/9.0c7239d7.js" as="script"><link rel="prefetch" href="/assets/js/10.9546f30b.js"><link rel="prefetch" href="/assets/js/100.0b157907.js"><link rel="prefetch" href="/assets/js/101.88f773b1.js"><link rel="prefetch" href="/assets/js/102.5b0eb634.js"><link rel="prefetch" href="/assets/js/103.6b915f4d.js"><link rel="prefetch" href="/assets/js/104.fb34fa5c.js"><link rel="prefetch" href="/assets/js/105.aec4f988.js"><link rel="prefetch" href="/assets/js/107.2f90a807.js"><link rel="prefetch" href="/assets/js/108.a7698b72.js"><link rel="prefetch" href="/assets/js/109.6ae46ab8.js"><link rel="prefetch" href="/assets/js/11.5c9a5dbc.js"><link rel="prefetch" href="/assets/js/110.0ef815ca.js"><link rel="prefetch" href="/assets/js/111.2d08fffb.js"><link rel="prefetch" href="/assets/js/112.95c490c0.js"><link rel="prefetch" href="/assets/js/113.52edbe3f.js"><link rel="prefetch" href="/assets/js/114.8bfe55e5.js"><link rel="prefetch" href="/assets/js/115.3508208c.js"><link rel="prefetch" href="/assets/js/116.fbb47d15.js"><link rel="prefetch" href="/assets/js/117.9c3eb5d0.js"><link rel="prefetch" href="/assets/js/118.50627277.js"><link rel="prefetch" href="/assets/js/119.4b0b8c0a.js"><link rel="prefetch" href="/assets/js/12.35c7c41b.js"><link rel="prefetch" href="/assets/js/120.597b42c6.js"><link rel="prefetch" href="/assets/js/121.9fefe8fc.js"><link rel="prefetch" href="/assets/js/122.0dcecba3.js"><link rel="prefetch" href="/assets/js/123.f6ec0b4a.js"><link rel="prefetch" href="/assets/js/124.366a90b2.js"><link rel="prefetch" href="/assets/js/125.6f3d4e8d.js"><link rel="prefetch" href="/assets/js/126.ac695406.js"><link rel="prefetch" href="/assets/js/127.dc8ec30f.js"><link rel="prefetch" href="/assets/js/128.fdaa71bc.js"><link rel="prefetch" href="/assets/js/129.cdab2dab.js"><link rel="prefetch" href="/assets/js/13.182cb146.js"><link rel="prefetch" href="/assets/js/130.1e3ead36.js"><link rel="prefetch" href="/assets/js/131.9b5696b0.js"><link rel="prefetch" href="/assets/js/132.467a0c2b.js"><link rel="prefetch" href="/assets/js/133.68d6fe84.js"><link rel="prefetch" href="/assets/js/134.9bfa4f3b.js"><link rel="prefetch" href="/assets/js/135.c31b152b.js"><link rel="prefetch" href="/assets/js/136.62a89fcb.js"><link rel="prefetch" href="/assets/js/137.80bda48f.js"><link rel="prefetch" href="/assets/js/138.ff7dd913.js"><link rel="prefetch" href="/assets/js/139.7cfc0167.js"><link rel="prefetch" href="/assets/js/14.a948cc0d.js"><link rel="prefetch" href="/assets/js/140.0ec515f8.js"><link rel="prefetch" href="/assets/js/141.11cdf755.js"><link rel="prefetch" href="/assets/js/142.5577aca4.js"><link rel="prefetch" href="/assets/js/143.947a5600.js"><link rel="prefetch" href="/assets/js/144.15b9da9e.js"><link rel="prefetch" href="/assets/js/145.4fcc02eb.js"><link rel="prefetch" href="/assets/js/146.b9187d7f.js"><link rel="prefetch" href="/assets/js/147.12c5da8f.js"><link rel="prefetch" href="/assets/js/148.0f9f49bd.js"><link rel="prefetch" href="/assets/js/149.42fd3520.js"><link rel="prefetch" href="/assets/js/15.0eadcb4a.js"><link rel="prefetch" href="/assets/js/150.6482637d.js"><link rel="prefetch" href="/assets/js/151.1b640f98.js"><link rel="prefetch" href="/assets/js/152.b1512c03.js"><link rel="prefetch" href="/assets/js/153.6b2e3ecf.js"><link rel="prefetch" href="/assets/js/154.27bd8f90.js"><link rel="prefetch" href="/assets/js/155.c63a680c.js"><link rel="prefetch" href="/assets/js/156.ffc1c42c.js"><link rel="prefetch" href="/assets/js/157.17ec751c.js"><link rel="prefetch" href="/assets/js/158.b4de6b3a.js"><link rel="prefetch" href="/assets/js/159.71127089.js"><link rel="prefetch" href="/assets/js/16.5c0e41ec.js"><link rel="prefetch" href="/assets/js/160.79487ce0.js"><link rel="prefetch" href="/assets/js/161.70dcaa40.js"><link rel="prefetch" href="/assets/js/162.23896540.js"><link rel="prefetch" href="/assets/js/163.d7cde447.js"><link rel="prefetch" href="/assets/js/164.783b098c.js"><link rel="prefetch" href="/assets/js/165.801f1139.js"><link rel="prefetch" href="/assets/js/166.7fc0d61f.js"><link rel="prefetch" href="/assets/js/167.d2bbaa7f.js"><link rel="prefetch" href="/assets/js/168.a1d9e53b.js"><link rel="prefetch" href="/assets/js/169.56c7559f.js"><link rel="prefetch" href="/assets/js/17.a292c872.js"><link rel="prefetch" href="/assets/js/170.d97e5974.js"><link rel="prefetch" href="/assets/js/171.b0c5b6b6.js"><link rel="prefetch" href="/assets/js/172.78b4b762.js"><link rel="prefetch" href="/assets/js/173.302d9958.js"><link rel="prefetch" href="/assets/js/174.ef7332f1.js"><link rel="prefetch" href="/assets/js/175.4bb1906d.js"><link rel="prefetch" href="/assets/js/176.d75460bc.js"><link rel="prefetch" href="/assets/js/177.79f2f4e7.js"><link rel="prefetch" href="/assets/js/178.10668a3b.js"><link rel="prefetch" href="/assets/js/179.c97b6427.js"><link rel="prefetch" href="/assets/js/18.9a94be73.js"><link rel="prefetch" href="/assets/js/180.44b7e6e6.js"><link rel="prefetch" href="/assets/js/181.6fe0eb94.js"><link rel="prefetch" href="/assets/js/182.1cdcbe49.js"><link rel="prefetch" href="/assets/js/183.057f43ff.js"><link rel="prefetch" href="/assets/js/184.8c244a43.js"><link rel="prefetch" href="/assets/js/185.5be17ea7.js"><link rel="prefetch" href="/assets/js/186.bea8ba57.js"><link rel="prefetch" href="/assets/js/187.172971d4.js"><link rel="prefetch" href="/assets/js/188.84c9c2a8.js"><link rel="prefetch" href="/assets/js/189.b7c0e881.js"><link rel="prefetch" href="/assets/js/19.caac52e6.js"><link rel="prefetch" href="/assets/js/190.45e9a3e5.js"><link rel="prefetch" href="/assets/js/191.24f203f4.js"><link rel="prefetch" href="/assets/js/192.37c8abb5.js"><link rel="prefetch" href="/assets/js/20.8c922dad.js"><link rel="prefetch" href="/assets/js/21.fb869426.js"><link rel="prefetch" href="/assets/js/22.93620482.js"><link rel="prefetch" href="/assets/js/23.2364328e.js"><link rel="prefetch" href="/assets/js/24.799abd57.js"><link rel="prefetch" href="/assets/js/25.6d4226af.js"><link rel="prefetch" href="/assets/js/26.54da3c7e.js"><link rel="prefetch" href="/assets/js/27.d4e16342.js"><link rel="prefetch" href="/assets/js/28.4ff448d7.js"><link rel="prefetch" href="/assets/js/29.e98cfed8.js"><link rel="prefetch" href="/assets/js/30.a9094936.js"><link rel="prefetch" href="/assets/js/31.0cdeedff.js"><link rel="prefetch" href="/assets/js/32.282485ec.js"><link rel="prefetch" href="/assets/js/33.a7a22eb2.js"><link rel="prefetch" href="/assets/js/34.7c530301.js"><link rel="prefetch" href="/assets/js/35.b3bea9c8.js"><link rel="prefetch" href="/assets/js/36.60907581.js"><link rel="prefetch" href="/assets/js/37.44f78250.js"><link rel="prefetch" href="/assets/js/38.22aa262c.js"><link rel="prefetch" href="/assets/js/39.61bbfd2f.js"><link rel="prefetch" href="/assets/js/40.32de6b2c.js"><link rel="prefetch" href="/assets/js/41.c0feee50.js"><link rel="prefetch" href="/assets/js/42.caab53c9.js"><link rel="prefetch" href="/assets/js/43.2b9d1a26.js"><link rel="prefetch" href="/assets/js/44.e3a361c0.js"><link rel="prefetch" href="/assets/js/45.a21037b1.js"><link rel="prefetch" href="/assets/js/46.7b9ae63c.js"><link rel="prefetch" href="/assets/js/47.96c3d47c.js"><link rel="prefetch" href="/assets/js/48.849f0aee.js"><link rel="prefetch" href="/assets/js/49.49cf3d60.js"><link rel="prefetch" href="/assets/js/5.4d5ac209.js"><link rel="prefetch" href="/assets/js/50.9c98605d.js"><link rel="prefetch" href="/assets/js/51.a4cc5ee7.js"><link rel="prefetch" href="/assets/js/52.eb697507.js"><link rel="prefetch" href="/assets/js/53.0e923818.js"><link rel="prefetch" href="/assets/js/54.02c6a5e2.js"><link rel="prefetch" href="/assets/js/55.178ced5a.js"><link rel="prefetch" href="/assets/js/56.88a62e6f.js"><link rel="prefetch" href="/assets/js/57.4715280d.js"><link rel="prefetch" href="/assets/js/58.0f321170.js"><link rel="prefetch" href="/assets/js/59.8bbee93b.js"><link rel="prefetch" href="/assets/js/6.31aca4b9.js"><link rel="prefetch" href="/assets/js/60.0a361287.js"><link rel="prefetch" href="/assets/js/61.b473b99c.js"><link rel="prefetch" href="/assets/js/62.ae007a89.js"><link rel="prefetch" href="/assets/js/63.90636060.js"><link rel="prefetch" href="/assets/js/64.4ebe57d1.js"><link rel="prefetch" href="/assets/js/65.b431d146.js"><link rel="prefetch" href="/assets/js/66.d12fab24.js"><link rel="prefetch" href="/assets/js/67.16ae556e.js"><link rel="prefetch" href="/assets/js/68.da369989.js"><link rel="prefetch" href="/assets/js/69.baab95a8.js"><link rel="prefetch" href="/assets/js/7.078dd09f.js"><link rel="prefetch" href="/assets/js/70.409d55d5.js"><link rel="prefetch" href="/assets/js/71.52e98172.js"><link rel="prefetch" href="/assets/js/72.2564c189.js"><link rel="prefetch" href="/assets/js/73.7df2e3cc.js"><link rel="prefetch" href="/assets/js/74.63969480.js"><link rel="prefetch" href="/assets/js/75.257893e3.js"><link rel="prefetch" href="/assets/js/76.352574ef.js"><link rel="prefetch" href="/assets/js/77.ceb0de4d.js"><link rel="prefetch" href="/assets/js/78.cf52d54c.js"><link rel="prefetch" href="/assets/js/79.f6845a4d.js"><link rel="prefetch" href="/assets/js/8.ad0a3193.js"><link rel="prefetch" href="/assets/js/80.5041852b.js"><link rel="prefetch" href="/assets/js/81.86068da2.js"><link rel="prefetch" href="/assets/js/82.1cd30fda.js"><link rel="prefetch" href="/assets/js/83.76259bd9.js"><link rel="prefetch" href="/assets/js/84.76afdbbe.js"><link rel="prefetch" href="/assets/js/85.681d0c22.js"><link rel="prefetch" href="/assets/js/86.07e3082f.js"><link rel="prefetch" href="/assets/js/87.94b5d727.js"><link rel="prefetch" href="/assets/js/88.1d27e21d.js"><link rel="prefetch" href="/assets/js/89.e13a2ec5.js"><link rel="prefetch" href="/assets/js/90.9f491a9f.js"><link rel="prefetch" href="/assets/js/91.903ea74c.js"><link rel="prefetch" href="/assets/js/92.1164609c.js"><link rel="prefetch" href="/assets/js/93.bd71d8a5.js"><link rel="prefetch" href="/assets/js/94.4324a5f9.js"><link rel="prefetch" href="/assets/js/95.b87497eb.js"><link rel="prefetch" href="/assets/js/96.f6d863cd.js"><link rel="prefetch" href="/assets/js/97.1f8214e8.js"><link rel="prefetch" href="/assets/js/98.e0897c97.js"><link rel="prefetch" href="/assets/js/99.20b36c38.js"><link rel="prefetch" href="/assets/js/vendors~flowchart.a8366e02.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8d7646a3.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-2d5f533b><div data-v-2d5f533b><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-2d5f533b data-v-2d5f533b><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-64685f0e data-v-2d5f533b data-v-2d5f533b><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>喵ฅ仙 | BLOG</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>喵ฅ仙 | BLOG</span>
+            
+          <span data-v-64685f0e>2017 - </span>
+          2021
+        </a></span></div></div> <div class="hide" data-v-2d5f533b><header class="navbar" data-v-2d5f533b><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="喵ฅ仙 | BLOG" class="logo"> <span class="site-name">喵ฅ仙 | BLOG</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Docker/" class="nav-link"><i class="iconfont undefined"></i>
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Element/" class="nav-link"><i class="iconfont undefined"></i>
+  Element
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Git/" class="nav-link"><i class="iconfont undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Vue/" class="nav-link"><i class="iconfont undefined"></i>
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/大数据/" class="nav-link"><i class="iconfont undefined"></i>
+  大数据
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Java/" class="nav-link"><i class="iconfont undefined"></i>
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringBoot/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringBoot
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Kafka/" class="nav-link"><i class="iconfont undefined"></i>
+  Kafka
+</a></li><li class="dropdown-item"><!----> <a href="/categories/K8S/" class="nav-link"><i class="iconfont undefined"></i>
+  K8S
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Linux/" class="nav-link"><i class="iconfont undefined"></i>
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/categories/MyBatis/" class="nav-link"><i class="iconfont undefined"></i>
+  MyBatis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Mysql/" class="nav-link"><i class="iconfont undefined"></i>
+  Mysql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Nginx/" class="nav-link"><i class="iconfont undefined"></i>
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/categories/MongoDB/" class="nav-link"><i class="iconfont undefined"></i>
+  MongoDB
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Node/" class="nav-link"><i class="iconfont undefined"></i>
+  Node
+</a></li><li class="dropdown-item"><!----> <a href="/categories/RabbitMQ/" class="nav-link"><i class="iconfont undefined"></i>
+  RabbitMQ
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Redis/" class="nav-link"><i class="iconfont undefined"></i>
+  Redis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Skywalking/" class="nav-link"><i class="iconfont undefined"></i>
+  Skywalking
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringCloud/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringCloud
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringCloudAlibaba/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringCloudAlibaba
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringSecurity/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringSecurity
+</a></li><li class="dropdown-item"><!----> <a href="/categories/ZooKeeper/" class="nav-link"><i class="iconfont undefined"></i>
+  ZooKeeper
+</a></li><li class="dropdown-item"><!----> <a href="/categories/FastDFS/" class="nav-link"><i class="iconfont undefined"></i>
+  FastDFS
+</a></li><li class="dropdown-item"><!----> <a href="/categories/工作区/" class="nav-link"><i class="iconfont undefined"></i>
+  工作区
+</a></li><li class="dropdown-item"><!----> <a href="/categories/图床/" class="nav-link"><i class="iconfont undefined"></i>
+  图床
+</a></li><li class="dropdown-item"><!----> <a href="/categories/V2Ray/" class="nav-link"><i class="iconfont undefined"></i>
+  V2Ray
+</a></li><li class="dropdown-item"><!----> <a href="/categories/百度网盘/" class="nav-link"><i class="iconfont undefined"></i>
+  百度网盘
+</a></li><li class="dropdown-item"><!----> <a href="/categories/WorkBook/" class="nav-link"><i class="iconfont undefined"></i>
+  WorkBook
+</a></li><li class="dropdown-item"><!----> <a href="/categories/学习记/" class="nav-link"><i class="iconfont undefined"></i>
+  学习记
+</a></li><li class="dropdown-item"><!----> <a href="/categories/面试题/" class="nav-link"><i class="iconfont undefined"></i>
+  面试题
+</a></li><li class="dropdown-item"><!----> <a href="/categories/NoteBook/" class="nav-link"><i class="iconfont undefined"></i>
+  NoteBook
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/mukeyeshen" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-2d5f533b></div> <aside class="sidebar" data-v-2d5f533b><div class="personal-info-wrapper" data-v-ca798c94 data-v-2d5f533b><img src="/avatar.png" alt="author-avatar" class="personal-img" data-v-ca798c94> <h3 class="name" data-v-ca798c94>
+    喵ฅ仙 | BLOG
+  </h3> <div class="num" data-v-ca798c94><div data-v-ca798c94><h3 data-v-ca798c94>161</h3> <h6 data-v-ca798c94>Article</h6></div> <div data-v-ca798c94><h3 data-v-ca798c94>60</h3> <h6 data-v-ca798c94>Tag</h6></div></div> <hr data-v-ca798c94></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Docker/" class="nav-link"><i class="iconfont undefined"></i>
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Element/" class="nav-link"><i class="iconfont undefined"></i>
+  Element
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Git/" class="nav-link"><i class="iconfont undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Vue/" class="nav-link"><i class="iconfont undefined"></i>
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/大数据/" class="nav-link"><i class="iconfont undefined"></i>
+  大数据
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Java/" class="nav-link"><i class="iconfont undefined"></i>
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringBoot/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringBoot
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Kafka/" class="nav-link"><i class="iconfont undefined"></i>
+  Kafka
+</a></li><li class="dropdown-item"><!----> <a href="/categories/K8S/" class="nav-link"><i class="iconfont undefined"></i>
+  K8S
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Linux/" class="nav-link"><i class="iconfont undefined"></i>
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/categories/MyBatis/" class="nav-link"><i class="iconfont undefined"></i>
+  MyBatis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Mysql/" class="nav-link"><i class="iconfont undefined"></i>
+  Mysql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Nginx/" class="nav-link"><i class="iconfont undefined"></i>
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/categories/MongoDB/" class="nav-link"><i class="iconfont undefined"></i>
+  MongoDB
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Node/" class="nav-link"><i class="iconfont undefined"></i>
+  Node
+</a></li><li class="dropdown-item"><!----> <a href="/categories/RabbitMQ/" class="nav-link"><i class="iconfont undefined"></i>
+  RabbitMQ
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Redis/" class="nav-link"><i class="iconfont undefined"></i>
+  Redis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Skywalking/" class="nav-link"><i class="iconfont undefined"></i>
+  Skywalking
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringCloud/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringCloud
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringCloudAlibaba/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringCloudAlibaba
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringSecurity/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringSecurity
+</a></li><li class="dropdown-item"><!----> <a href="/categories/ZooKeeper/" class="nav-link"><i class="iconfont undefined"></i>
+  ZooKeeper
+</a></li><li class="dropdown-item"><!----> <a href="/categories/FastDFS/" class="nav-link"><i class="iconfont undefined"></i>
+  FastDFS
+</a></li><li class="dropdown-item"><!----> <a href="/categories/工作区/" class="nav-link"><i class="iconfont undefined"></i>
+  工作区
+</a></li><li class="dropdown-item"><!----> <a href="/categories/图床/" class="nav-link"><i class="iconfont undefined"></i>
+  图床
+</a></li><li class="dropdown-item"><!----> <a href="/categories/V2Ray/" class="nav-link"><i class="iconfont undefined"></i>
+  V2Ray
+</a></li><li class="dropdown-item"><!----> <a href="/categories/百度网盘/" class="nav-link"><i class="iconfont undefined"></i>
+  百度网盘
+</a></li><li class="dropdown-item"><!----> <a href="/categories/WorkBook/" class="nav-link"><i class="iconfont undefined"></i>
+  WorkBook
+</a></li><li class="dropdown-item"><!----> <a href="/categories/学习记/" class="nav-link"><i class="iconfont undefined"></i>
+  学习记
+</a></li><li class="dropdown-item"><!----> <a href="/categories/面试题/" class="nav-link"><i class="iconfont undefined"></i>
+  面试题
+</a></li><li class="dropdown-item"><!----> <a href="/categories/NoteBook/" class="nav-link"><i class="iconfont undefined"></i>
+  NoteBook
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/mukeyeshen" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-64685f0e data-v-2d5f533b><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>SpringBoot注解最全详解</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>喵ฅ仙 | BLOG</span>
+            
+          <span data-v-64685f0e>2017 - </span>
+          2021
+        </a></span></div></div> <div data-v-2d5f533b><main class="page"><div class="page-title" style="display:none;"><h1 class="title">SpringBoot注解最全详解</h1> <div data-v-3b7f5bdf><i class="iconfont reco-account" data-v-3b7f5bdf><span data-v-3b7f5bdf>喵ฅ仙 | BLOG</span></i> <!----> <i class="iconfont reco-eye" data-v-3b7f5bdf><span id="/blogs/SpringBoot/SpringBoot%E6%B3%A8%E8%A7%A3%E6%9C%80%E5%85%A8%E8%AF%A6%E8%A7%A3.html" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-3b7f5bdf><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <i class="iconfont reco-tag tags" data-v-3b7f5bdf><span class="tag-item" data-v-3b7f5bdf>SpringBoot</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><p>使用注解的优势：</p> <p>​     1.采用纯java代码，不在需要配置繁杂的xml文件</p> <p>​     2.在配置中也可享受面向对象带来的好处</p> <p>​     3.类型安全对重构可以提供良好的支持</p> <p>​     4.减少复杂配置文件的同时亦能享受到springIoC容器提供的功能</p> <h2 id="一、注解详解（配备了完善的释义-）"><a href="#一、注解详解（配备了完善的释义-）" class="header-anchor">#</a> <strong>一、注解详解（配备了完善的释义</strong>**）</h2> <p>------(可采用ctrl+F 来进行搜索哦~~~~)**</p> <p>@SpringBootApplication：申明让spring boot自动给程序进行必要的配置，这个配置等同于：</p> <p>@Configuration ，@EnableAutoConfiguration 和 @ComponentScan 三个配置。</p> <p>@ResponseBody：表示该方法的返回结果直接写入HTTP response body中，一般在异步获取数据时使用，用于构建RESTful的api。在使用@RequestMapping后，返回值通常解析为跳转路径，加上@esponsebody后返回结果不会被解析为跳转路径，而是直接写入HTTP response body中。比如异步获取json数据，加上@Responsebody后，会直接返回json数据。该注解一般会配合@RequestMapping一起使用。</p> <p>@Controller：用于定义控制器类，在spring项目中由控制器负责将用户发来的URL请求转发到对应的服务接口（service层），一般这个注解在类中，通常方法需要配合注解@RequestMapping。</p> <p>@RestController：用于标注控制层组件(如struts中的action)，@ResponseBody和@Controller的合集。</p> <p>@RequestMapping：提供路由信息，负责URL到Controller中的具体函数的映射。</p> <p>@EnableAutoConfiguration：SpringBoot自动配置（auto-configuration）：尝试根据你添加的jar依赖自动配置你的Spring应用。例如，如果你的classpath下存在HSQLDB，并且你没有手动配置任何数据库连接beans，那么我们将自动配置一个内存型（in-memory）数据库”。你可以将@EnableAutoConfiguration或者@SpringBootApplication注解添加到一个@Configuration类上来选择自动配置。如果发现应用了你不想要的特定自动配置类，你可以使用@EnableAutoConfiguration注解的排除属性来禁用它们。</p> <p>@ComponentScan：表示将该类自动发现扫描组件。个人理解相当于，如果扫描到有@Component、@Controller、@Service等这些注解的类，并注册为Bean，可以自动收集所有的Spring组件，包括@Configuration类。我们经常使用@ComponentScan注解搜索beans，并结合@Autowired注解导入。可以自动收集所有的Spring组件，包括@Configuration类。我们经常使用@ComponentScan注解搜索beans，并结合@Autowired注解导入。如果没有配置的话，Spring Boot会扫描启动类所在包下以及子包下的使用了@Service,@Repository等注解的类。</p> <p>@Configuration：相当于传统的xml配置文件，如果有些第三方库需要用到xml文件，建议仍然通过@Configuration类作为项目的配置主类——可以使用@ImportResource注解加载xml配置文件。</p> <p>@Import：用来导入其他配置类。</p> <p>@ImportResource：用来加载xml配置文件。</p> <p>@Autowired：自动导入依赖的bean</p> <p>@Service：一般用于修饰service层的组件</p> <p>@Repository：使用@Repository注解可以确保DAO或者repositories提供异常转译，这个注解修饰的DAO或者repositories类会被ComponetScan发现并配置，同时也不需要为它们提供XML配置项。</p> <p>@Bean：用@Bean标注方法等价于XML中配置的bean。</p> <p>@Value：注入Spring boot application.properties配置的属性的值。示例代码：</p> <p>@Inject：等价于默认的@Autowired，只是没有required属性；</p> <p>@Component：泛指组件，当组件不好归类的时候，我们可以使用这个注解进行标注。</p> <p>@Bean:相当于XML中的,放在方法的上面，而不是类，意思是产生一个bean,并交给spring管理。</p> <p>@AutoWired：自动导入依赖的bean。byType方式。把配置好的Bean拿来用，完成属性、方法的组装，它可以对类成员变量、方法及构造函数进行标注，完成自动装配的工作。当加上（required=false）时，就算找不到bean也不报错。</p> <p>@Qualifier：当有多个同一类型的Bean时，可以用@Qualifier(“name”)来指定。与@Autowired配合使用。@Qualifier限定描述符除了能根据名字进行注入，但能进行更细粒度的控制如何选择候选者，具体使用方式如下：</p> <p>@Resource(name=”name”,type=”type”)：没有括号内内容的话，默认byName。与@Autowired干类似的事。</p> <h2 id="二、注解列表如下"><a href="#二、注解列表如下" class="header-anchor">#</a> <strong>二、注解列表如下</strong></h2> <p>@SpringBootApplication：包含了@ComponentScan、@Configuration和@EnableAutoConfiguration注解。其中</p> <p>@ComponentScan：让spring Boot扫描到Configuration类并把它加入到程序上下文。</p> <p>@Configuration ：等同于spring的XML配置文件；使用Java代码可以检查类型安全。</p> <p>@EnableAutoConfiguration ：自动配置。</p> <p>@ComponentScan ：组件扫描，可自动发现和装配一些Bean。</p> <p>@Component可配合CommandLineRunner使用，在程序启动后执行一些基础任务。</p> <p>@RestController：注解是@Controller和@ResponseBody的合集,表示这是个控制器bean,并且是将函数的返回值直 接填入HTTP响应体中,是REST风格的控制器。</p> <p>@Autowired：自动导入。</p> <p>@PathVariable：获取参数。</p> <p>@JsonBackReference：解决嵌套外链问题。</p> <p>@RepositoryRestResourcepublic：配合spring-boot-starter-data-rest使用。</p> <h2 id="三、jpa注解"><a href="#三、jpa注解" class="header-anchor">#</a> <strong>三、JPA注解</strong></h2> <p>@Entity：@Table(name=”“)：表明这是一个实体类。一般用于jpa这两个注解一般一块使用，但是如果表名和实体类名相同的话，@Table可以省略</p> <p>@MappedSuperClass:用在确定是父类的entity上。父类的属性子类可以继承。</p> <p>@NoRepositoryBean:一般用作父类的repository，有这个注解，spring不会去实例化该repository。</p> <p>@Column：如果字段名与列名相同，则可以省略。</p> <p>@Id：表示该属性为主键。</p> <p>@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = “repair_seq”)：表示主键生成策略是sequence（可以为Auto、IDENTITY、native等，Auto表示可在多个数据库间切换），指定sequence的名字是repair_seq。</p> <p>@SequenceGeneretor(name = “repair_seq”, sequenceName = “seq_repair”, allocationSize = 1)：name为sequence的名称，以便使用，sequenceName为数据库的sequence名称，两个名称可以一致。</p> <p>@Transient：表示该属性并非一个到数据库表的字段的映射,ORM框架将忽略该属性。如果一个属性并非数据库表的字段映射,就务必将其标示为@Transient,否则,ORM框架默认其注解为@Basic。@Basic(fetch=FetchType.LAZY)：标记可以指定实体属性的加载方式</p> <p>@JsonIgnore：作用是json序列化时将<a href="http://lib.csdn.net/base/java" target="_blank" rel="noopener noreferrer">Java <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>bean中的一些属性忽略掉,序列化和反序列化都受影响。</p> <p>@JoinColumn（name=”loginId”）:一对一：本表中指向另一个表的外键。一对多：另一个表指向本表的外键。</p> <p>@OneToOne、@OneToMany、@ManyToOne：对应<a href="http://lib.csdn.net/base/javaee" target="_blank" rel="noopener noreferrer">hibernate<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>配置文件中的一对一，一对多，多对一。</p> <h2 id="四、springmvc相关注解"><a href="#四、springmvc相关注解" class="header-anchor">#</a> <strong>四、springMVC相关注解</strong></h2> <p>@RequestMapping：@RequestMapping(“/path”)表示该控制器处理所有“/path”的UR L请求。RequestMapping是一个用来处理请求地址映射的注解，可用于类或方法上。
+用于类上，表示类中的所有响应请求的方法都是以该地址作为父路径。该注解有六个属性：
+params:指定request中必须包含某些参数值是，才让该方法处理。
+headers:指定request中必须包含某些指定的header值，才能让该方法处理请求。
+value:指定请求的实际地址，指定的地址可以是URI Template 模式
+method:指定请求的method类型， GET、POST、PUT、DELETE等
+consumes:指定处理请求的提交内容类型（Content-Type），如application/json,text/html;
+produces:指定返回的内容类型，仅当request请求头中的(Accept)类型中包含该指定类型才返回</p> <p>@RequestParam：用在方法的参数前面。
+@RequestParam
+String a =request.getParameter(“a”)。</p> <p>@PathVariable:路径变量。如</p> <p>参数与大括号里的名字一样要相同。</p> <h2 id="五、全局异常处理"><a href="#五、全局异常处理" class="header-anchor">#</a> <strong>五、全局异常处理</strong></h2> <p>@ControllerAdvice：包含@Component。可以被扫描到。统一处理异常。</p> <p>@ExceptionHandler（Exception.class）：用在方法上面表示遇到这个异常就执行以下方法。</p> <hr> <h2 id="六、项目中具体配置解析和使用环境"><a href="#六、项目中具体配置解析和使用环境" class="header-anchor">#</a> <strong>六、项目中具体配置解析和使用环境</strong></h2> <p><strong>@MappedSuperclass：</strong></p> <p>1.@MappedSuperclass 注解使用在父类上面，是用来标识父类的</p> <p>2.@MappedSuperclass 标识的类表示其不能映射到数据库表，因为其不是一个完整的实体类，但是它所拥有的属性能够映射在其子类对用的数据库表中</p> <p>3.@MappedSuperclass 标识的类不能再有@Entity或@Table注解</p> <p><strong>@Column：</strong></p> <p>1.当实体的属性与其映射的数据库表的列不同名时需要使用@Column标注说明，该属性通常置于实体的属性声明语句之前，还可与 @Id 标注一起使用。</p> <p>2.@Column 标注的常用属性是name，用于设置映射数据库表的列名。此外，该标注还包含其它多个属性，如：unique、nullable、length、precision等。具体如下：</p> <p>1 name属性：name属性定义了被标注字段在数据库表中所对应字段的名称</p> <p>2 unique属性：unique属性表示该字段是否为唯一标识，默认为false，如果表中有一个字段需要唯一标识，则既可以使用该标记，也可以使用@Table注解中的@UniqueConstraint</p> <p>3 nullable属性：nullable属性表示该字段是否可以为null值，默认为true</p> <p>4 insertable属性：insertable属性表示在使用”INSERT”语句插入数据时，是否需要插入该字段的值</p> <p>5 updateable属性：updateable属性表示在使用”UPDATE”语句插入数据时，是否需要更新该字段的值</p> <p>6 insertable和updateable属性：一般多用于只读的属性，例如主键和外键等，这些字段通常是自动生成的</p> <p>7 columnDefinition属性：columnDefinition属性表示创建表时，该字段创建的SQL语句，一般用于通过Entity生成表定义时使用，如果数据库中表已经建好，该属性没有必要使用</p> <p>8 table属性：table属性定义了包含当前字段的表名</p> <p>9 length属性：length属性表示字段的长度，当字段的类型为varchar时，该属性才有效，默认为255个字符</p> <p>10 precision属性和scale属性：precision属性和scale属性一起表示精度，当字段类型为double时，precision表示数值的总长度，scale表示小数点所占的位数</p> <p>​    具体如下：
+1.double类型将在数据库中映射为double类型，precision和scale属性无效
+2.double类型若在columnDefinition属性中指定数字类型为decimal并指定精度，则最终以columnDefinition为准
+3.BigDecimal类型在数据库中映射为decimal类型，precision和scale属性有效
+4.precision和scale属性只在BigDecimal类型中有效</p> <p>3.@Column 标注的columnDefinition属性: 表示该字段在数据库中的实际类型.通常 ORM 框架可以根据属性类型自动判断数据库中字段的类型,但是对于Date类型仍无法确定数据库中字段类型究竟是DATE,TIME还是TIMESTAMP.此外,String的默认映射类型为VARCHAR,如果要将 String 类型映射到特定数据库的 BLOB 或TEXT字段类型.</p> <p>4.@Column标注也可置于属性的getter方法之前</p> <p>@Getter和@Setter（Lombok）</p> <p>@Setter：注解在属性上；为属性提供 setting 方法 @Getter：注解在属性上；为属性提供 getting 方法</p> <p>1 @Data：注解在类上；提供类所有属性的 getting 和 setting 方法，此外还提供了equals、canEqual、hashCode、toString 方法
+2
+3 @Setter：注解在属性上；为属性提供 setting 方法
+4
+5 @Getter：注解在属性上；为属性提供 getting 方法
+6
+7 @Log4j2 ：注解在类上；为类提供一个 属性名为log 的 log4j 日志对象，和@Log4j注解类似
+8
+9 @NoArgsConstructor：注解在类上；为类提供一个无参的构造方法
+10
+11 @AllArgsConstructor：注解在类上；为类提供一个全参的构造方法
+12
+13 @EqualsAndHashCode:默认情况下，会使用所有非瞬态(non-transient)和非静态(non-static)字段来生成equals和hascode方法，也可以指定具体使用哪些属性。
+14
+15 @toString:生成toString方法，默认情况下，会输出类名、所有属性，属性会按照顺序输出，以逗号分割。
+16
+17 @NoArgsConstructor, @RequiredArgsConstructor and @AllArgsConstructor
+18 无参构造器、部分参数构造器、全参构造器，当我们需要重载多个构造器的时候，只能自己手写了
+19
+20 @NonNull：注解在属性上，如果注解了，就必须不能为Null
+21
+22 @val:注解在属性上，如果注解了，就是设置为final类型，可查看源码的注释知道</p> <p>当你在执行各种持久化方法的时候，实体的状态会随之改变，状态的改变会引发不同的生命周期事件。这些事件可以使用不同的注释符来指示发生时的回调函数。</p> <p>@javax.persistence.PostLoad：加载后。</p> <p>@javax.persistence.PrePersist：持久化前。</p> <p>@javax.persistence.PostPersist：持久化后。</p> <p>@javax.persistence.PreUpdate：更新前。</p> <p>@javax.persistence.PostUpdate：更新后。</p> <p>@javax.persistence.PreRemove：删除前。</p> <p>@javax.persistence.PostRemove：删除后。</p> <p><strong>1）数据库查询</strong></p> <p>@PostLoad事件在下列情况下触发：</p> <p>执行EntityManager.find()或getreference()方法载入一个实体后。</p> <p>执行JPQL查询后。</p> <p>EntityManager.refresh()方法被调用后。</p> <p><strong>2）数据库插入</strong></p> <p>@PrePersist和@PostPersist事件在实体对象插入到数据库的过程中发生：</p> <p>@PrePersist事件在调用persist()方法后立刻发生，此时的数据还没有真正插入进数据库。</p> <p>@PostPersist事件在数据已经插入进数据库后发生。</p> <p><strong>3）数据库更新</strong></p> <p>@PreUpdate和@PostUpdate事件的触发由更新实体引起：</p> <p>@PreUpdate事件在实体的状态同步到数据库之前触发，此时的数据还没有真正更新到数据库。</p> <p>@PostUpdate事件在实体的状态同步到数据库之后触发，同步在事务提交时发生。</p> <p><strong>4）数据库删除</strong></p> <p>@PreRemove和@PostRemove事件的触发由删除实体引起：</p> <p>@PreRemove事件在实体从数据库删除之前触发，即在调用remove()方法删除时发生，此时的数据还没有真正从数据库中删除。</p> <p>@PostRemove事件在实体从数据库中删除后触发。</p></div> <footer class="page-edit" style="display:none;"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">11/22/2020, 7:46:20 PM</span></div></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><!----><!----><div class="vuepress-canvas-nest-element"></div><div class="kanbanniang" data-v-48c06019><div class="banniang-container" style="display:;" data-v-48c06019><div class="messageBox" style="position:fixed;right:80px;bottom:200px;display:none;" data-v-48c06019>
+      欢迎来到 喵ฅ仙 | BLOG
+    </div> <div class="operation" style="bottom:10px;right:60px;display:;" data-v-48c06019><i class="kbnfont kbn-ban-home ban-home" data-v-48c06019></i> <i class="kbnfont kbn-ban-message message" data-v-48c06019></i> <i class="kbnfont kbn-ban-close close" data-v-48c06019></i> <a target="_blank" href="https://vuepress-theme-reco.recoluan.com/views/plugins/kanbanniang.html" data-v-48c06019><i class="kbnfont kbn-ban-info info" data-v-48c06019></i></a> <i class="kbnfont kbn-ban-theme skin" style="display:;" data-v-48c06019></i></div> <canvas id="banniang" width="120" height="280" class="live2d" style="position:fixed;right:120px;bottom:20px;opacity:1.2;" data-v-48c06019></canvas></div> <div class="showBanNiang" style="display:none;" data-v-48c06019>
+    看板娘
+  </div></div><div class="reco-bgm-panel" data-v-39f9e6e0><audio id="bgm" src="http://music.163.com/song/media/outer/url?id=29004400.mp3" data-v-39f9e6e0></audio> <div class="reco-float-box" style="bottom:200px;z-index:999999;display:none;" data-v-39f9e6e0 data-v-41bcba48 data-v-39f9e6e0><img src="https://i.loli.net/2020/01/06/3gAnevw2xfzk4dY.png" data-v-39f9e6e0></div> <div class="reco-bgm-box" style="left:10px;bottom:10px;z-index:999999;" data-v-39f9e6e0 data-v-41bcba48 data-v-39f9e6e0><div class="reco-bgm-cover" style="background-image:url(https://i.loli.net/2020/01/06/3gAnevw2xfzk4dY.png);" data-v-39f9e6e0><div class="mini-operation" style="display:none;" data-v-39f9e6e0><i class="reco-bgm reco-bgm-pause" style="display:none;" data-v-39f9e6e0></i> <i class="reco-bgm reco-bgm-play" style="display:none;" data-v-39f9e6e0></i></div> <div class="falut-message" style="display:none;" data-v-39f9e6e0>
+          播放失败
+        </div></div> <div class="reco-bgm-info" data-v-39f9e6e0 data-v-41bcba48 data-v-39f9e6e0><div class="info-box" data-v-39f9e6e0><i class="reco-bgm reco-bgm-music music" data-v-39f9e6e0></i>烟火里的尘埃</div> <div class="info-box" data-v-39f9e6e0><i class="reco-bgm reco-bgm-artist" data-v-39f9e6e0></i>华晨宇</div> <div class="reco-bgm-progress" data-v-39f9e6e0><div class="progress-bar" data-v-39f9e6e0><div class="bar" data-v-39f9e6e0></div></div></div> <div class="reco-bgm-operation" data-v-39f9e6e0><i class="reco-bgm reco-bgm-last last" data-v-39f9e6e0></i> <i class="reco-bgm reco-bgm-pause pause" style="display:none;" data-v-39f9e6e0></i> <i class="reco-bgm reco-bgm-play play" data-v-39f9e6e0></i> <i class="reco-bgm reco-bgm-next next" data-v-39f9e6e0></i> <i class="reco-bgm reco-bgm-volume1 volume" data-v-39f9e6e0></i> <i class="reco-bgm reco-bgm-mute mute" style="display:none;" data-v-39f9e6e0></i> <div class="volume-bar" data-v-39f9e6e0><div class="bar" data-v-39f9e6e0></div></div></div></div> <div class="reco-bgm-left-box" data-v-39f9e6e0 data-v-41bcba48 data-v-39f9e6e0><i class="reco-bgm reco-bgm-left" data-v-39f9e6e0></i></div></div></div><!----><canvas id="vuepress-canvas-ribbon"></canvas><canvas id="vuepress-canvas-cursor"></canvas><div></div><div id="goTop" class="hide-cat" data-v-6454e75c></div></div></div>
+    <script src="/assets/js/app.1be1c75e.js" defer></script><script src="/assets/js/4.203b416b.js" defer></script><script src="/assets/js/1.5105d566.js" defer></script><script src="/assets/js/106.29087525.js" defer></script><script src="/assets/js/9.0c7239d7.js" defer></script>
+  </body>
+</html>
