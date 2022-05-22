@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Zookeeper+Kafka集群搭建 | 喵ฅ仙 | BLOG</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link rel="icon" href="https://www.zpzpup.com/assets/image/favicon.ico">
+    <script src="/assets/js/bodyClick.js"></script>
+    <meta name="description" content="喵ฅ仙 | BLOG">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="preload" href="/assets/css/0.styles.3bb793a0.css" as="style"><link rel="preload" href="/assets/js/app.d3414c94.js" as="script"><link rel="preload" href="/assets/js/3.c1cc8b6c.js" as="script"><link rel="preload" href="/assets/js/1.b791f502.js" as="script"><link rel="preload" href="/assets/js/84.e2668675.js" as="script"><link rel="prefetch" href="/assets/js/10.9950e43d.js"><link rel="prefetch" href="/assets/js/100.547aaf7b.js"><link rel="prefetch" href="/assets/js/101.c3814bf3.js"><link rel="prefetch" href="/assets/js/102.98d7a601.js"><link rel="prefetch" href="/assets/js/103.f1607030.js"><link rel="prefetch" href="/assets/js/104.9567dde5.js"><link rel="prefetch" href="/assets/js/105.13a0d317.js"><link rel="prefetch" href="/assets/js/106.6cbb506e.js"><link rel="prefetch" href="/assets/js/107.ab955fe1.js"><link rel="prefetch" href="/assets/js/108.34ff7555.js"><link rel="prefetch" href="/assets/js/109.de2c061d.js"><link rel="prefetch" href="/assets/js/11.5af13e68.js"><link rel="prefetch" href="/assets/js/110.54d827e6.js"><link rel="prefetch" href="/assets/js/111.8f1f1e1c.js"><link rel="prefetch" href="/assets/js/112.4884a476.js"><link rel="prefetch" href="/assets/js/113.13f39580.js"><link rel="prefetch" href="/assets/js/114.1865269f.js"><link rel="prefetch" href="/assets/js/115.d9fddff3.js"><link rel="prefetch" href="/assets/js/116.0d7df8ec.js"><link rel="prefetch" href="/assets/js/117.dc0da5b5.js"><link rel="prefetch" href="/assets/js/118.7a5a65e1.js"><link rel="prefetch" href="/assets/js/119.3be6def5.js"><link rel="prefetch" href="/assets/js/12.74da2858.js"><link rel="prefetch" href="/assets/js/120.52071199.js"><link rel="prefetch" href="/assets/js/121.56d9fb92.js"><link rel="prefetch" href="/assets/js/122.3aa9c2ee.js"><link rel="prefetch" href="/assets/js/123.221df785.js"><link rel="prefetch" href="/assets/js/124.9d033311.js"><link rel="prefetch" href="/assets/js/125.28f98fbe.js"><link rel="prefetch" href="/assets/js/126.dae4704a.js"><link rel="prefetch" href="/assets/js/127.9a8665c6.js"><link rel="prefetch" href="/assets/js/128.e7254bf4.js"><link rel="prefetch" href="/assets/js/129.ffedb400.js"><link rel="prefetch" href="/assets/js/13.7979e6c4.js"><link rel="prefetch" href="/assets/js/130.ab358f57.js"><link rel="prefetch" href="/assets/js/131.d619d711.js"><link rel="prefetch" href="/assets/js/132.8157f72a.js"><link rel="prefetch" href="/assets/js/133.cfa86ce2.js"><link rel="prefetch" href="/assets/js/134.b053a751.js"><link rel="prefetch" href="/assets/js/135.2cbd13ea.js"><link rel="prefetch" href="/assets/js/136.a266d7fa.js"><link rel="prefetch" href="/assets/js/137.5aef0f80.js"><link rel="prefetch" href="/assets/js/138.d5ea3f78.js"><link rel="prefetch" href="/assets/js/139.b8b7114e.js"><link rel="prefetch" href="/assets/js/14.40f59b6f.js"><link rel="prefetch" href="/assets/js/140.3dcb64da.js"><link rel="prefetch" href="/assets/js/141.ceb5eeac.js"><link rel="prefetch" href="/assets/js/142.f2f5124b.js"><link rel="prefetch" href="/assets/js/143.9ed2f273.js"><link rel="prefetch" href="/assets/js/144.fb91af7c.js"><link rel="prefetch" href="/assets/js/145.401fa1ac.js"><link rel="prefetch" href="/assets/js/146.3b4c014b.js"><link rel="prefetch" href="/assets/js/147.6726618d.js"><link rel="prefetch" href="/assets/js/148.dd87612e.js"><link rel="prefetch" href="/assets/js/149.477a5bac.js"><link rel="prefetch" href="/assets/js/15.e421a4d6.js"><link rel="prefetch" href="/assets/js/150.e6bc7368.js"><link rel="prefetch" href="/assets/js/151.70a175f5.js"><link rel="prefetch" href="/assets/js/152.b4d733c1.js"><link rel="prefetch" href="/assets/js/153.1ad07edf.js"><link rel="prefetch" href="/assets/js/154.edb47009.js"><link rel="prefetch" href="/assets/js/155.147cc8ef.js"><link rel="prefetch" href="/assets/js/156.fe1ef05c.js"><link rel="prefetch" href="/assets/js/157.95511492.js"><link rel="prefetch" href="/assets/js/158.ef3b8c5f.js"><link rel="prefetch" href="/assets/js/159.1206530b.js"><link rel="prefetch" href="/assets/js/16.7fe1af7b.js"><link rel="prefetch" href="/assets/js/160.72d1a579.js"><link rel="prefetch" href="/assets/js/161.a315bd2b.js"><link rel="prefetch" href="/assets/js/162.42fe3b24.js"><link rel="prefetch" href="/assets/js/163.6a5d10c8.js"><link rel="prefetch" href="/assets/js/164.ed67b9da.js"><link rel="prefetch" href="/assets/js/165.0167b9b8.js"><link rel="prefetch" href="/assets/js/166.83f4a74f.js"><link rel="prefetch" href="/assets/js/167.ef9c9fe9.js"><link rel="prefetch" href="/assets/js/168.f1d37188.js"><link rel="prefetch" href="/assets/js/169.c6c89458.js"><link rel="prefetch" href="/assets/js/17.3d09df36.js"><link rel="prefetch" href="/assets/js/170.cb7b4a5c.js"><link rel="prefetch" href="/assets/js/171.dc35a8ee.js"><link rel="prefetch" href="/assets/js/172.3b63976c.js"><link rel="prefetch" href="/assets/js/173.4046f716.js"><link rel="prefetch" href="/assets/js/174.363ad972.js"><link rel="prefetch" href="/assets/js/175.758c8eea.js"><link rel="prefetch" href="/assets/js/176.3ad2df24.js"><link rel="prefetch" href="/assets/js/177.63d33f33.js"><link rel="prefetch" href="/assets/js/178.c1fa02ba.js"><link rel="prefetch" href="/assets/js/179.841c667f.js"><link rel="prefetch" href="/assets/js/18.7af139be.js"><link rel="prefetch" href="/assets/js/180.792657ec.js"><link rel="prefetch" href="/assets/js/181.758c2c8e.js"><link rel="prefetch" href="/assets/js/182.9a31ae61.js"><link rel="prefetch" href="/assets/js/183.f726e922.js"><link rel="prefetch" href="/assets/js/184.0ef12134.js"><link rel="prefetch" href="/assets/js/185.5d36831c.js"><link rel="prefetch" href="/assets/js/186.a767ab42.js"><link rel="prefetch" href="/assets/js/187.884a5752.js"><link rel="prefetch" href="/assets/js/188.ad939ffc.js"><link rel="prefetch" href="/assets/js/189.48a05d34.js"><link rel="prefetch" href="/assets/js/19.ff13606a.js"><link rel="prefetch" href="/assets/js/190.915f52fc.js"><link rel="prefetch" href="/assets/js/191.ce5886af.js"><link rel="prefetch" href="/assets/js/192.42e5d019.js"><link rel="prefetch" href="/assets/js/193.9d44b671.js"><link rel="prefetch" href="/assets/js/194.2ad95d04.js"><link rel="prefetch" href="/assets/js/195.e7024b92.js"><link rel="prefetch" href="/assets/js/196.de0f4e92.js"><link rel="prefetch" href="/assets/js/197.5ecff7f5.js"><link rel="prefetch" href="/assets/js/198.10e1c698.js"><link rel="prefetch" href="/assets/js/199.677d3dca.js"><link rel="prefetch" href="/assets/js/20.2296f102.js"><link rel="prefetch" href="/assets/js/200.bb551214.js"><link rel="prefetch" href="/assets/js/201.79efe42c.js"><link rel="prefetch" href="/assets/js/202.2ee52ca4.js"><link rel="prefetch" href="/assets/js/203.874e1959.js"><link rel="prefetch" href="/assets/js/204.08e88994.js"><link rel="prefetch" href="/assets/js/205.edc97c20.js"><link rel="prefetch" href="/assets/js/206.36a455d6.js"><link rel="prefetch" href="/assets/js/207.5ee74906.js"><link rel="prefetch" href="/assets/js/208.886bc7c2.js"><link rel="prefetch" href="/assets/js/209.4b0340d9.js"><link rel="prefetch" href="/assets/js/21.8d13209f.js"><link rel="prefetch" href="/assets/js/210.64455c4f.js"><link rel="prefetch" href="/assets/js/211.c6b7d243.js"><link rel="prefetch" href="/assets/js/212.42c051aa.js"><link rel="prefetch" href="/assets/js/213.5b2a60f4.js"><link rel="prefetch" href="/assets/js/214.661f5321.js"><link rel="prefetch" href="/assets/js/215.42f45005.js"><link rel="prefetch" href="/assets/js/216.f37f7411.js"><link rel="prefetch" href="/assets/js/217.10c5ca12.js"><link rel="prefetch" href="/assets/js/218.d6f3834f.js"><link rel="prefetch" href="/assets/js/219.fd28a873.js"><link rel="prefetch" href="/assets/js/22.23c5024e.js"><link rel="prefetch" href="/assets/js/220.be941ce1.js"><link rel="prefetch" href="/assets/js/221.1c6688c6.js"><link rel="prefetch" href="/assets/js/222.7b63121f.js"><link rel="prefetch" href="/assets/js/223.6614e200.js"><link rel="prefetch" href="/assets/js/224.d49a7523.js"><link rel="prefetch" href="/assets/js/225.6fcd8fad.js"><link rel="prefetch" href="/assets/js/226.9dcb061a.js"><link rel="prefetch" href="/assets/js/227.fe08b736.js"><link rel="prefetch" href="/assets/js/228.691928ed.js"><link rel="prefetch" href="/assets/js/229.63b002f2.js"><link rel="prefetch" href="/assets/js/23.95c4aba8.js"><link rel="prefetch" href="/assets/js/230.f540e919.js"><link rel="prefetch" href="/assets/js/231.d3fb3071.js"><link rel="prefetch" href="/assets/js/232.222b38dd.js"><link rel="prefetch" href="/assets/js/233.b017b884.js"><link rel="prefetch" href="/assets/js/234.2510b9fc.js"><link rel="prefetch" href="/assets/js/235.c2775cfe.js"><link rel="prefetch" href="/assets/js/236.f77331be.js"><link rel="prefetch" href="/assets/js/237.ce8f0a27.js"><link rel="prefetch" href="/assets/js/238.0f3abac6.js"><link rel="prefetch" href="/assets/js/239.76f7d09e.js"><link rel="prefetch" href="/assets/js/24.0d446ccc.js"><link rel="prefetch" href="/assets/js/240.d2071eb0.js"><link rel="prefetch" href="/assets/js/241.23dd9ff1.js"><link rel="prefetch" href="/assets/js/242.b01bf8a3.js"><link rel="prefetch" href="/assets/js/243.b169cabd.js"><link rel="prefetch" href="/assets/js/244.a4c1d04f.js"><link rel="prefetch" href="/assets/js/25.a43cd0e4.js"><link rel="prefetch" href="/assets/js/26.869e0aac.js"><link rel="prefetch" href="/assets/js/27.47e08196.js"><link rel="prefetch" href="/assets/js/28.49524013.js"><link rel="prefetch" href="/assets/js/29.7f02f34a.js"><link rel="prefetch" href="/assets/js/30.0acd0eea.js"><link rel="prefetch" href="/assets/js/31.5e86706f.js"><link rel="prefetch" href="/assets/js/32.0187d938.js"><link rel="prefetch" href="/assets/js/33.1382c27e.js"><link rel="prefetch" href="/assets/js/34.35ee348e.js"><link rel="prefetch" href="/assets/js/35.5cabc4f3.js"><link rel="prefetch" href="/assets/js/36.6f63163b.js"><link rel="prefetch" href="/assets/js/37.642294d8.js"><link rel="prefetch" href="/assets/js/38.4743828b.js"><link rel="prefetch" href="/assets/js/39.a92d2bcc.js"><link rel="prefetch" href="/assets/js/4.63f85c88.js"><link rel="prefetch" href="/assets/js/40.6f620d32.js"><link rel="prefetch" href="/assets/js/41.8ed7b207.js"><link rel="prefetch" href="/assets/js/42.3fc02a7a.js"><link rel="prefetch" href="/assets/js/43.5201305b.js"><link rel="prefetch" href="/assets/js/44.46bfdd20.js"><link rel="prefetch" href="/assets/js/45.24377bbe.js"><link rel="prefetch" href="/assets/js/46.ea754b8c.js"><link rel="prefetch" href="/assets/js/47.1daa5167.js"><link rel="prefetch" href="/assets/js/48.7c287d18.js"><link rel="prefetch" href="/assets/js/49.b6c1bbd4.js"><link rel="prefetch" href="/assets/js/5.ab501ffb.js"><link rel="prefetch" href="/assets/js/50.e8f6f3af.js"><link rel="prefetch" href="/assets/js/51.39efb04d.js"><link rel="prefetch" href="/assets/js/52.4ee4fa19.js"><link rel="prefetch" href="/assets/js/53.26fb63f8.js"><link rel="prefetch" href="/assets/js/54.c0a093c0.js"><link rel="prefetch" href="/assets/js/55.5ce18d6e.js"><link rel="prefetch" href="/assets/js/56.303248b5.js"><link rel="prefetch" href="/assets/js/57.fc398504.js"><link rel="prefetch" href="/assets/js/58.1dd5d7db.js"><link rel="prefetch" href="/assets/js/59.602e5481.js"><link rel="prefetch" href="/assets/js/6.24af21eb.js"><link rel="prefetch" href="/assets/js/60.02556f2c.js"><link rel="prefetch" href="/assets/js/61.2185faaf.js"><link rel="prefetch" href="/assets/js/62.d9e5be74.js"><link rel="prefetch" href="/assets/js/63.b17db042.js"><link rel="prefetch" href="/assets/js/64.2c605e51.js"><link rel="prefetch" href="/assets/js/65.d14b86d6.js"><link rel="prefetch" href="/assets/js/66.a66924bd.js"><link rel="prefetch" href="/assets/js/67.b50dd301.js"><link rel="prefetch" href="/assets/js/68.3ac38668.js"><link rel="prefetch" href="/assets/js/69.a78e9490.js"><link rel="prefetch" href="/assets/js/7.d507b441.js"><link rel="prefetch" href="/assets/js/70.96398e63.js"><link rel="prefetch" href="/assets/js/71.05874360.js"><link rel="prefetch" href="/assets/js/72.69980700.js"><link rel="prefetch" href="/assets/js/73.cb853c74.js"><link rel="prefetch" href="/assets/js/74.926b762d.js"><link rel="prefetch" href="/assets/js/75.e2351f97.js"><link rel="prefetch" href="/assets/js/76.e55fe8c6.js"><link rel="prefetch" href="/assets/js/77.a3e9386f.js"><link rel="prefetch" href="/assets/js/78.328a60cf.js"><link rel="prefetch" href="/assets/js/79.bf39e69e.js"><link rel="prefetch" href="/assets/js/8.6a110e40.js"><link rel="prefetch" href="/assets/js/80.c724ba39.js"><link rel="prefetch" href="/assets/js/81.62a2ab22.js"><link rel="prefetch" href="/assets/js/82.8fd8d358.js"><link rel="prefetch" href="/assets/js/83.18c4fd9b.js"><link rel="prefetch" href="/assets/js/85.48e74cb3.js"><link rel="prefetch" href="/assets/js/86.3395c2c2.js"><link rel="prefetch" href="/assets/js/87.ca7e155f.js"><link rel="prefetch" href="/assets/js/88.8c27e2b1.js"><link rel="prefetch" href="/assets/js/89.cff7ecfe.js"><link rel="prefetch" href="/assets/js/9.54a1e645.js"><link rel="prefetch" href="/assets/js/90.96c608e8.js"><link rel="prefetch" href="/assets/js/91.b1d97b76.js"><link rel="prefetch" href="/assets/js/92.6a75e2bd.js"><link rel="prefetch" href="/assets/js/93.d6bfc085.js"><link rel="prefetch" href="/assets/js/94.faf3fbee.js"><link rel="prefetch" href="/assets/js/95.faa44b7d.js"><link rel="prefetch" href="/assets/js/96.d206267b.js"><link rel="prefetch" href="/assets/js/97.c13f8e4b.js"><link rel="prefetch" href="/assets/js/98.0c71437d.js"><link rel="prefetch" href="/assets/js/99.fcddb01f.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3bb793a0.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-dad8a512><div data-v-dad8a512><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-dad8a512 data-v-dad8a512><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-64685f0e data-v-dad8a512 data-v-dad8a512><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>喵ฅ仙 | BLOG</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>喵ฅ仙 | BLOG</span>
+            
+          <span data-v-64685f0e>2017 - </span>
+          2022
+        </a></span></div></div> <div class="hide" data-v-dad8a512><header class="navbar" data-v-dad8a512><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="喵ฅ仙 | BLOG" class="logo"> <span class="site-name">喵ฅ仙 | BLOG</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Docker/" class="nav-link"><i class="iconfont undefined"></i>
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Element/" class="nav-link"><i class="iconfont undefined"></i>
+  Element
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Java/" class="nav-link"><i class="iconfont undefined"></i>
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Vue/" class="nav-link"><i class="iconfont undefined"></i>
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/大数据/" class="nav-link"><i class="iconfont undefined"></i>
+  大数据
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringBoot/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringBoot
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Git/" class="nav-link"><i class="iconfont undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/categories/JavaScript/" class="nav-link"><i class="iconfont undefined"></i>
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/K8S/" class="nav-link"><i class="iconfont undefined"></i>
+  K8S
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Kafka/" class="nav-link"><i class="iconfont undefined"></i>
+  Kafka
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Linux/" class="nav-link"><i class="iconfont undefined"></i>
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/categories/MyBatis/" class="nav-link"><i class="iconfont undefined"></i>
+  MyBatis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/MongoDB/" class="nav-link"><i class="iconfont undefined"></i>
+  MongoDB
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Mysql/" class="nav-link"><i class="iconfont undefined"></i>
+  Mysql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Nginx/" class="nav-link"><i class="iconfont undefined"></i>
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Node/" class="nav-link"><i class="iconfont undefined"></i>
+  Node
+</a></li><li class="dropdown-item"><!----> <a href="/categories/RabbitMQ/" class="nav-link"><i class="iconfont undefined"></i>
+  RabbitMQ
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Redis/" class="nav-link"><i class="iconfont undefined"></i>
+  Redis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Skywalking/" class="nav-link"><i class="iconfont undefined"></i>
+  Skywalking
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringCloud/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringCloud
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringCloudAlibaba/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringCloudAlibaba
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringSecurity/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringSecurity
+</a></li><li class="dropdown-item"><!----> <a href="/categories/工作区/" class="nav-link"><i class="iconfont undefined"></i>
+  工作区
+</a></li><li class="dropdown-item"><!----> <a href="/categories/ZooKeeper/" class="nav-link"><i class="iconfont undefined"></i>
+  ZooKeeper
+</a></li><li class="dropdown-item"><!----> <a href="/categories/FastDFS/" class="nav-link"><i class="iconfont undefined"></i>
+  FastDFS
+</a></li><li class="dropdown-item"><!----> <a href="/categories/百度网盘/" class="nav-link"><i class="iconfont undefined"></i>
+  百度网盘
+</a></li><li class="dropdown-item"><!----> <a href="/categories/图床/" class="nav-link"><i class="iconfont undefined"></i>
+  图床
+</a></li><li class="dropdown-item"><!----> <a href="/categories/V2Ray/" class="nav-link"><i class="iconfont undefined"></i>
+  V2Ray
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Kail/" class="nav-link"><i class="iconfont undefined"></i>
+  Kail
+</a></li><li class="dropdown-item"><!----> <a href="/categories/免流/" class="nav-link"><i class="iconfont undefined"></i>
+  免流
+</a></li><li class="dropdown-item"><!----> <a href="/categories/学习记/" class="nav-link"><i class="iconfont undefined"></i>
+  学习记
+</a></li><li class="dropdown-item"><!----> <a href="/categories/工具/" class="nav-link"><i class="iconfont undefined"></i>
+  工具
+</a></li><li class="dropdown-item"><!----> <a href="/categories/NoteBook/" class="nav-link"><i class="iconfont undefined"></i>
+  NoteBook
+</a></li><li class="dropdown-item"><!----> <a href="/categories/WorkBook/" class="nav-link"><i class="iconfont undefined"></i>
+  WorkBook
+</a></li><li class="dropdown-item"><!----> <a href="/categories/破解软件/" class="nav-link"><i class="iconfont undefined"></i>
+  破解软件
+</a></li><li class="dropdown-item"><!----> <a href="/categories/青龙/" class="nav-link"><i class="iconfont undefined"></i>
+  青龙
+</a></li><li class="dropdown-item"><!----> <a href="/categories/面试题/" class="nav-link"><i class="iconfont undefined"></i>
+  面试题
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/mukeyeshen" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-dad8a512></div> <aside class="sidebar" data-v-dad8a512><div class="personal-info-wrapper" data-v-ca798c94 data-v-dad8a512><img src="/avatar.png" alt="author-avatar" class="personal-img" data-v-ca798c94> <h3 class="name" data-v-ca798c94>
+    喵ฅ仙 | BLOG
+  </h3> <div class="num" data-v-ca798c94><div data-v-ca798c94><h3 data-v-ca798c94>182</h3> <h6 data-v-ca798c94>文章</h6></div> <div data-v-ca798c94><h3 data-v-ca798c94>67</h3> <h6 data-v-ca798c94>标签</h6></div></div> <hr data-v-ca798c94></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Docker/" class="nav-link"><i class="iconfont undefined"></i>
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Element/" class="nav-link"><i class="iconfont undefined"></i>
+  Element
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Java/" class="nav-link"><i class="iconfont undefined"></i>
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Vue/" class="nav-link"><i class="iconfont undefined"></i>
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/大数据/" class="nav-link"><i class="iconfont undefined"></i>
+  大数据
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringBoot/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringBoot
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Git/" class="nav-link"><i class="iconfont undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/categories/JavaScript/" class="nav-link"><i class="iconfont undefined"></i>
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/K8S/" class="nav-link"><i class="iconfont undefined"></i>
+  K8S
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Kafka/" class="nav-link"><i class="iconfont undefined"></i>
+  Kafka
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Linux/" class="nav-link"><i class="iconfont undefined"></i>
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/categories/MyBatis/" class="nav-link"><i class="iconfont undefined"></i>
+  MyBatis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/MongoDB/" class="nav-link"><i class="iconfont undefined"></i>
+  MongoDB
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Mysql/" class="nav-link"><i class="iconfont undefined"></i>
+  Mysql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Nginx/" class="nav-link"><i class="iconfont undefined"></i>
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Node/" class="nav-link"><i class="iconfont undefined"></i>
+  Node
+</a></li><li class="dropdown-item"><!----> <a href="/categories/RabbitMQ/" class="nav-link"><i class="iconfont undefined"></i>
+  RabbitMQ
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Redis/" class="nav-link"><i class="iconfont undefined"></i>
+  Redis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Skywalking/" class="nav-link"><i class="iconfont undefined"></i>
+  Skywalking
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringCloud/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringCloud
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringCloudAlibaba/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringCloudAlibaba
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringSecurity/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringSecurity
+</a></li><li class="dropdown-item"><!----> <a href="/categories/工作区/" class="nav-link"><i class="iconfont undefined"></i>
+  工作区
+</a></li><li class="dropdown-item"><!----> <a href="/categories/ZooKeeper/" class="nav-link"><i class="iconfont undefined"></i>
+  ZooKeeper
+</a></li><li class="dropdown-item"><!----> <a href="/categories/FastDFS/" class="nav-link"><i class="iconfont undefined"></i>
+  FastDFS
+</a></li><li class="dropdown-item"><!----> <a href="/categories/百度网盘/" class="nav-link"><i class="iconfont undefined"></i>
+  百度网盘
+</a></li><li class="dropdown-item"><!----> <a href="/categories/图床/" class="nav-link"><i class="iconfont undefined"></i>
+  图床
+</a></li><li class="dropdown-item"><!----> <a href="/categories/V2Ray/" class="nav-link"><i class="iconfont undefined"></i>
+  V2Ray
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Kail/" class="nav-link"><i class="iconfont undefined"></i>
+  Kail
+</a></li><li class="dropdown-item"><!----> <a href="/categories/免流/" class="nav-link"><i class="iconfont undefined"></i>
+  免流
+</a></li><li class="dropdown-item"><!----> <a href="/categories/学习记/" class="nav-link"><i class="iconfont undefined"></i>
+  学习记
+</a></li><li class="dropdown-item"><!----> <a href="/categories/工具/" class="nav-link"><i class="iconfont undefined"></i>
+  工具
+</a></li><li class="dropdown-item"><!----> <a href="/categories/NoteBook/" class="nav-link"><i class="iconfont undefined"></i>
+  NoteBook
+</a></li><li class="dropdown-item"><!----> <a href="/categories/WorkBook/" class="nav-link"><i class="iconfont undefined"></i>
+  WorkBook
+</a></li><li class="dropdown-item"><!----> <a href="/categories/破解软件/" class="nav-link"><i class="iconfont undefined"></i>
+  破解软件
+</a></li><li class="dropdown-item"><!----> <a href="/categories/青龙/" class="nav-link"><i class="iconfont undefined"></i>
+  青龙
+</a></li><li class="dropdown-item"><!----> <a href="/categories/面试题/" class="nav-link"><i class="iconfont undefined"></i>
+  面试题
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/mukeyeshen" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-64685f0e data-v-dad8a512><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>Zookeeper+Kafka集群搭建</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>喵ฅ仙 | BLOG</span>
+            
+          <span data-v-64685f0e>2017 - </span>
+          2022
+        </a></span></div></div> <div data-v-dad8a512><main class="page"><div class="page-title" style="display:none;"><h1>Zookeeper+Kafka集群搭建</h1> <div data-v-3b7f5bdf><i class="iconfont reco-account" data-v-3b7f5bdf><span data-v-3b7f5bdf>喵ฅ仙 | BLOG</span></i> <!----> <i class="iconfont reco-eye" data-v-3b7f5bdf><span id="/docs/Kafka/Zookeeper+Kafka%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA.html" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-3b7f5bdf><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <i class="iconfont reco-tag tags" data-v-3b7f5bdf><span class="tag-item" data-v-3b7f5bdf>Kafka</span><span class="tag-item" data-v-3b7f5bdf>Zookeeper</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><h2 id="zookeeper集群搭建"><a href="#zookeeper集群搭建" class="header-anchor">#</a> Zookeeper集群搭建</h2> <p>Kafka集群是把状态保存在Zookeeper中的，首先要搭建Zookeeper集群。</p> <h3 id="_1、软件环境"><a href="#_1、软件环境" class="header-anchor">#</a> <strong>1、软件环境</strong></h3> <p>（3台服务器-我的测试）
+192.168.30.204 server1
+192.168.30.205 server2
+192.168.30.206 server3
+1-1、Linux服务器一台、三台、五台、（2*n+1），Zookeeper集群的工作是超过半数才能对外提供服务，3台中超过两台超过半数，允许1台挂掉 ，是否可以用偶数，其实没必要。
+如果有四台那么挂掉一台还剩下三台服务器，如果在挂掉一个就不行了，这里记住是超过半数。
+1-2、zookeeper是用java写的所以他的需要JAVA环境，java是运行在java虚拟机上的
+1-3、Zookeeper的稳定版本Zookeeper 3.4.6版本</p> <h3 id="_2、配置-安装zookeeper"><a href="#_2、配置-安装zookeeper" class="header-anchor">#</a> <strong>2、配置&amp;安装Zookeeper</strong></h3> <p>下面的操作是：3台服务器统一操作</p> <h4 id="_2-1、安装java"><a href="#_2-1、安装java" class="header-anchor">#</a> 2-1、安装Java</h4> <p>(可选) 卸载已有的open jdk，安装最新版本的java jdk</p> <div class="language- line-numbers-mode"><pre class="language-text"><code># rpm -qa | grep jdk
+       java-1.6.0-openjdk-1.6.0.0-1.45.1.11.1.el6.i686
+# yum -y remove java-1.6.0-openjdk-1.6.0.0-1.45.1.11.1.el6.i686
+       remove java-1.6.0-openjdk-1.6.0.0-1.45.1.11.1.el6.i686
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>安装JAVA， 请见 <a href="http://qiangsh.blog.51cto.com/3510397/1771748" target="_blank" rel="noopener noreferrer">http://qiangsh.blog.51cto.com/3510397/1771748<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <h4 id="_2-2、下载zookeeper"><a href="#_2-2、下载zookeeper" class="header-anchor">#</a> 2-2、下载Zookeeper</h4> <p>首先要注意在生产环境中目录结构要定义好，防止在项目过多的时候找不到所需的项目</p> <p>#首先创建Zookeeper项目目录</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>mkdir /data/zookeeper     #项目目录
+mkdir  /data/zookeeper/zkdata          #存放快照日志
+mkdir  /data/zookeeper/zkdatalog     #存放事物日志
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>#下载,解压软件</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>cd /data/zookeeper
+wget https://mirrors.cnnic.cn/apache/zookeeper/zookeeper-3.4.12/zookeeper-3.4.12.tar.gz
+tar -zxvf zookeeper-3.4.12.tar.gz
+mv zookeeper-3.4.12 /usr/local/zookeeper
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h3 id="_3、修改配置文件"><a href="#_3、修改配置文件" class="header-anchor">#</a> <strong>3、修改配置文件</strong></h3> <p>进入到解压好的目录里面的conf目录中，查看</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>ll /usr/local/zookeeper/conf
+#查看
+-rw-rw-r-- 1 1000 1000  535 Mar 27 12:32 configuration.xsl
+-rw-rw-r-- 1 1000 1000 2161 Mar 27 12:32 log4j.properties
+-rw-rw-r-- 1 1000 1000  922 Mar 27 12:32 zoo_sample.cfg
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>#zoo_sample.cfg 这个文件是官方给我们的zookeeper的样板文件，给他复制一份命名为zoo.cfg，zoo.cfg是官方指定的文件命名规则。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>cd /usr/local/zookeeper/conf
+cp zoo_sample.cfg zoo.cfg
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>3台服务器的配置文件</p> <div class="language- line-numbers-mode"><pre class="language-text"><code># vim zoo.cfg
+
+tickTime=2000
+initLimit=10
+syncLimit=5
+dataDir=/data/zookeeper/zkdata
+dataLogDir=/data/zookeeper/zkdatalog
+clientPort=12181
+server.1=192.168.30.204:12888:13888
+server.2=192.168.30.205:12888:13888
+server.3=192.168.30.206:12888:13888
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h3 id="zookeeper配置文件解释"><a href="#zookeeper配置文件解释" class="header-anchor">#</a> Zookeeper配置文件解释</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>#tickTime：
+这个时间是作为 Zookeeper 服务器之间或客户端与服务器之间维持心跳的时间间隔，也就是每个 tickTime 时间就会发送一个心跳。
+#initLimit：
+这个配置项是用来配置 Zookeeper 接受客户端（这里所说的客户端不是用户连接 Zookeeper 服务器的客户端，而是 Zookeeper 服务器集群中连接到 Leader 的 Follower 服务器）初始化连接时最长能忍受多少个心跳时间间隔数。当已经超过 5个心跳的时间（也就是 tickTime）长度后 Zookeeper 服务器还没有收到客户端的返回信息，那么表明这个客户端连接失败。总的时间长度就是 5*2000=10 秒
+#syncLimit：
+这个配置项标识 Leader 与Follower 之间发送消息，请求和应答时间长度，最长不能超过多少个 tickTime 的时间长度，总的时间长度就是5*2000=10秒
+#dataDir：
+快照日志的存储路径
+#dataLogDir：
+事物日志的存储路径，如果不配置这个那么事物日志会默认存储到dataDir制定的目录，这样会严重影响zk的性能，当zk吞吐量较大的时候，产生的事物日志、快照日志太多
+#clientPort：
+这个端口就是客户端连接 Zookeeper 服务器的端口，Zookeeper 会监听这个端口，接受客户端的访问请求。修改他的端口改大点
+#server.1 这个1是服务器的标识也可以是其他的数字， 表示这个是第几号服务器，用来标识服务器，这个标识要写到快照目录下面myid文件里
+#192.168.7.107为集群里的IP地址，第一个端口是master和slave之间的通信端口，默认是2888，第二个端口是leader选举的端口，集群刚启动的时候选举或者leader挂掉之后进行新的选举的端口默认是3888
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h3 id="_1、三台服务器上分别创建myid文件"><a href="#_1、三台服务器上分别创建myid文件" class="header-anchor">#</a> <strong>1、三台服务器上分别创建myid文件</strong></h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>#server1（192.168.30.204）
+echo &quot;1&quot; &gt; /data/zookeeper/zkdata/myid
+#server2（192.168.30.205）
+echo &quot;2&quot; &gt; /data/zookeeper/zkdata/myid
+#server3（192.168.30.206）
+echo &quot;3&quot; &gt; /data/zookeeper/zkdata/myid
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h3 id="_2、重要配置说明"><a href="#_2、重要配置说明" class="header-anchor">#</a> <strong>2、重要配置说明</strong></h3> <p>2-1、myid文件和server.myid 在快照目录下存放的标识本台服务器的文件，他是整个zk集群用来发现彼此的一个重要标识。
+2-2、zoo.cfg 文件是zookeeper配置文件 在conf目录里。
+2-3、log4j.properties文件是zk的日志输出文件 在conf目录里用java写的程序基本上有个共同点日志都用log4j，来进行管理。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code># cat /usr/local/zookeeper/conf/log4j.properties
+------------------------------------------------------------------------------------------------------------------------------------------------------
+# Define some default values that can be overridden by system properties
+zookeeper.root.logger=INFO, CONSOLE  #日志级别
+zookeeper.console.threshold=INFO  #使用下面的console来打印日志
+zookeeper.log.dir=.    #日志打印到那里，是咱们启动zookeeper的目录 （建议设置统一的日志目录路径）
+zookeeper.log.file=zookeeper.log
+zookeeper.log.threshold=DEBUG
+zookeeper.tracelog.dir=.
+zookeeper.tracelog.file=zookeeper_trace.log
+
+#
+# ZooKeeper Logging Configuration
+#
+
+# Format is &quot;&lt;default threshold&gt; (, &lt;appender&gt;)+
+
+# DEFAULT: console appender only
+log4j.rootLogger=${zookeeper.root.logger}
+
+# Example with rolling log file
+#log4j.rootLogger=DEBUG, CONSOLE, ROLLINGFILE
+
+# Example with rolling log file and tracing
+#log4j.rootLogger=TRACE, CONSOLE, ROLLINGFILE, TRACEFILE
+
+#
+# Log INFO level and above messages to the console
+#
+log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
+log4j.appender.CONSOLE.Threshold=${zookeeper.console.threshold}
+log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
+log4j.appender.CONSOLE.layout.ConversionPattern=%d{ISO8601} [myid:%X{myid}] - %-5p [%t:%C{1}@%L] - %m%n
+
+# Add ROLLINGFILE to rootLogger to get log file output
+#    Log DEBUG level and above messages to a log file
+log4j.appender.ROLLINGFILE=org.apache.log4j.RollingFileAppender
+log4j.appender.ROLLINGFILE.Threshold=${zookeeper.log.threshold}
+log4j.appender.ROLLINGFILE.File=${zookeeper.log.dir}/${zookeeper.log.file}
+
+# Max log file size of 10MB
+log4j.appender.ROLLINGFILE.MaxFileSize=10MB
+# uncomment the next line to limit number of backup files
+#log4j.appender.ROLLINGFILE.MaxBackupIndex=10
+
+log4j.appender.ROLLINGFILE.layout=org.apache.log4j.PatternLayout
+log4j.appender.ROLLINGFILE.layout.ConversionPattern=%d{ISO8601} [myid:%X{myid}] - %-5p [%t:%C{1}@%L] - %m%n
+
+#
+# Add TRACEFILE to rootLogger to get log file output
+#    Log DEBUG level and above messages to a log file
+log4j.appender.TRACEFILE=org.apache.log4j.FileAppender
+log4j.appender.TRACEFILE.Threshold=TRACE
+log4j.appender.TRACEFILE.File=${zookeeper.tracelog.dir}/${zookeeper.tracelog.file}
+
+log4j.appender.TRACEFILE.layout=org.apache.log4j.PatternLayout
+### Notice we are including log4j's NDC here (%x)
+log4j.appender.TRACEFILE.layout.ConversionPattern=%d{ISO8601} [myid:%X{myid}] - %-5p [%t:%C{1}@%L][%x] - %m%n
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br></div></div><p>2-4、zkEnv.sh和zkServer.sh文件</p> <div class="language- line-numbers-mode"><pre class="language-text"><code># ll /usr/local/zookeeper/bin/
+zkServer.sh 主的管理程序文件
+zkEnv.sh 是主要配置，zookeeper集群启动时配置环境变量的文件
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h3 id="_3、zookeeper定期清理快照和日志文件"><a href="#_3、zookeeper定期清理快照和日志文件" class="header-anchor">#</a> <strong>3、zookeeper定期清理快照和日志文件</strong></h3> <p>ZooKeeper server will not remove old snapshots and log files when using the default configuration (see autopurge below), this is the responsibility of the operator
+#zookeeper不会主动的清除旧的快照和日志文件，这个是操作者的责任。但是可以通过命令去定期的清理。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>#!/bin/bash 
+
+#snapshot file dir 
+dataDir= /data/zookeeper/zkdata/version-2
+#tran log dir 
+dataLogDir= /data/zookeeper/zkdatalog/version-2
+
+#Leave 66 files 
+count=66 
+count=$[$count+1] 
+ls -t $dataLogDir/log.* | tail -n +$count | xargs rm -f 
+ls -t $dataDir/snapshot.* | tail -n +$count | xargs rm -f 
+
+#以上这个脚本定义了删除对应两个目录中的文件，保留最新的66个文件，可以将他写到crontab中，设置为每天凌晨2点执行一次就可以了。
+
+#zk log dir   del the zookeeper log
+#logDir=
+#ls -t $logDir/zookeeper.log.* | tail -n +$count | xargs rm -f
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p>其他方法：</p> <blockquote><p>第二种：使用ZK的工具类PurgeTxnLog，它的实现了一种简单的历史文件清理策略，可以在这里看一下他的使用方法 <a href="http://zookeeper.apache.org/doc/r3.4.6/zookeeperAdmin.html" target="_blank" rel="noopener noreferrer">http://zookeeper.apache.org/doc/r3.4.6/zookeeperAdmin.html<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>第三种：对于上面这个执行，ZK自己已经写好了脚本，在bin/zkCleanup.sh中，所以直接使用这个脚本也是可以执行清理工作的。</p> <p>第四种：从3.4.0开始，zookeeper提供了自动清理snapshot和事务日志的功能，通过配置 autopurge.snapRetainCount 和 autopurge.purgeInterval 这两个参数能够实现定时清理了。这两个参数都是在zoo.cfg中配置的：</p> <p>autopurge.purgeInterval 这个参数指定了清理频率，单位是小时，需要填写一个1或更大的整数，默认是0，表示不开启自己清理功能。
+autopurge.snapRetainCount 这个参数和上面的参数搭配使用，这个参数指定了需要保留的文件数目。默认是保留3个。</p> <p>推荐使用第一种方法，对于运维人员来说，将日志清理工作独立出来，便于统一管理也更可控。毕竟zk自带的一些工具并不怎么给力。</p></blockquote> <h3 id="_4、配置zookeeper的环境变量"><a href="#_4、配置zookeeper的环境变量" class="header-anchor">#</a> <strong>4、配置zookeeper的环境变量</strong></h3> <div class="language- line-numbers-mode"><pre class="language-text"><code># vim /etc/profile
+export ZOOKEEPER_HOME=/usr/local/zookeeper
+export PATH=$PATH:$ZOOKEEPER_HOME/bin
+
+# source /etc/profile
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h3 id="启动zookeeper服务并查看"><a href="#启动zookeeper服务并查看" class="header-anchor">#</a> 启动Zookeeper服务并查看</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>#进入bin目录
+cd /usr/local/zookeeper/bin/
+
+#启动服务（3台都需要操作）
+zkServer.sh start
+
+#检查服务器状态
+zkServer.sh status
+----------------------------------------------------------------------------------------------------------
+ZooKeeper JMX enabled by default
+Using config: /data/zookeeper/zookeeper-3.4.12/bin/../conf/zoo.cfg   #配置文件
+Mode: leader    #他是否为领导
+
+#zk集群一般只有一个leader，多个follower，主一般是相应客户端的读写请求，而从主同步数据，当主挂掉之后就会从follower里投票选举一个leader出来。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>可以用“jps”查看zk的进程， QuorumPeerMain 是 zookeeper 进程</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>#执行命令jps
+1744 Jps
+1674 QuorumPeerMain
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>#连接客户端,使用 ls 命令来查看当前 ZooKeeper 中所包含的内容
+运行Java版本的客户端使用bash zkCli.sh -server IP:port ，运行C语言版本的使用./cli_mt IP:port，下面介绍Java版本的，C语言版差不多。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>./zkCli.sh -server 127.0.0.1:12181
+
+-----
+
+................................................
+[zk: 127.0.0.1:12181(CONNECTED) 0] ls /
+[zookeeper]
+[zk: 127.0.0.1:12181(CONNECTED) 1] quit
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>#配置 zookeeper 开机启动</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>echo '/usr/local/zookeeper/bin/zkServer.sh start' &gt;&gt;/etc/rc.local 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="kafka集群搭建"><a href="#kafka集群搭建" class="header-anchor">#</a> Kafka集群搭建</h2> <h3 id="_1、软件环境-2"><a href="#_1、软件环境-2" class="header-anchor">#</a> <strong>1、软件环境</strong></h3> <p>1-1、linux一台或多台，大于等于2
+1-2、已经搭建好的zookeeper集群
+1-3、软件版本kafka_2.11-0.9.0.1.tgz</p> <h3 id="_2、创建目录并下载安装软件"><a href="#_2、创建目录并下载安装软件" class="header-anchor">#</a> <strong>2、创建目录并下载安装软件</strong></h3> <p>准备好kafka安装包，官网下载地址：
+<a href="http://kafka.apache.org/downloads.html" target="_blank" rel="noopener noreferrer">http://kafka.apache.org/downloads.html<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>#创建项目目录
+mkdir /data/kafka -p
+#创建kafka消息目录，主要存放kafka消息
+mkdir  /data/kafka/kafkalogs 
+#下载解压软件
+cd /data/kafka
+wget http://mirrors.shu.edu.cn/apache/kafka/1.0.1/kafka_2.11-1.0.1.tgz
+tar -zxvf kafka_2.11-1.0.1.tgz
+mv kafka_2.11-1.0.1 /usr/local/kafka
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h3 id="_3、修改配置文件-2"><a href="#_3、修改配置文件-2" class="header-anchor">#</a> <strong>3、修改配置文件</strong></h3> <p>进入到config目录
+<code>ll /usr/local/kafka/config/</code>
+主要关注：server.properties 这个文件即可，我们可以发现在目录下：</p> <p>有很多文件，这里可以发现有Zookeeper文件，我们可以根据Kafka内带的zk集群来启动，但是建议使用独立的zk集群</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>-rw-r--r-- 1 root root  906 Feb 22 06:26 connect-console-sink.properties
+-rw-r--r-- 1 root root  909 Feb 22 06:26 connect-console-source.properties
+-rw-r--r-- 1 root root 5807 Feb 22 06:26 connect-distributed.properties
+-rw-r--r-- 1 root root  883 Feb 22 06:26 connect-file-sink.properties
+-rw-r--r-- 1 root root  881 Feb 22 06:26 connect-file-source.properties
+-rw-r--r-- 1 root root 1111 Feb 22 06:26 connect-log4j.properties
+-rw-r--r-- 1 root root 2730 Feb 22 06:26 connect-standalone.properties
+-rw-r--r-- 1 root root 1221 Feb 22 06:26 consumer.properties
+-rw-r--r-- 1 root root 4727 Feb 22 06:26 log4j.properties
+-rw-r--r-- 1 root root 1919 Feb 22 06:26 producer.properties
+-rw-r--r-- 1 root root 6852 Feb 22 06:26 server.properties
+-rw-r--r-- 1 root root 1032 Feb 22 06:26 tools-log4j.properties
+-rw-r--r-- 1 root root 1023 Feb 22 06:26 zookeeper.properties
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h3 id="kafka配置参数解释"><a href="#kafka配置参数解释" class="header-anchor">#</a> Kafka配置参数解释</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code># cat /usr/local/kafka/config/server.properties
+----------------------------------------------------------------------------------------------------------------------------------
+broker.id=0  #当前机器在集群中的唯一标识，和zookeeper的myid性质一样,每台服务器的broker.id都不能相同
+port=19092 #当前kafka对外提供服务的端口默认是9092
+host.name=192.168.30.204 #这个参数默认是关闭的，在0.8.1有个bug，DNS解析问题，失败率的问题。
+num.network.threads=3 #这个是borker进行网络处理的线程数
+num.io.threads=8 #这个是borker进行I/O处理的线程数
+log.dirs=/data/kafka/kafkalogs/ #消息存放的目录，这个目录可以配置为“，”逗号分割的表达式，上面的num.io.threads要大于这个目录的个数，如果配置多个目录，新创建的topic将消息持久化的地方是，当前以逗号分割的目录中，哪个分区数最少就放那一个
+socket.send.buffer.bytes=102400 #发送缓冲区buffer大小，数据不是一下子就发送的，会先存储到缓冲区，到达一定的大小后在发送，能提高性能
+socket.receive.buffer.bytes=102400 #kafka接收缓冲区大小，当数据到达一定大小后在序列化到磁盘
+socket.request.max.bytes=104857600 #这个参数是向kafka请求消息或者向kafka发送消息的请求的最大数，这个值不能超过java的堆栈大小
+num.partitions=1 #默认的分区数，一个topic默认1个分区数
+log.retention.hours=168 #默认消息的最大持久化时间，168小时，7天
+message.max.byte=5242880  #消息保存的最大值5M
+default.replication.factor=2  #kafka保存消息的副本数，如果一个副本失效了，另一个还可以继续提供服务
+replica.fetch.max.bytes=5242880  #取消息的最大直接数
+log.segment.bytes=1073741824 #这个参数是：因为kafka的消息是以追加的形式落地到文件，当超过这个值的时候，kafka会新起一个文件
+log.retention.check.interval.ms=300000 #每隔300000毫秒去检查上面配置的log失效时间（log.retention.hours=168 ），到目录查看是否有过期的消息如果有，删除
+log.cleaner.enable=false #是否启用log压缩，一般不用启用，启用的话可以提高性能
+zookeeper.connect=192.168.30.204:12181,192.168.30.205:12181,192.168.30.206:12181 #设置zookeeper的连接端口
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><p>上面是参数的解释，实际的修改项为：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>#broker.id=0  每台服务器的broker.id都不能相同
+
+#hostname
+host.name=192.168.30.204
+
+#在log.retention.hours=168 下面新增下面三项
+message.max.byte=5242880
+default.replication.factor=2
+replica.fetch.max.bytes=5242880
+
+#设置zookeeper的连接端口
+zookeeper.connect=192.168.30.204:12181,192.168.30.205:12181,192.168.30.206:12181
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h3 id="启动kafka集群并测试"><a href="#启动kafka集群并测试" class="header-anchor">#</a> 启动Kafka集群并测试</h3> <h3 id="_1、配置kafka的环境变量"><a href="#_1、配置kafka的环境变量" class="header-anchor">#</a> <strong>1、配置Kafka的环境变量</strong></h3> <div class="language- line-numbers-mode"><pre class="language-text"><code># vim /etc/profile
+export KAFKA_HOME=/usr/local/kafka
+export PATH=$PATH:$KAFKA_HOME/bin
+
+# source /etc/profile
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h3 id="_2、启动kafka服务"><a href="#_2、启动kafka服务" class="header-anchor">#</a> <strong>2、启动Kafka服务</strong></h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>#从后台启动Kafka集群（3台都需要启动）
+./kafka-server-start.sh -daemon ../config/server.properties
+
+# 官方推荐启动方式：
+/usr/local/kafka/bin/kafka-server-start.sh /usr/local/kafka/config/server.properties &amp;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h3 id="_3、验证服务是否启动"><a href="#_3、验证服务是否启动" class="header-anchor">#</a> <strong>3、验证服务是否启动</strong></h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>#执行命令jps
+4289 Jps
+4216 Kafka
+1674 QuorumPeerMain
+
+#看到Kafka的进程，说明Kafka已经启动
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h3 id="验证kafka"><a href="#验证kafka" class="header-anchor">#</a> 验证Kafka</h3> <h3 id="_1、创建topic"><a href="#_1、创建topic" class="header-anchor">#</a> <strong>1、创建topic</strong></h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>#创建Topic
+kafka-topics.sh --create --zookeeper 192.168.30.204:12181,192.168.30.205:12181,192.168.30.206:12181 --partitions 3 --replication-factor 3 --topic qsh
+#解释
+--partitions 3   #创建3个分区
+--replication-factor 3     #复制3份
+--topic     #主题为qsh
+
+#查看topic状态
+kafka-topics.sh --describe --zookeeper localhost:12181 --topic qsh
+
+#下面是显示信息
+Topic:qsh   PartitionCount:3    ReplicationFactor:3 Configs:
+       Topic: qsh   Partition: 0    Leader: 1   Replicas: 1,2,3 Isr: 1,2,3
+         Topic: qsh Partition: 1    Leader: 2   Replicas: 2,3,1 Isr: 2,3,1
+       Topic: qsh   Partition: 2    Leader: 3   Replicas: 3,1,2 Isr: 3,1,2
+
+状态说明：
+#qsh有三个分区分别为1、2、3;
+#分区0的leader是1（broker.id），分区0有三个副本，并且状态都为lsr（ln-sync，表示可以参加选举成为leader）。
+
+#删除topic
+    在config/server.properties中加入delete.topic.enable=true并重启服务，在执行如下命令
+# kafka-topics.sh --delete --zookeeper localhost:12181 --topic qsh
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><h3 id="_2、测试使用kafka"><a href="#_2、测试使用kafka" class="header-anchor">#</a> <strong>2、测试使用Kafka</strong></h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>#在一台服务器上创建一个发布者-发送消息
+kafka-console-producer.sh --broker-list 192.168.30.204:19092 --topic qsh
+输入以下信息：
+　　This is a message
+　　This is another message
+
+#在另一台服务器上创建一个订阅者接收消息
+kafka-console-consumer.sh --zookeeper 192.168.30.206:12181 --topic qsh --from-beginning
+
+#--from-beginning 表示从开始第一个消息开始接收
+#测试（订阅者那里能正常收到发布者发布的消息，则说明已经搭建成功）
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h3 id="_3、其他命令"><a href="#_3、其他命令" class="header-anchor">#</a> <strong>3、其他命令</strong></h3> <p>更多请看官方文档：<a href="http://kafka.apache.org/documentation.html" target="_blank" rel="noopener noreferrer">http://kafka.apache.org/documentation.html<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>#查看topic
+kafka-topics.sh --list --zookeeper localhost:12181
+
+#就会显示我们创建的所有topic
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h3 id="_4、日志说明"><a href="#_4、日志说明" class="header-anchor">#</a> <strong>4、日志说明</strong></h3> <p>默认kafka的日志是保存在/usr/local/kafka/logs/目录下的，这里说几个需要注意的日志</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>server.log     #kafka的运行日志
+state-change.log    #kafka是用zookeeper来保存状态，所以他可能会进行切换，切换的日志就保存在这里
+controller.log     #kafka选择一个节点作为“controller”,当发现有节点down掉的时候它负责在有用分区的所有节点中选择新的leader,这使得Kafka可以批量的高效的管理所有分区节点的主从关系。如果controller down掉了，活着的节点中的一个会备切换为新的controller.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h3 id="_5、登录zk查看目录情况"><a href="#_5、登录zk查看目录情况" class="header-anchor">#</a> <strong>5、登录zk查看目录情况</strong></h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>#使用客户端进入zk
+zkCli.sh -server 127.0.0.1:12181    #默认是不用加’-server‘参数的因为我们修改了他的端口
+
+#查看目录情况 执行“ls /”
+[zk: 127.0.0.1:12181(CONNECTED) 0] ls /
+---------------------------------------------------------------------------------------------------------------------------------------
+#显示结果：
+[cluster, controller, controller_epoch, brokers, zookeeper, admin, isr_change_notification, consumers, log_dir_event_notification, latest_producer_id_block, config]
+'''
+上面的显示结果中：只有zookeeper是zookeeper原生的，其他都是Kafka创建的
+'''
+
+#标注一个重要的
+[zk: 127.0.0.1:12181(CONNECTED) 1] get /brokers/ids/1
+---------------------------------------------------------------------------------------------------------------------------------------
+{&quot;listener_security_protocol_map&quot;:{&quot;PLAINTEXT&quot;:&quot;PLAINTEXT&quot;},&quot;endpoints&quot;:[&quot;PLAINTEXT://192.168.30.204:19092&quot;],&quot;jmx_port&quot;:-1,&quot;host&quot;:&quot;192.168.30.204&quot;,&quot;timestamp&quot;:&quot;1525489051752&quot;,&quot;port&quot;:19092,&quot;version&quot;:4}
+cZxid = 0x10000001d
+ctime = Sat May 05 10:57:31 CST 2018
+mZxid = 0x10000001d
+mtime = Sat May 05 10:57:31 CST 2018
+pZxid = 0x10000001d
+cversion = 0
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x10000261cf40000
+dataLength = 200
+numChildren = 0
+
+#还有一个是查看partion
+[zk: 127.0.0.1:12181(CONNECTED) 7] get /brokers/topics/qsh/partitions/1
+null
+cZxid = 0x10000003e
+ctime = Sat May 05 11:22:00 CST 2018
+mZxid = 0x10000003e
+mtime = Sat May 05 11:22:00 CST 2018
+pZxid = 0x10000003f
+cversion = 1
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x0
+dataLength = 0
+numChildren = 1
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br></div></div></div> <footer class="page-edit" style="display:none;"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">2022/2/14 21:41:06</span></div></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div class="Sakura" data-v-017cf06a><canvas id="canvas_sakura" style="z-index:2;" data-v-017cf06a></canvas></div><!----><div class="RibbonAnimation"></div><div></div><!----><!----><div class="vuepress-canvas-nest-element"></div><div class="kanbanniang" data-v-7f9bdc70><div class="banniang-container" style="display:;" data-v-7f9bdc70><div class="messageBox" style="position:fixed;right:80px;bottom:200px;display:none;" data-v-7f9bdc70>
+      欢迎来到 喵ฅ仙 | BLOG
+    </div> <div class="operation" style="bottom:10px;right:60px;display:;" data-v-7f9bdc70><i class="kbnfont kbn-ban-home ban-home" data-v-7f9bdc70></i> <i class="kbnfont kbn-ban-message message" data-v-7f9bdc70></i> <i class="kbnfont kbn-ban-close close" data-v-7f9bdc70></i> <a target="_blank" href="https://vuepress-theme-reco.recoluan.com/views/plugins/kanbanniang.html" data-v-7f9bdc70><i class="kbnfont kbn-ban-info info" data-v-7f9bdc70></i></a> <i class="kbnfont kbn-ban-theme skin" style="display:;" data-v-7f9bdc70></i></div> <canvas id="banniang" width="120" height="280" class="live2d" style="position:fixed;right:120px;bottom:20px;opacity:1.2;" data-v-7f9bdc70></canvas></div> <div class="showBanNiang" style="display:none;" data-v-7f9bdc70>
+    看板娘
+  </div></div><div class="reco-bgm-panel" data-v-b1d3339e><audio id="bgm" src="http://music.163.com/song/media/outer/url?id=29004400.mp3" data-v-b1d3339e></audio> <div class="reco-float-box" style="bottom:200px;z-index:999999;display:none;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><img src="https://i.loli.net/2020/01/06/3gAnevw2xfzk4dY.png" data-v-b1d3339e></div> <div class="reco-bgm-box" style="left:10px;bottom:10px;z-index:999999;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="reco-bgm-cover" style="background-image:url(https://i.loli.net/2020/01/06/3gAnevw2xfzk4dY.png);" data-v-b1d3339e><div class="mini-operation" style="display:none;" data-v-b1d3339e><i class="reco-bgm reco-bgm-pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play" style="display:none;" data-v-b1d3339e></i></div> <div class="falut-message" style="display:none;" data-v-b1d3339e>
+          播放失败
+        </div></div> <div class="reco-bgm-info" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-music music" data-v-b1d3339e></i>烟火里的尘埃</div> <div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-artist" data-v-b1d3339e></i>华晨宇</div> <div class="reco-bgm-progress" data-v-b1d3339e><div class="progress-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div> <div class="reco-bgm-operation" data-v-b1d3339e><i class="reco-bgm reco-bgm-last last" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-pause pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play play" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-next next" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-volume1 volume" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-mute mute" style="display:none;" data-v-b1d3339e></i> <div class="volume-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div></div> <div class="reco-bgm-left-box" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><i class="reco-bgm reco-bgm-left" data-v-b1d3339e></i></div></div></div></div></div>
+    <script src="/assets/js/app.d3414c94.js" defer></script><script src="/assets/js/3.c1cc8b6c.js" defer></script><script src="/assets/js/1.b791f502.js" defer></script><script src="/assets/js/84.e2668675.js" defer></script>
+  </body>
+</html>

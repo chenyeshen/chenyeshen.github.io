@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>redis实现1分钟统一手机号发送短信次数不超过5次 | 喵ฅ仙 | BLOG</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link rel="icon" href="https://www.zpzpup.com/assets/image/favicon.ico">
+    <script src="/assets/js/bodyClick.js"></script>
+    <meta name="description" content="喵ฅ仙 | BLOG">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="preload" href="/assets/css/0.styles.3bb793a0.css" as="style"><link rel="preload" href="/assets/js/app.d3414c94.js" as="script"><link rel="preload" href="/assets/js/3.c1cc8b6c.js" as="script"><link rel="preload" href="/assets/js/1.b791f502.js" as="script"><link rel="preload" href="/assets/js/134.b053a751.js" as="script"><link rel="prefetch" href="/assets/js/10.9950e43d.js"><link rel="prefetch" href="/assets/js/100.547aaf7b.js"><link rel="prefetch" href="/assets/js/101.c3814bf3.js"><link rel="prefetch" href="/assets/js/102.98d7a601.js"><link rel="prefetch" href="/assets/js/103.f1607030.js"><link rel="prefetch" href="/assets/js/104.9567dde5.js"><link rel="prefetch" href="/assets/js/105.13a0d317.js"><link rel="prefetch" href="/assets/js/106.6cbb506e.js"><link rel="prefetch" href="/assets/js/107.ab955fe1.js"><link rel="prefetch" href="/assets/js/108.34ff7555.js"><link rel="prefetch" href="/assets/js/109.de2c061d.js"><link rel="prefetch" href="/assets/js/11.5af13e68.js"><link rel="prefetch" href="/assets/js/110.54d827e6.js"><link rel="prefetch" href="/assets/js/111.8f1f1e1c.js"><link rel="prefetch" href="/assets/js/112.4884a476.js"><link rel="prefetch" href="/assets/js/113.13f39580.js"><link rel="prefetch" href="/assets/js/114.1865269f.js"><link rel="prefetch" href="/assets/js/115.d9fddff3.js"><link rel="prefetch" href="/assets/js/116.0d7df8ec.js"><link rel="prefetch" href="/assets/js/117.dc0da5b5.js"><link rel="prefetch" href="/assets/js/118.7a5a65e1.js"><link rel="prefetch" href="/assets/js/119.3be6def5.js"><link rel="prefetch" href="/assets/js/12.74da2858.js"><link rel="prefetch" href="/assets/js/120.52071199.js"><link rel="prefetch" href="/assets/js/121.56d9fb92.js"><link rel="prefetch" href="/assets/js/122.3aa9c2ee.js"><link rel="prefetch" href="/assets/js/123.221df785.js"><link rel="prefetch" href="/assets/js/124.9d033311.js"><link rel="prefetch" href="/assets/js/125.28f98fbe.js"><link rel="prefetch" href="/assets/js/126.dae4704a.js"><link rel="prefetch" href="/assets/js/127.9a8665c6.js"><link rel="prefetch" href="/assets/js/128.e7254bf4.js"><link rel="prefetch" href="/assets/js/129.ffedb400.js"><link rel="prefetch" href="/assets/js/13.7979e6c4.js"><link rel="prefetch" href="/assets/js/130.ab358f57.js"><link rel="prefetch" href="/assets/js/131.d619d711.js"><link rel="prefetch" href="/assets/js/132.8157f72a.js"><link rel="prefetch" href="/assets/js/133.cfa86ce2.js"><link rel="prefetch" href="/assets/js/135.2cbd13ea.js"><link rel="prefetch" href="/assets/js/136.a266d7fa.js"><link rel="prefetch" href="/assets/js/137.5aef0f80.js"><link rel="prefetch" href="/assets/js/138.d5ea3f78.js"><link rel="prefetch" href="/assets/js/139.b8b7114e.js"><link rel="prefetch" href="/assets/js/14.40f59b6f.js"><link rel="prefetch" href="/assets/js/140.3dcb64da.js"><link rel="prefetch" href="/assets/js/141.ceb5eeac.js"><link rel="prefetch" href="/assets/js/142.f2f5124b.js"><link rel="prefetch" href="/assets/js/143.9ed2f273.js"><link rel="prefetch" href="/assets/js/144.fb91af7c.js"><link rel="prefetch" href="/assets/js/145.401fa1ac.js"><link rel="prefetch" href="/assets/js/146.3b4c014b.js"><link rel="prefetch" href="/assets/js/147.6726618d.js"><link rel="prefetch" href="/assets/js/148.dd87612e.js"><link rel="prefetch" href="/assets/js/149.477a5bac.js"><link rel="prefetch" href="/assets/js/15.e421a4d6.js"><link rel="prefetch" href="/assets/js/150.e6bc7368.js"><link rel="prefetch" href="/assets/js/151.70a175f5.js"><link rel="prefetch" href="/assets/js/152.b4d733c1.js"><link rel="prefetch" href="/assets/js/153.1ad07edf.js"><link rel="prefetch" href="/assets/js/154.edb47009.js"><link rel="prefetch" href="/assets/js/155.147cc8ef.js"><link rel="prefetch" href="/assets/js/156.fe1ef05c.js"><link rel="prefetch" href="/assets/js/157.95511492.js"><link rel="prefetch" href="/assets/js/158.ef3b8c5f.js"><link rel="prefetch" href="/assets/js/159.1206530b.js"><link rel="prefetch" href="/assets/js/16.7fe1af7b.js"><link rel="prefetch" href="/assets/js/160.72d1a579.js"><link rel="prefetch" href="/assets/js/161.a315bd2b.js"><link rel="prefetch" href="/assets/js/162.42fe3b24.js"><link rel="prefetch" href="/assets/js/163.6a5d10c8.js"><link rel="prefetch" href="/assets/js/164.ed67b9da.js"><link rel="prefetch" href="/assets/js/165.0167b9b8.js"><link rel="prefetch" href="/assets/js/166.83f4a74f.js"><link rel="prefetch" href="/assets/js/167.ef9c9fe9.js"><link rel="prefetch" href="/assets/js/168.f1d37188.js"><link rel="prefetch" href="/assets/js/169.c6c89458.js"><link rel="prefetch" href="/assets/js/17.3d09df36.js"><link rel="prefetch" href="/assets/js/170.cb7b4a5c.js"><link rel="prefetch" href="/assets/js/171.dc35a8ee.js"><link rel="prefetch" href="/assets/js/172.3b63976c.js"><link rel="prefetch" href="/assets/js/173.4046f716.js"><link rel="prefetch" href="/assets/js/174.363ad972.js"><link rel="prefetch" href="/assets/js/175.758c8eea.js"><link rel="prefetch" href="/assets/js/176.3ad2df24.js"><link rel="prefetch" href="/assets/js/177.63d33f33.js"><link rel="prefetch" href="/assets/js/178.c1fa02ba.js"><link rel="prefetch" href="/assets/js/179.841c667f.js"><link rel="prefetch" href="/assets/js/18.7af139be.js"><link rel="prefetch" href="/assets/js/180.792657ec.js"><link rel="prefetch" href="/assets/js/181.758c2c8e.js"><link rel="prefetch" href="/assets/js/182.9a31ae61.js"><link rel="prefetch" href="/assets/js/183.f726e922.js"><link rel="prefetch" href="/assets/js/184.0ef12134.js"><link rel="prefetch" href="/assets/js/185.5d36831c.js"><link rel="prefetch" href="/assets/js/186.a767ab42.js"><link rel="prefetch" href="/assets/js/187.884a5752.js"><link rel="prefetch" href="/assets/js/188.ad939ffc.js"><link rel="prefetch" href="/assets/js/189.48a05d34.js"><link rel="prefetch" href="/assets/js/19.ff13606a.js"><link rel="prefetch" href="/assets/js/190.915f52fc.js"><link rel="prefetch" href="/assets/js/191.ce5886af.js"><link rel="prefetch" href="/assets/js/192.42e5d019.js"><link rel="prefetch" href="/assets/js/193.9d44b671.js"><link rel="prefetch" href="/assets/js/194.2ad95d04.js"><link rel="prefetch" href="/assets/js/195.e7024b92.js"><link rel="prefetch" href="/assets/js/196.de0f4e92.js"><link rel="prefetch" href="/assets/js/197.5ecff7f5.js"><link rel="prefetch" href="/assets/js/198.10e1c698.js"><link rel="prefetch" href="/assets/js/199.677d3dca.js"><link rel="prefetch" href="/assets/js/20.2296f102.js"><link rel="prefetch" href="/assets/js/200.bb551214.js"><link rel="prefetch" href="/assets/js/201.79efe42c.js"><link rel="prefetch" href="/assets/js/202.2ee52ca4.js"><link rel="prefetch" href="/assets/js/203.874e1959.js"><link rel="prefetch" href="/assets/js/204.08e88994.js"><link rel="prefetch" href="/assets/js/205.edc97c20.js"><link rel="prefetch" href="/assets/js/206.36a455d6.js"><link rel="prefetch" href="/assets/js/207.5ee74906.js"><link rel="prefetch" href="/assets/js/208.886bc7c2.js"><link rel="prefetch" href="/assets/js/209.4b0340d9.js"><link rel="prefetch" href="/assets/js/21.8d13209f.js"><link rel="prefetch" href="/assets/js/210.64455c4f.js"><link rel="prefetch" href="/assets/js/211.c6b7d243.js"><link rel="prefetch" href="/assets/js/212.42c051aa.js"><link rel="prefetch" href="/assets/js/213.5b2a60f4.js"><link rel="prefetch" href="/assets/js/214.661f5321.js"><link rel="prefetch" href="/assets/js/215.42f45005.js"><link rel="prefetch" href="/assets/js/216.f37f7411.js"><link rel="prefetch" href="/assets/js/217.10c5ca12.js"><link rel="prefetch" href="/assets/js/218.d6f3834f.js"><link rel="prefetch" href="/assets/js/219.fd28a873.js"><link rel="prefetch" href="/assets/js/22.23c5024e.js"><link rel="prefetch" href="/assets/js/220.be941ce1.js"><link rel="prefetch" href="/assets/js/221.1c6688c6.js"><link rel="prefetch" href="/assets/js/222.7b63121f.js"><link rel="prefetch" href="/assets/js/223.6614e200.js"><link rel="prefetch" href="/assets/js/224.d49a7523.js"><link rel="prefetch" href="/assets/js/225.6fcd8fad.js"><link rel="prefetch" href="/assets/js/226.9dcb061a.js"><link rel="prefetch" href="/assets/js/227.fe08b736.js"><link rel="prefetch" href="/assets/js/228.691928ed.js"><link rel="prefetch" href="/assets/js/229.63b002f2.js"><link rel="prefetch" href="/assets/js/23.95c4aba8.js"><link rel="prefetch" href="/assets/js/230.f540e919.js"><link rel="prefetch" href="/assets/js/231.d3fb3071.js"><link rel="prefetch" href="/assets/js/232.222b38dd.js"><link rel="prefetch" href="/assets/js/233.b017b884.js"><link rel="prefetch" href="/assets/js/234.2510b9fc.js"><link rel="prefetch" href="/assets/js/235.c2775cfe.js"><link rel="prefetch" href="/assets/js/236.f77331be.js"><link rel="prefetch" href="/assets/js/237.ce8f0a27.js"><link rel="prefetch" href="/assets/js/238.0f3abac6.js"><link rel="prefetch" href="/assets/js/239.76f7d09e.js"><link rel="prefetch" href="/assets/js/24.0d446ccc.js"><link rel="prefetch" href="/assets/js/240.d2071eb0.js"><link rel="prefetch" href="/assets/js/241.23dd9ff1.js"><link rel="prefetch" href="/assets/js/242.b01bf8a3.js"><link rel="prefetch" href="/assets/js/243.b169cabd.js"><link rel="prefetch" href="/assets/js/244.a4c1d04f.js"><link rel="prefetch" href="/assets/js/25.a43cd0e4.js"><link rel="prefetch" href="/assets/js/26.869e0aac.js"><link rel="prefetch" href="/assets/js/27.47e08196.js"><link rel="prefetch" href="/assets/js/28.49524013.js"><link rel="prefetch" href="/assets/js/29.7f02f34a.js"><link rel="prefetch" href="/assets/js/30.0acd0eea.js"><link rel="prefetch" href="/assets/js/31.5e86706f.js"><link rel="prefetch" href="/assets/js/32.0187d938.js"><link rel="prefetch" href="/assets/js/33.1382c27e.js"><link rel="prefetch" href="/assets/js/34.35ee348e.js"><link rel="prefetch" href="/assets/js/35.5cabc4f3.js"><link rel="prefetch" href="/assets/js/36.6f63163b.js"><link rel="prefetch" href="/assets/js/37.642294d8.js"><link rel="prefetch" href="/assets/js/38.4743828b.js"><link rel="prefetch" href="/assets/js/39.a92d2bcc.js"><link rel="prefetch" href="/assets/js/4.63f85c88.js"><link rel="prefetch" href="/assets/js/40.6f620d32.js"><link rel="prefetch" href="/assets/js/41.8ed7b207.js"><link rel="prefetch" href="/assets/js/42.3fc02a7a.js"><link rel="prefetch" href="/assets/js/43.5201305b.js"><link rel="prefetch" href="/assets/js/44.46bfdd20.js"><link rel="prefetch" href="/assets/js/45.24377bbe.js"><link rel="prefetch" href="/assets/js/46.ea754b8c.js"><link rel="prefetch" href="/assets/js/47.1daa5167.js"><link rel="prefetch" href="/assets/js/48.7c287d18.js"><link rel="prefetch" href="/assets/js/49.b6c1bbd4.js"><link rel="prefetch" href="/assets/js/5.ab501ffb.js"><link rel="prefetch" href="/assets/js/50.e8f6f3af.js"><link rel="prefetch" href="/assets/js/51.39efb04d.js"><link rel="prefetch" href="/assets/js/52.4ee4fa19.js"><link rel="prefetch" href="/assets/js/53.26fb63f8.js"><link rel="prefetch" href="/assets/js/54.c0a093c0.js"><link rel="prefetch" href="/assets/js/55.5ce18d6e.js"><link rel="prefetch" href="/assets/js/56.303248b5.js"><link rel="prefetch" href="/assets/js/57.fc398504.js"><link rel="prefetch" href="/assets/js/58.1dd5d7db.js"><link rel="prefetch" href="/assets/js/59.602e5481.js"><link rel="prefetch" href="/assets/js/6.24af21eb.js"><link rel="prefetch" href="/assets/js/60.02556f2c.js"><link rel="prefetch" href="/assets/js/61.2185faaf.js"><link rel="prefetch" href="/assets/js/62.d9e5be74.js"><link rel="prefetch" href="/assets/js/63.b17db042.js"><link rel="prefetch" href="/assets/js/64.2c605e51.js"><link rel="prefetch" href="/assets/js/65.d14b86d6.js"><link rel="prefetch" href="/assets/js/66.a66924bd.js"><link rel="prefetch" href="/assets/js/67.b50dd301.js"><link rel="prefetch" href="/assets/js/68.3ac38668.js"><link rel="prefetch" href="/assets/js/69.a78e9490.js"><link rel="prefetch" href="/assets/js/7.d507b441.js"><link rel="prefetch" href="/assets/js/70.96398e63.js"><link rel="prefetch" href="/assets/js/71.05874360.js"><link rel="prefetch" href="/assets/js/72.69980700.js"><link rel="prefetch" href="/assets/js/73.cb853c74.js"><link rel="prefetch" href="/assets/js/74.926b762d.js"><link rel="prefetch" href="/assets/js/75.e2351f97.js"><link rel="prefetch" href="/assets/js/76.e55fe8c6.js"><link rel="prefetch" href="/assets/js/77.a3e9386f.js"><link rel="prefetch" href="/assets/js/78.328a60cf.js"><link rel="prefetch" href="/assets/js/79.bf39e69e.js"><link rel="prefetch" href="/assets/js/8.6a110e40.js"><link rel="prefetch" href="/assets/js/80.c724ba39.js"><link rel="prefetch" href="/assets/js/81.62a2ab22.js"><link rel="prefetch" href="/assets/js/82.8fd8d358.js"><link rel="prefetch" href="/assets/js/83.18c4fd9b.js"><link rel="prefetch" href="/assets/js/84.e2668675.js"><link rel="prefetch" href="/assets/js/85.48e74cb3.js"><link rel="prefetch" href="/assets/js/86.3395c2c2.js"><link rel="prefetch" href="/assets/js/87.ca7e155f.js"><link rel="prefetch" href="/assets/js/88.8c27e2b1.js"><link rel="prefetch" href="/assets/js/89.cff7ecfe.js"><link rel="prefetch" href="/assets/js/9.54a1e645.js"><link rel="prefetch" href="/assets/js/90.96c608e8.js"><link rel="prefetch" href="/assets/js/91.b1d97b76.js"><link rel="prefetch" href="/assets/js/92.6a75e2bd.js"><link rel="prefetch" href="/assets/js/93.d6bfc085.js"><link rel="prefetch" href="/assets/js/94.faf3fbee.js"><link rel="prefetch" href="/assets/js/95.faa44b7d.js"><link rel="prefetch" href="/assets/js/96.d206267b.js"><link rel="prefetch" href="/assets/js/97.c13f8e4b.js"><link rel="prefetch" href="/assets/js/98.0c71437d.js"><link rel="prefetch" href="/assets/js/99.fcddb01f.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3bb793a0.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-dad8a512><div data-v-dad8a512><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-dad8a512 data-v-dad8a512><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-64685f0e data-v-dad8a512 data-v-dad8a512><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>喵ฅ仙 | BLOG</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>喵ฅ仙 | BLOG</span>
+            
+          <span data-v-64685f0e>2017 - </span>
+          2022
+        </a></span></div></div> <div class="hide" data-v-dad8a512><header class="navbar" data-v-dad8a512><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="喵ฅ仙 | BLOG" class="logo"> <span class="site-name">喵ฅ仙 | BLOG</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Docker/" class="nav-link"><i class="iconfont undefined"></i>
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Element/" class="nav-link"><i class="iconfont undefined"></i>
+  Element
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Java/" class="nav-link"><i class="iconfont undefined"></i>
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Vue/" class="nav-link"><i class="iconfont undefined"></i>
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/大数据/" class="nav-link"><i class="iconfont undefined"></i>
+  大数据
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringBoot/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringBoot
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Git/" class="nav-link"><i class="iconfont undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/categories/JavaScript/" class="nav-link"><i class="iconfont undefined"></i>
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/K8S/" class="nav-link"><i class="iconfont undefined"></i>
+  K8S
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Kafka/" class="nav-link"><i class="iconfont undefined"></i>
+  Kafka
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Linux/" class="nav-link"><i class="iconfont undefined"></i>
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/categories/MyBatis/" class="nav-link"><i class="iconfont undefined"></i>
+  MyBatis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/MongoDB/" class="nav-link"><i class="iconfont undefined"></i>
+  MongoDB
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Mysql/" class="nav-link"><i class="iconfont undefined"></i>
+  Mysql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Nginx/" class="nav-link"><i class="iconfont undefined"></i>
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Node/" class="nav-link"><i class="iconfont undefined"></i>
+  Node
+</a></li><li class="dropdown-item"><!----> <a href="/categories/RabbitMQ/" class="nav-link"><i class="iconfont undefined"></i>
+  RabbitMQ
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Redis/" class="nav-link"><i class="iconfont undefined"></i>
+  Redis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Skywalking/" class="nav-link"><i class="iconfont undefined"></i>
+  Skywalking
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringCloud/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringCloud
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringCloudAlibaba/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringCloudAlibaba
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringSecurity/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringSecurity
+</a></li><li class="dropdown-item"><!----> <a href="/categories/工作区/" class="nav-link"><i class="iconfont undefined"></i>
+  工作区
+</a></li><li class="dropdown-item"><!----> <a href="/categories/ZooKeeper/" class="nav-link"><i class="iconfont undefined"></i>
+  ZooKeeper
+</a></li><li class="dropdown-item"><!----> <a href="/categories/FastDFS/" class="nav-link"><i class="iconfont undefined"></i>
+  FastDFS
+</a></li><li class="dropdown-item"><!----> <a href="/categories/百度网盘/" class="nav-link"><i class="iconfont undefined"></i>
+  百度网盘
+</a></li><li class="dropdown-item"><!----> <a href="/categories/图床/" class="nav-link"><i class="iconfont undefined"></i>
+  图床
+</a></li><li class="dropdown-item"><!----> <a href="/categories/V2Ray/" class="nav-link"><i class="iconfont undefined"></i>
+  V2Ray
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Kail/" class="nav-link"><i class="iconfont undefined"></i>
+  Kail
+</a></li><li class="dropdown-item"><!----> <a href="/categories/免流/" class="nav-link"><i class="iconfont undefined"></i>
+  免流
+</a></li><li class="dropdown-item"><!----> <a href="/categories/学习记/" class="nav-link"><i class="iconfont undefined"></i>
+  学习记
+</a></li><li class="dropdown-item"><!----> <a href="/categories/工具/" class="nav-link"><i class="iconfont undefined"></i>
+  工具
+</a></li><li class="dropdown-item"><!----> <a href="/categories/NoteBook/" class="nav-link"><i class="iconfont undefined"></i>
+  NoteBook
+</a></li><li class="dropdown-item"><!----> <a href="/categories/WorkBook/" class="nav-link"><i class="iconfont undefined"></i>
+  WorkBook
+</a></li><li class="dropdown-item"><!----> <a href="/categories/破解软件/" class="nav-link"><i class="iconfont undefined"></i>
+  破解软件
+</a></li><li class="dropdown-item"><!----> <a href="/categories/青龙/" class="nav-link"><i class="iconfont undefined"></i>
+  青龙
+</a></li><li class="dropdown-item"><!----> <a href="/categories/面试题/" class="nav-link"><i class="iconfont undefined"></i>
+  面试题
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/mukeyeshen" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-dad8a512></div> <aside class="sidebar" data-v-dad8a512><div class="personal-info-wrapper" data-v-ca798c94 data-v-dad8a512><img src="/avatar.png" alt="author-avatar" class="personal-img" data-v-ca798c94> <h3 class="name" data-v-ca798c94>
+    喵ฅ仙 | BLOG
+  </h3> <div class="num" data-v-ca798c94><div data-v-ca798c94><h3 data-v-ca798c94>182</h3> <h6 data-v-ca798c94>文章</h6></div> <div data-v-ca798c94><h3 data-v-ca798c94>67</h3> <h6 data-v-ca798c94>标签</h6></div></div> <hr data-v-ca798c94></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Docker/" class="nav-link"><i class="iconfont undefined"></i>
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Element/" class="nav-link"><i class="iconfont undefined"></i>
+  Element
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Java/" class="nav-link"><i class="iconfont undefined"></i>
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Vue/" class="nav-link"><i class="iconfont undefined"></i>
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/大数据/" class="nav-link"><i class="iconfont undefined"></i>
+  大数据
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringBoot/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringBoot
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Git/" class="nav-link"><i class="iconfont undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/categories/JavaScript/" class="nav-link"><i class="iconfont undefined"></i>
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/K8S/" class="nav-link"><i class="iconfont undefined"></i>
+  K8S
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Kafka/" class="nav-link"><i class="iconfont undefined"></i>
+  Kafka
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Linux/" class="nav-link"><i class="iconfont undefined"></i>
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/categories/MyBatis/" class="nav-link"><i class="iconfont undefined"></i>
+  MyBatis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/MongoDB/" class="nav-link"><i class="iconfont undefined"></i>
+  MongoDB
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Mysql/" class="nav-link"><i class="iconfont undefined"></i>
+  Mysql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Nginx/" class="nav-link"><i class="iconfont undefined"></i>
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Node/" class="nav-link"><i class="iconfont undefined"></i>
+  Node
+</a></li><li class="dropdown-item"><!----> <a href="/categories/RabbitMQ/" class="nav-link"><i class="iconfont undefined"></i>
+  RabbitMQ
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Redis/" class="nav-link"><i class="iconfont undefined"></i>
+  Redis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Skywalking/" class="nav-link"><i class="iconfont undefined"></i>
+  Skywalking
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringCloud/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringCloud
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringCloudAlibaba/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringCloudAlibaba
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringSecurity/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringSecurity
+</a></li><li class="dropdown-item"><!----> <a href="/categories/工作区/" class="nav-link"><i class="iconfont undefined"></i>
+  工作区
+</a></li><li class="dropdown-item"><!----> <a href="/categories/ZooKeeper/" class="nav-link"><i class="iconfont undefined"></i>
+  ZooKeeper
+</a></li><li class="dropdown-item"><!----> <a href="/categories/FastDFS/" class="nav-link"><i class="iconfont undefined"></i>
+  FastDFS
+</a></li><li class="dropdown-item"><!----> <a href="/categories/百度网盘/" class="nav-link"><i class="iconfont undefined"></i>
+  百度网盘
+</a></li><li class="dropdown-item"><!----> <a href="/categories/图床/" class="nav-link"><i class="iconfont undefined"></i>
+  图床
+</a></li><li class="dropdown-item"><!----> <a href="/categories/V2Ray/" class="nav-link"><i class="iconfont undefined"></i>
+  V2Ray
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Kail/" class="nav-link"><i class="iconfont undefined"></i>
+  Kail
+</a></li><li class="dropdown-item"><!----> <a href="/categories/免流/" class="nav-link"><i class="iconfont undefined"></i>
+  免流
+</a></li><li class="dropdown-item"><!----> <a href="/categories/学习记/" class="nav-link"><i class="iconfont undefined"></i>
+  学习记
+</a></li><li class="dropdown-item"><!----> <a href="/categories/工具/" class="nav-link"><i class="iconfont undefined"></i>
+  工具
+</a></li><li class="dropdown-item"><!----> <a href="/categories/NoteBook/" class="nav-link"><i class="iconfont undefined"></i>
+  NoteBook
+</a></li><li class="dropdown-item"><!----> <a href="/categories/WorkBook/" class="nav-link"><i class="iconfont undefined"></i>
+  WorkBook
+</a></li><li class="dropdown-item"><!----> <a href="/categories/破解软件/" class="nav-link"><i class="iconfont undefined"></i>
+  破解软件
+</a></li><li class="dropdown-item"><!----> <a href="/categories/青龙/" class="nav-link"><i class="iconfont undefined"></i>
+  青龙
+</a></li><li class="dropdown-item"><!----> <a href="/categories/面试题/" class="nav-link"><i class="iconfont undefined"></i>
+  面试题
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/mukeyeshen" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-64685f0e data-v-dad8a512><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>redis实现1分钟统一手机号发送短信次数不超过5次</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>喵ฅ仙 | BLOG</span>
+            
+          <span data-v-64685f0e>2017 - </span>
+          2022
+        </a></span></div></div> <div data-v-dad8a512><main class="page"><div class="page-title" style="display:none;"><h1>redis实现1分钟统一手机号发送短信次数不超过5次</h1> <div data-v-3b7f5bdf><i class="iconfont reco-account" data-v-3b7f5bdf><span data-v-3b7f5bdf>喵ฅ仙 | BLOG</span></i> <!----> <i class="iconfont reco-eye" data-v-3b7f5bdf><span id="/docs/Redis/redis%E5%AE%9E%E7%8E%B01%E5%88%86%E9%92%9F%E7%BB%9F%E4%B8%80%E6%89%8B%E6%9C%BA%E5%8F%B7%E5%8F%91%E9%80%81%E7%9F%AD%E4%BF%A1%E6%AC%A1%E6%95%B0%E4%B8%8D%E8%B6%85%E8%BF%875%E6%AC%A1.html" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-3b7f5bdf><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <i class="iconfont reco-tag tags" data-v-3b7f5bdf><span class="tag-item" data-v-3b7f5bdf>Redis</span><span class="tag-item" data-v-3b7f5bdf>SpringBoot</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><p>直接上码走起</p> <h2 id="依赖pom"><a href="#依赖pom" class="header-anchor">#</a> 依赖pom</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h2 id="配置文件"><a href="#配置文件" class="header-anchor">#</a> 配置文件</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code># Redis数据库索引（默认为0）
+spring.redis.database=0  
+# Redis服务器地址
+spring.redis.host=127.0.0.1
+# Redis服务器连接端口
+spring.redis.port=6379  
+# Redis服务器连接密码（默认为空）
+spring.redis.password=123456
+# 连接池最大连接数（使用负值表示没有限制）
+spring.redis.pool.max-active=200  
+# 连接池最大阻塞等待时间（使用负值表示没有限制）
+spring.redis.pool.max-wait=-1  
+# 连接池中的最大空闲连接
+spring.redis.pool.max-idle=10 
+# 连接池中的最小空闲连接
+spring.redis.pool.min-idle=0  
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><h2 id="redis工具类"><a href="#redis工具类" class="header-anchor">#</a> Redis工具类</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+/**
+ * Redis工具类
+ *
+ */
+@Component
+public final class RedisUtil {
+
+    @Autowired
+    private RedisTemplate&lt;String, Object&gt; redisTemplate;
+
+    // =============================common============================
+    /**
+     * 指定缓存失效时间
+     *
+     * @param key  键
+     * @param time 时间(秒)
+     * @return
+     */
+    public boolean expire(String key, long time) {
+        try {
+            if (time &gt; 0) {
+                redisTemplate.expire(key, time, TimeUnit.SECONDS);
+            }
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * 根据key 获取过期时间
+     *
+     * @param key 键 不能为null
+     * @return 时间(秒) 返回0代表为永久有效
+     */
+    public long getExpire(String key) {
+        return redisTemplate.getExpire(key, TimeUnit.SECONDS);
+    }
+
+    /**
+     * 判断key是否存在
+     *
+     * @param key 键
+     * @return true 存在 false不存在
+     */
+    public boolean hasKey(String key) {
+        try {
+            return redisTemplate.hasKey(key);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * 删除缓存
+     *
+     * @param key 可以传一个值 或多个
+     */
+    @SuppressWarnings(&quot;unchecked&quot;)
+    public void del(String... key) {
+        if (key != null &amp;&amp; key.length &gt; 0) {
+            if (key.length == 1) {
+                redisTemplate.delete(key[0]);
+            } else {
+                redisTemplate.delete(CollectionUtils.arrayToList(key));
+            }
+        }
+    }
+    // ============================String=============================
+
+    /**
+     * 普通缓存获取
+     *
+     * @param key 键
+     * @return 值
+     */
+    public Object get(String key) {
+        return key == null ? null : redisTemplate.opsForValue().get(key);
+    }
+
+    /**
+     * 普通缓存放入
+     *
+     * @param key   键
+     * @param value 值
+     * @return true成功 false失败
+     */
+    public boolean set(String key, Object value) {
+        try {
+            redisTemplate.opsForValue().set(key, value);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * 普通缓存放入并设置时间
+     *
+     * @param key   键
+     * @param value 值
+     * @param time  时间(秒) time要大于0 如果time小于等于0 将设置无限期
+     * @return true成功 false 失败
+     */
+    public boolean set(String key, Object value, long time) {
+        try {
+            if (time &gt; 0) {
+                redisTemplate.opsForValue().set(key, value, time, TimeUnit.SECONDS);
+            } else {
+                set(key, value);
+            }
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * 递增
+     *
+     * @param key   键
+     * @param delta 要增加几(大于0)
+     * @return
+     */
+    public long incr(String key, long delta) {
+        if (delta &lt; 0) {
+            throw new RuntimeException(&quot;递增因子必须大于0&quot;);
+        }
+        return redisTemplate.opsForValue().increment(key, delta);
+    }
+
+    /**
+     * 递减
+     *
+     * @param key   键
+     * @param delta 要减少几(小于0)
+     * @return
+     */
+    public long decr(String key, long delta) {
+        if (delta &lt; 0) {
+            throw new RuntimeException(&quot;递减因子必须大于0&quot;);
+        }
+        return redisTemplate.opsForValue().increment(key, -delta);
+    }
+    // ================================Map=================================
+
+    /**
+     * HashGet
+     *
+     * @param key  键 不能为null
+     * @param item 项 不能为null
+     * @return 值
+     */
+    public Object hget(String key, String item) {
+        return redisTemplate.opsForHash().get(key, item);
+    }
+
+    /**
+     * 获取hashKey对应的所有键值
+     *
+     * @param key 键
+     * @return 对应的多个键值
+     */
+    public Map&lt;Object, Object&gt; hmget(String key) {
+        return redisTemplate.opsForHash().entries(key);
+    }
+
+    /**
+     * HashSet
+     *
+     * @param key 键
+     * @param map 对应多个键值
+     * @return true 成功 false 失败
+     */
+    public boolean hmset(String key, Map&lt;String, Object&gt; map) {
+        try {
+            redisTemplate.opsForHash().putAll(key, map);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * HashSet 并设置时间
+     *
+     * @param key  键
+     * @param map  对应多个键值
+     * @param time 时间(秒)
+     * @return true成功 false失败
+     */
+    public boolean hmset(String key, Map&lt;String, Object&gt; map, long time) {
+        try {
+            redisTemplate.opsForHash().putAll(key, map);
+            if (time &gt; 0) {
+                expire(key, time);
+            }
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * 向一张hash表中放入数据,如果不存在将创建
+     *
+     * @param key   键
+     * @param item  项
+     * @param value 值
+     * @return true 成功 false失败
+     */
+    public boolean hset(String key, String item, Object value) {
+        try {
+            redisTemplate.opsForHash().put(key, item, value);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * 向一张hash表中放入数据,如果不存在将创建
+     *
+     * @param key   键
+     * @param item  项
+     * @param value 值
+     * @param time  时间(秒) 注意:如果已存在的hash表有时间,这里将会替换原有的时间
+     * @return true 成功 false失败
+     */
+    public boolean hset(String key, String item, Object value, long time) {
+        try {
+            redisTemplate.opsForHash().put(key, item, value);
+            if (time &gt; 0) {
+                expire(key, time);
+            }
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * 删除hash表中的值
+     *
+     * @param key  键 不能为null
+     * @param item 项 可以使多个 不能为null
+     */
+    public void hdel(String key, Object... item) {
+        redisTemplate.opsForHash().delete(key, item);
+    }
+
+    /**
+     * 判断hash表中是否有该项的值
+     *
+     * @param key  键 不能为null
+     * @param item 项 不能为null
+     * @return true 存在 false不存在
+     */
+    public boolean hHasKey(String key, String item) {
+        return redisTemplate.opsForHash().hasKey(key, item);
+    }
+
+    /**
+     * hash递增 如果不存在,就会创建一个 并把新增后的值返回
+     *
+     * @param key  键
+     * @param item 项
+     * @param by   要增加几(大于0)
+     * @return
+     */
+    public double hincr(String key, String item, double by) {
+        return redisTemplate.opsForHash().increment(key, item, by);
+    }
+
+    /**
+     * hash递减
+     *
+     * @param key  键
+     * @param item 项
+     * @param by   要减少记(小于0)
+     * @return
+     */
+    public double hdecr(String key, String item, double by) {
+        return redisTemplate.opsForHash().increment(key, item, -by);
+    }
+    // ============================set=============================
+
+    /**
+     * 根据key获取Set中的所有值
+     *
+     * @param key 键
+     * @return
+     */
+    public Set&lt;Object&gt; sGet(String key) {
+        try {
+            return redisTemplate.opsForSet().members(key);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * 根据value从一个set中查询,是否存在
+     *
+     * @param key   键
+     * @param value 值
+     * @return true 存在 false不存在
+     */
+    public boolean sHasKey(String key, Object value) {
+        try {
+            return redisTemplate.opsForSet().isMember(key, value);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * 将数据放入set缓存
+     *
+     * @param key    键
+     * @param values 值 可以是多个
+     * @return 成功个数
+     */
+    public long sSet(String key, Object... values) {
+        try {
+            return redisTemplate.opsForSet().add(key, values);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    /**
+     * 将set数据放入缓存
+     *
+     * @param key    键
+     * @param time   时间(秒)
+     * @param values 值 可以是多个
+     * @return 成功个数
+     */
+    public long sSetAndTime(String key, long time, Object... values) {
+        try {
+            Long count = redisTemplate.opsForSet().add(key, values);
+            if (time &gt; 0)
+                expire(key, time);
+            return count;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    /**
+     * 获取set缓存的长度
+     *
+     * @param key 键
+     * @return
+     */
+    public long sGetSetSize(String key) {
+        try {
+            return redisTemplate.opsForSet().size(key);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    /**
+     * 移除值为value的
+     *
+     * @param key    键
+     * @param values 值 可以是多个
+     * @return 移除的个数
+     */
+    public long setRemove(String key, Object... values) {
+        try {
+            Long count = redisTemplate.opsForSet().remove(key, values);
+            return count;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+    // ===============================list=================================
+
+    /**
+     * 获取list缓存的内容
+     *
+     * @param key   键
+     * @param start 开始
+     * @param end   结束 0 到 -1代表所有值
+     * @return
+     */
+    public List&lt;Object&gt; lGet(String key, long start, long end) {
+        try {
+            return redisTemplate.opsForList().range(key, start, end);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * 获取list缓存的长度
+     *
+     * @param key 键
+     * @return
+     */
+    public long lGetListSize(String key) {
+        try {
+            return redisTemplate.opsForList().size(key);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    /**
+     * 通过索引 获取list中的值
+     *
+     * @param key   键
+     * @param index 索引 index&gt;=0时， 0 表头，1 第二个元素，依次类推；index&lt;0时，-1，表尾，-2倒数第二个元素，依次类推
+     * @return
+     */
+    public Object lGetIndex(String key, long index) {
+        try {
+            return redisTemplate.opsForList().index(key, index);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * 将list放入缓存
+     *
+     * @param key   键
+     * @param value 值
+     * @return
+     */
+    public boolean lSet(String key, Object value) {
+        try {
+            redisTemplate.opsForList().rightPush(key, value);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * 将list放入缓存
+     *
+     * @param key   键
+     * @param value 值
+     * @param time  时间(秒)
+     * @return
+     */
+    public boolean lSet(String key, Object value, long time) {
+        try {
+            redisTemplate.opsForList().rightPush(key, value);
+            if (time &gt; 0)
+                expire(key, time);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * 将list放入缓存
+     *
+     * @param key   键
+     * @param value 值
+     * @return
+     */
+    public boolean lSet(String key, List&lt;Object&gt; value) {
+        try {
+            redisTemplate.opsForList().rightPushAll(key, value);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * 将list放入缓存
+     *
+     * @param key   键
+     * @param value 值
+     * @param time  时间(秒)
+     * @return
+     */
+    public boolean lSet(String key, List&lt;Object&gt; value, long time) {
+        try {
+            redisTemplate.opsForList().rightPushAll(key, value);
+            if (time &gt; 0)
+                expire(key, time);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * 根据索引修改list中的某条数据
+     *
+     * @param key   键
+     * @param index 索引
+     * @param value 值
+     * @return
+     */
+    public boolean lUpdateIndex(String key, long index, Object value) {
+        try {
+            redisTemplate.opsForList().set(key, index, value);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * 移除N个值为value
+     *
+     * @param key   键
+     * @param count 移除多少个
+     * @param value 值
+     * @return 移除的个数
+     */
+    public long lRemove(String key, long count, Object value) {
+        try {
+            Long remove = redisTemplate.opsForList().remove(key, count, value);
+            return remove;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br><span class="line-number">160</span><br><span class="line-number">161</span><br><span class="line-number">162</span><br><span class="line-number">163</span><br><span class="line-number">164</span><br><span class="line-number">165</span><br><span class="line-number">166</span><br><span class="line-number">167</span><br><span class="line-number">168</span><br><span class="line-number">169</span><br><span class="line-number">170</span><br><span class="line-number">171</span><br><span class="line-number">172</span><br><span class="line-number">173</span><br><span class="line-number">174</span><br><span class="line-number">175</span><br><span class="line-number">176</span><br><span class="line-number">177</span><br><span class="line-number">178</span><br><span class="line-number">179</span><br><span class="line-number">180</span><br><span class="line-number">181</span><br><span class="line-number">182</span><br><span class="line-number">183</span><br><span class="line-number">184</span><br><span class="line-number">185</span><br><span class="line-number">186</span><br><span class="line-number">187</span><br><span class="line-number">188</span><br><span class="line-number">189</span><br><span class="line-number">190</span><br><span class="line-number">191</span><br><span class="line-number">192</span><br><span class="line-number">193</span><br><span class="line-number">194</span><br><span class="line-number">195</span><br><span class="line-number">196</span><br><span class="line-number">197</span><br><span class="line-number">198</span><br><span class="line-number">199</span><br><span class="line-number">200</span><br><span class="line-number">201</span><br><span class="line-number">202</span><br><span class="line-number">203</span><br><span class="line-number">204</span><br><span class="line-number">205</span><br><span class="line-number">206</span><br><span class="line-number">207</span><br><span class="line-number">208</span><br><span class="line-number">209</span><br><span class="line-number">210</span><br><span class="line-number">211</span><br><span class="line-number">212</span><br><span class="line-number">213</span><br><span class="line-number">214</span><br><span class="line-number">215</span><br><span class="line-number">216</span><br><span class="line-number">217</span><br><span class="line-number">218</span><br><span class="line-number">219</span><br><span class="line-number">220</span><br><span class="line-number">221</span><br><span class="line-number">222</span><br><span class="line-number">223</span><br><span class="line-number">224</span><br><span class="line-number">225</span><br><span class="line-number">226</span><br><span class="line-number">227</span><br><span class="line-number">228</span><br><span class="line-number">229</span><br><span class="line-number">230</span><br><span class="line-number">231</span><br><span class="line-number">232</span><br><span class="line-number">233</span><br><span class="line-number">234</span><br><span class="line-number">235</span><br><span class="line-number">236</span><br><span class="line-number">237</span><br><span class="line-number">238</span><br><span class="line-number">239</span><br><span class="line-number">240</span><br><span class="line-number">241</span><br><span class="line-number">242</span><br><span class="line-number">243</span><br><span class="line-number">244</span><br><span class="line-number">245</span><br><span class="line-number">246</span><br><span class="line-number">247</span><br><span class="line-number">248</span><br><span class="line-number">249</span><br><span class="line-number">250</span><br><span class="line-number">251</span><br><span class="line-number">252</span><br><span class="line-number">253</span><br><span class="line-number">254</span><br><span class="line-number">255</span><br><span class="line-number">256</span><br><span class="line-number">257</span><br><span class="line-number">258</span><br><span class="line-number">259</span><br><span class="line-number">260</span><br><span class="line-number">261</span><br><span class="line-number">262</span><br><span class="line-number">263</span><br><span class="line-number">264</span><br><span class="line-number">265</span><br><span class="line-number">266</span><br><span class="line-number">267</span><br><span class="line-number">268</span><br><span class="line-number">269</span><br><span class="line-number">270</span><br><span class="line-number">271</span><br><span class="line-number">272</span><br><span class="line-number">273</span><br><span class="line-number">274</span><br><span class="line-number">275</span><br><span class="line-number">276</span><br><span class="line-number">277</span><br><span class="line-number">278</span><br><span class="line-number">279</span><br><span class="line-number">280</span><br><span class="line-number">281</span><br><span class="line-number">282</span><br><span class="line-number">283</span><br><span class="line-number">284</span><br><span class="line-number">285</span><br><span class="line-number">286</span><br><span class="line-number">287</span><br><span class="line-number">288</span><br><span class="line-number">289</span><br><span class="line-number">290</span><br><span class="line-number">291</span><br><span class="line-number">292</span><br><span class="line-number">293</span><br><span class="line-number">294</span><br><span class="line-number">295</span><br><span class="line-number">296</span><br><span class="line-number">297</span><br><span class="line-number">298</span><br><span class="line-number">299</span><br><span class="line-number">300</span><br><span class="line-number">301</span><br><span class="line-number">302</span><br><span class="line-number">303</span><br><span class="line-number">304</span><br><span class="line-number">305</span><br><span class="line-number">306</span><br><span class="line-number">307</span><br><span class="line-number">308</span><br><span class="line-number">309</span><br><span class="line-number">310</span><br><span class="line-number">311</span><br><span class="line-number">312</span><br><span class="line-number">313</span><br><span class="line-number">314</span><br><span class="line-number">315</span><br><span class="line-number">316</span><br><span class="line-number">317</span><br><span class="line-number">318</span><br><span class="line-number">319</span><br><span class="line-number">320</span><br><span class="line-number">321</span><br><span class="line-number">322</span><br><span class="line-number">323</span><br><span class="line-number">324</span><br><span class="line-number">325</span><br><span class="line-number">326</span><br><span class="line-number">327</span><br><span class="line-number">328</span><br><span class="line-number">329</span><br><span class="line-number">330</span><br><span class="line-number">331</span><br><span class="line-number">332</span><br><span class="line-number">333</span><br><span class="line-number">334</span><br><span class="line-number">335</span><br><span class="line-number">336</span><br><span class="line-number">337</span><br><span class="line-number">338</span><br><span class="line-number">339</span><br><span class="line-number">340</span><br><span class="line-number">341</span><br><span class="line-number">342</span><br><span class="line-number">343</span><br><span class="line-number">344</span><br><span class="line-number">345</span><br><span class="line-number">346</span><br><span class="line-number">347</span><br><span class="line-number">348</span><br><span class="line-number">349</span><br><span class="line-number">350</span><br><span class="line-number">351</span><br><span class="line-number">352</span><br><span class="line-number">353</span><br><span class="line-number">354</span><br><span class="line-number">355</span><br><span class="line-number">356</span><br><span class="line-number">357</span><br><span class="line-number">358</span><br><span class="line-number">359</span><br><span class="line-number">360</span><br><span class="line-number">361</span><br><span class="line-number">362</span><br><span class="line-number">363</span><br><span class="line-number">364</span><br><span class="line-number">365</span><br><span class="line-number">366</span><br><span class="line-number">367</span><br><span class="line-number">368</span><br><span class="line-number">369</span><br><span class="line-number">370</span><br><span class="line-number">371</span><br><span class="line-number">372</span><br><span class="line-number">373</span><br><span class="line-number">374</span><br><span class="line-number">375</span><br><span class="line-number">376</span><br><span class="line-number">377</span><br><span class="line-number">378</span><br><span class="line-number">379</span><br><span class="line-number">380</span><br><span class="line-number">381</span><br><span class="line-number">382</span><br><span class="line-number">383</span><br><span class="line-number">384</span><br><span class="line-number">385</span><br><span class="line-number">386</span><br><span class="line-number">387</span><br><span class="line-number">388</span><br><span class="line-number">389</span><br><span class="line-number">390</span><br><span class="line-number">391</span><br><span class="line-number">392</span><br><span class="line-number">393</span><br><span class="line-number">394</span><br><span class="line-number">395</span><br><span class="line-number">396</span><br><span class="line-number">397</span><br><span class="line-number">398</span><br><span class="line-number">399</span><br><span class="line-number">400</span><br><span class="line-number">401</span><br><span class="line-number">402</span><br><span class="line-number">403</span><br><span class="line-number">404</span><br><span class="line-number">405</span><br><span class="line-number">406</span><br><span class="line-number">407</span><br><span class="line-number">408</span><br><span class="line-number">409</span><br><span class="line-number">410</span><br><span class="line-number">411</span><br><span class="line-number">412</span><br><span class="line-number">413</span><br><span class="line-number">414</span><br><span class="line-number">415</span><br><span class="line-number">416</span><br><span class="line-number">417</span><br><span class="line-number">418</span><br><span class="line-number">419</span><br><span class="line-number">420</span><br><span class="line-number">421</span><br><span class="line-number">422</span><br><span class="line-number">423</span><br><span class="line-number">424</span><br><span class="line-number">425</span><br><span class="line-number">426</span><br><span class="line-number">427</span><br><span class="line-number">428</span><br><span class="line-number">429</span><br><span class="line-number">430</span><br><span class="line-number">431</span><br><span class="line-number">432</span><br><span class="line-number">433</span><br><span class="line-number">434</span><br><span class="line-number">435</span><br><span class="line-number">436</span><br><span class="line-number">437</span><br><span class="line-number">438</span><br><span class="line-number">439</span><br><span class="line-number">440</span><br><span class="line-number">441</span><br><span class="line-number">442</span><br><span class="line-number">443</span><br><span class="line-number">444</span><br><span class="line-number">445</span><br><span class="line-number">446</span><br><span class="line-number">447</span><br><span class="line-number">448</span><br><span class="line-number">449</span><br><span class="line-number">450</span><br><span class="line-number">451</span><br><span class="line-number">452</span><br><span class="line-number">453</span><br><span class="line-number">454</span><br><span class="line-number">455</span><br><span class="line-number">456</span><br><span class="line-number">457</span><br><span class="line-number">458</span><br><span class="line-number">459</span><br><span class="line-number">460</span><br><span class="line-number">461</span><br><span class="line-number">462</span><br><span class="line-number">463</span><br><span class="line-number">464</span><br><span class="line-number">465</span><br><span class="line-number">466</span><br><span class="line-number">467</span><br><span class="line-number">468</span><br><span class="line-number">469</span><br><span class="line-number">470</span><br><span class="line-number">471</span><br><span class="line-number">472</span><br><span class="line-number">473</span><br><span class="line-number">474</span><br><span class="line-number">475</span><br><span class="line-number">476</span><br><span class="line-number">477</span><br><span class="line-number">478</span><br><span class="line-number">479</span><br><span class="line-number">480</span><br><span class="line-number">481</span><br><span class="line-number">482</span><br><span class="line-number">483</span><br><span class="line-number">484</span><br><span class="line-number">485</span><br><span class="line-number">486</span><br><span class="line-number">487</span><br><span class="line-number">488</span><br><span class="line-number">489</span><br><span class="line-number">490</span><br><span class="line-number">491</span><br><span class="line-number">492</span><br><span class="line-number">493</span><br><span class="line-number">494</span><br><span class="line-number">495</span><br><span class="line-number">496</span><br><span class="line-number">497</span><br><span class="line-number">498</span><br><span class="line-number">499</span><br><span class="line-number">500</span><br><span class="line-number">501</span><br><span class="line-number">502</span><br><span class="line-number">503</span><br><span class="line-number">504</span><br><span class="line-number">505</span><br><span class="line-number">506</span><br><span class="line-number">507</span><br><span class="line-number">508</span><br><span class="line-number">509</span><br><span class="line-number">510</span><br><span class="line-number">511</span><br><span class="line-number">512</span><br><span class="line-number">513</span><br><span class="line-number">514</span><br><span class="line-number">515</span><br><span class="line-number">516</span><br><span class="line-number">517</span><br><span class="line-number">518</span><br><span class="line-number">519</span><br><span class="line-number">520</span><br><span class="line-number">521</span><br><span class="line-number">522</span><br><span class="line-number">523</span><br><span class="line-number">524</span><br><span class="line-number">525</span><br><span class="line-number">526</span><br><span class="line-number">527</span><br><span class="line-number">528</span><br><span class="line-number">529</span><br><span class="line-number">530</span><br><span class="line-number">531</span><br><span class="line-number">532</span><br><span class="line-number">533</span><br><span class="line-number">534</span><br><span class="line-number">535</span><br><span class="line-number">536</span><br><span class="line-number">537</span><br><span class="line-number">538</span><br><span class="line-number">539</span><br><span class="line-number">540</span><br><span class="line-number">541</span><br><span class="line-number">542</span><br><span class="line-number">543</span><br><span class="line-number">544</span><br><span class="line-number">545</span><br><span class="line-number">546</span><br><span class="line-number">547</span><br><span class="line-number">548</span><br><span class="line-number">549</span><br><span class="line-number">550</span><br><span class="line-number">551</span><br><span class="line-number">552</span><br><span class="line-number">553</span><br><span class="line-number">554</span><br><span class="line-number">555</span><br><span class="line-number">556</span><br><span class="line-number">557</span><br><span class="line-number">558</span><br><span class="line-number">559</span><br><span class="line-number">560</span><br><span class="line-number">561</span><br><span class="line-number">562</span><br><span class="line-number">563</span><br><span class="line-number">564</span><br><span class="line-number">565</span><br></div></div><h2 id="redis实现1分钟次数不超过5次"><a href="#redis实现1分钟次数不超过5次" class="header-anchor">#</a> redis实现1分钟次数不超过5次</h2> <p><strong>SendSMS</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>public interface SendSMS {
+    public void sendSMS(String randomCode,String phoneNum);
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p><strong>SendSMSImp</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
+import com.yeshen.xiaohuangdog.service.SMS_Service;
+import com.yeshen.xiaohuangdog.service.SendSMS;
+import com.yeshen.xiaohuangdog.utils.RedisUtil;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+@Slf4j
+public class SendSMSImp implements SendSMS {
+
+    @Autowired
+   private RedisUtil redisUtil;
+    @Autowired
+    private SMS_Service sms_service;
+    @Override
+    public void sendSMS(String randomCode,String phoneNum) {
+
+        long Countvalue = (Long.MAX_VALUE - 4);
+        try {
+            String limitCountKey = phoneNum + &quot;_limitCount&quot;;//每个手机号码就代表是一个用户
+            Object limitCountvalue = redisUtil.get(limitCountKey);//查询redis中的缓存
+            if (limitCountvalue == null) {//第一次发短信
+                //sms_service.sendShortMessage(randomCode,phoneNum);
+                redisUtil.set(limitCountKey, Countvalue, 60);//存储redis缓存,设置有效期60s
+                System.out.println(phoneNum + &quot; 第一次发短信&quot;);
+            } else {
+                    redisUtil.incr(limitCountKey, 1);
+                System.out.println(phoneNum + &quot;发短信&quot;);
+               
+                }
+            }catch (Exception ex){
+            Countvalue = Long.MAX_VALUE - 4;
+            System.out.println(phoneNum + &quot; 发送太频繁了呀&quot;);
+        }
+    }
+
+        }
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br></div></div><h2 id="短信服务"><a href="#短信服务" class="header-anchor">#</a> 短信服务</h2> <p><strong>SMS_Service</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>public interface SMS_Service {
+    /**
+     * 发送验证码短信
+     * @param randomCode    验证码值
+     * @param phoneNum        接收验证码短信的手机号
+     * @return
+     */
+    public ResponseVO sendShortMessage(String randomCode, String phoneNum);
+
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p><strong>SMS_ServiceImp</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+import com.yeshen.xiaohuangdog.service.SMS_Service;
+import com.yeshen.xiaohuangdog.utils.HttpUtils;
+import com.yeshen.xiaohuangdog.vo.ResponseVO;
+import org.apache.http.HttpResponse;
+import org.apache.http.util.EntityUtils;
+import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.Map;
+@Service
+public class SMS_ServiceImp implements SMS_Service {
+    /**
+     * 发送验证码短信
+     * @param randomCode    验证码值
+     * @param phoneNum        接收验证码短信的手机号
+     * @return
+     */
+    @Override
+    public ResponseVO sendShortMessage(String randomCode, String phoneNum) {
+
+            String host = &quot;http://dingxin.market.alicloudapi.com&quot;;
+            String path = &quot;/dx/sendSms&quot;;
+            String method = &quot;POST&quot;;
+        String appcode = &quot;7020591&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&quot;;//设置appcode
+        Map&lt;String, String&gt; headers = new HashMap&lt;String, String&gt;();
+        //最后在header中的格式(中间是英文空格)为Authorization:APPCODE 83359fd73fe94948385f570e3c139105
+        headers.put(&quot;Authorization&quot;, &quot;APPCODE &quot; + appcode);
+        Map&lt;String, String&gt; querys = new HashMap&lt;String, String&gt;();
+        querys.put(&quot;mobile&quot;, phoneNum);
+        querys.put(&quot;param&quot;, &quot;code:&quot;+randomCode);
+        querys.put(&quot;tpl_id&quot;, &quot;TP19090331&quot;);
+            Map&lt;String, String&gt; bodys = new HashMap&lt;String, String&gt;();
+
+            try {
+                /**
+                 * 重要提示如下:
+                 * HttpUtils请从
+                 * https://github.com/aliyun/api-gateway-demo-sign-java/blob/master/src/main/java/com/aliyun/api/gateway/demo/util/HttpUtils.java
+                 * 下载
+                 *
+                 * 相应的依赖请参照
+                 * https://github.com/aliyun/api-gateway-demo-sign-java/blob/master/pom.xml
+                 */
+                HttpResponse response = HttpUtils.doPost(host, path, method, headers, querys, bodys);
+                System.out.println(response.toString());
+                //获取response的body
+                System.out.println(&quot;获取response的body&quot;+ EntityUtils.toString(response.getEntity()));
+                return ResponseVO.success(Integer.toString(response.getStatusLine().getStatusCode()),response.getEntity());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return ResponseVO.error(400,&quot;发送失败&quot;);
+
+    }
+
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br></div></div></div> <footer class="page-edit" style="display:none;"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">2022/2/14 21:41:06</span></div></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div class="Sakura" data-v-017cf06a><canvas id="canvas_sakura" style="z-index:2;" data-v-017cf06a></canvas></div><!----><div class="RibbonAnimation"></div><div></div><!----><!----><div class="vuepress-canvas-nest-element"></div><div class="kanbanniang" data-v-7f9bdc70><div class="banniang-container" style="display:;" data-v-7f9bdc70><div class="messageBox" style="position:fixed;right:80px;bottom:200px;display:none;" data-v-7f9bdc70>
+      欢迎来到 喵ฅ仙 | BLOG
+    </div> <div class="operation" style="bottom:10px;right:60px;display:;" data-v-7f9bdc70><i class="kbnfont kbn-ban-home ban-home" data-v-7f9bdc70></i> <i class="kbnfont kbn-ban-message message" data-v-7f9bdc70></i> <i class="kbnfont kbn-ban-close close" data-v-7f9bdc70></i> <a target="_blank" href="https://vuepress-theme-reco.recoluan.com/views/plugins/kanbanniang.html" data-v-7f9bdc70><i class="kbnfont kbn-ban-info info" data-v-7f9bdc70></i></a> <i class="kbnfont kbn-ban-theme skin" style="display:;" data-v-7f9bdc70></i></div> <canvas id="banniang" width="120" height="280" class="live2d" style="position:fixed;right:120px;bottom:20px;opacity:1.2;" data-v-7f9bdc70></canvas></div> <div class="showBanNiang" style="display:none;" data-v-7f9bdc70>
+    看板娘
+  </div></div><div class="reco-bgm-panel" data-v-b1d3339e><audio id="bgm" src="http://music.163.com/song/media/outer/url?id=29004400.mp3" data-v-b1d3339e></audio> <div class="reco-float-box" style="bottom:200px;z-index:999999;display:none;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><img src="https://i.loli.net/2020/01/06/3gAnevw2xfzk4dY.png" data-v-b1d3339e></div> <div class="reco-bgm-box" style="left:10px;bottom:10px;z-index:999999;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="reco-bgm-cover" style="background-image:url(https://i.loli.net/2020/01/06/3gAnevw2xfzk4dY.png);" data-v-b1d3339e><div class="mini-operation" style="display:none;" data-v-b1d3339e><i class="reco-bgm reco-bgm-pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play" style="display:none;" data-v-b1d3339e></i></div> <div class="falut-message" style="display:none;" data-v-b1d3339e>
+          播放失败
+        </div></div> <div class="reco-bgm-info" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-music music" data-v-b1d3339e></i>烟火里的尘埃</div> <div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-artist" data-v-b1d3339e></i>华晨宇</div> <div class="reco-bgm-progress" data-v-b1d3339e><div class="progress-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div> <div class="reco-bgm-operation" data-v-b1d3339e><i class="reco-bgm reco-bgm-last last" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-pause pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play play" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-next next" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-volume1 volume" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-mute mute" style="display:none;" data-v-b1d3339e></i> <div class="volume-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div></div> <div class="reco-bgm-left-box" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><i class="reco-bgm reco-bgm-left" data-v-b1d3339e></i></div></div></div></div></div>
+    <script src="/assets/js/app.d3414c94.js" defer></script><script src="/assets/js/3.c1cc8b6c.js" defer></script><script src="/assets/js/1.b791f502.js" defer></script><script src="/assets/js/134.b053a751.js" defer></script>
+  </body>
+</html>

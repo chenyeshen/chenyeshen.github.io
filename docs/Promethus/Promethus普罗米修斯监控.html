@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Promethus(普罗米修斯）监控 | 喵ฅ仙 | BLOG</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link rel="icon" href="https://www.zpzpup.com/assets/image/favicon.ico">
+    <script src="/assets/js/bodyClick.js"></script>
+    <meta name="description" content="喵ฅ仙 | BLOG">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="preload" href="/assets/css/0.styles.3bb793a0.css" as="style"><link rel="preload" href="/assets/js/app.d3414c94.js" as="script"><link rel="preload" href="/assets/js/3.c1cc8b6c.js" as="script"><link rel="preload" href="/assets/js/1.b791f502.js" as="script"><link rel="preload" href="/assets/js/122.3aa9c2ee.js" as="script"><link rel="prefetch" href="/assets/js/10.9950e43d.js"><link rel="prefetch" href="/assets/js/100.547aaf7b.js"><link rel="prefetch" href="/assets/js/101.c3814bf3.js"><link rel="prefetch" href="/assets/js/102.98d7a601.js"><link rel="prefetch" href="/assets/js/103.f1607030.js"><link rel="prefetch" href="/assets/js/104.9567dde5.js"><link rel="prefetch" href="/assets/js/105.13a0d317.js"><link rel="prefetch" href="/assets/js/106.6cbb506e.js"><link rel="prefetch" href="/assets/js/107.ab955fe1.js"><link rel="prefetch" href="/assets/js/108.34ff7555.js"><link rel="prefetch" href="/assets/js/109.de2c061d.js"><link rel="prefetch" href="/assets/js/11.5af13e68.js"><link rel="prefetch" href="/assets/js/110.54d827e6.js"><link rel="prefetch" href="/assets/js/111.8f1f1e1c.js"><link rel="prefetch" href="/assets/js/112.4884a476.js"><link rel="prefetch" href="/assets/js/113.13f39580.js"><link rel="prefetch" href="/assets/js/114.1865269f.js"><link rel="prefetch" href="/assets/js/115.d9fddff3.js"><link rel="prefetch" href="/assets/js/116.0d7df8ec.js"><link rel="prefetch" href="/assets/js/117.dc0da5b5.js"><link rel="prefetch" href="/assets/js/118.7a5a65e1.js"><link rel="prefetch" href="/assets/js/119.3be6def5.js"><link rel="prefetch" href="/assets/js/12.74da2858.js"><link rel="prefetch" href="/assets/js/120.52071199.js"><link rel="prefetch" href="/assets/js/121.56d9fb92.js"><link rel="prefetch" href="/assets/js/123.221df785.js"><link rel="prefetch" href="/assets/js/124.9d033311.js"><link rel="prefetch" href="/assets/js/125.28f98fbe.js"><link rel="prefetch" href="/assets/js/126.dae4704a.js"><link rel="prefetch" href="/assets/js/127.9a8665c6.js"><link rel="prefetch" href="/assets/js/128.e7254bf4.js"><link rel="prefetch" href="/assets/js/129.ffedb400.js"><link rel="prefetch" href="/assets/js/13.7979e6c4.js"><link rel="prefetch" href="/assets/js/130.ab358f57.js"><link rel="prefetch" href="/assets/js/131.d619d711.js"><link rel="prefetch" href="/assets/js/132.8157f72a.js"><link rel="prefetch" href="/assets/js/133.cfa86ce2.js"><link rel="prefetch" href="/assets/js/134.b053a751.js"><link rel="prefetch" href="/assets/js/135.2cbd13ea.js"><link rel="prefetch" href="/assets/js/136.a266d7fa.js"><link rel="prefetch" href="/assets/js/137.5aef0f80.js"><link rel="prefetch" href="/assets/js/138.d5ea3f78.js"><link rel="prefetch" href="/assets/js/139.b8b7114e.js"><link rel="prefetch" href="/assets/js/14.40f59b6f.js"><link rel="prefetch" href="/assets/js/140.3dcb64da.js"><link rel="prefetch" href="/assets/js/141.ceb5eeac.js"><link rel="prefetch" href="/assets/js/142.f2f5124b.js"><link rel="prefetch" href="/assets/js/143.9ed2f273.js"><link rel="prefetch" href="/assets/js/144.fb91af7c.js"><link rel="prefetch" href="/assets/js/145.401fa1ac.js"><link rel="prefetch" href="/assets/js/146.3b4c014b.js"><link rel="prefetch" href="/assets/js/147.6726618d.js"><link rel="prefetch" href="/assets/js/148.dd87612e.js"><link rel="prefetch" href="/assets/js/149.477a5bac.js"><link rel="prefetch" href="/assets/js/15.e421a4d6.js"><link rel="prefetch" href="/assets/js/150.e6bc7368.js"><link rel="prefetch" href="/assets/js/151.70a175f5.js"><link rel="prefetch" href="/assets/js/152.b4d733c1.js"><link rel="prefetch" href="/assets/js/153.1ad07edf.js"><link rel="prefetch" href="/assets/js/154.edb47009.js"><link rel="prefetch" href="/assets/js/155.147cc8ef.js"><link rel="prefetch" href="/assets/js/156.fe1ef05c.js"><link rel="prefetch" href="/assets/js/157.95511492.js"><link rel="prefetch" href="/assets/js/158.ef3b8c5f.js"><link rel="prefetch" href="/assets/js/159.1206530b.js"><link rel="prefetch" href="/assets/js/16.7fe1af7b.js"><link rel="prefetch" href="/assets/js/160.72d1a579.js"><link rel="prefetch" href="/assets/js/161.a315bd2b.js"><link rel="prefetch" href="/assets/js/162.42fe3b24.js"><link rel="prefetch" href="/assets/js/163.6a5d10c8.js"><link rel="prefetch" href="/assets/js/164.ed67b9da.js"><link rel="prefetch" href="/assets/js/165.0167b9b8.js"><link rel="prefetch" href="/assets/js/166.83f4a74f.js"><link rel="prefetch" href="/assets/js/167.ef9c9fe9.js"><link rel="prefetch" href="/assets/js/168.f1d37188.js"><link rel="prefetch" href="/assets/js/169.c6c89458.js"><link rel="prefetch" href="/assets/js/17.3d09df36.js"><link rel="prefetch" href="/assets/js/170.cb7b4a5c.js"><link rel="prefetch" href="/assets/js/171.dc35a8ee.js"><link rel="prefetch" href="/assets/js/172.3b63976c.js"><link rel="prefetch" href="/assets/js/173.4046f716.js"><link rel="prefetch" href="/assets/js/174.363ad972.js"><link rel="prefetch" href="/assets/js/175.758c8eea.js"><link rel="prefetch" href="/assets/js/176.3ad2df24.js"><link rel="prefetch" href="/assets/js/177.63d33f33.js"><link rel="prefetch" href="/assets/js/178.c1fa02ba.js"><link rel="prefetch" href="/assets/js/179.841c667f.js"><link rel="prefetch" href="/assets/js/18.7af139be.js"><link rel="prefetch" href="/assets/js/180.792657ec.js"><link rel="prefetch" href="/assets/js/181.758c2c8e.js"><link rel="prefetch" href="/assets/js/182.9a31ae61.js"><link rel="prefetch" href="/assets/js/183.f726e922.js"><link rel="prefetch" href="/assets/js/184.0ef12134.js"><link rel="prefetch" href="/assets/js/185.5d36831c.js"><link rel="prefetch" href="/assets/js/186.a767ab42.js"><link rel="prefetch" href="/assets/js/187.884a5752.js"><link rel="prefetch" href="/assets/js/188.ad939ffc.js"><link rel="prefetch" href="/assets/js/189.48a05d34.js"><link rel="prefetch" href="/assets/js/19.ff13606a.js"><link rel="prefetch" href="/assets/js/190.915f52fc.js"><link rel="prefetch" href="/assets/js/191.ce5886af.js"><link rel="prefetch" href="/assets/js/192.42e5d019.js"><link rel="prefetch" href="/assets/js/193.9d44b671.js"><link rel="prefetch" href="/assets/js/194.2ad95d04.js"><link rel="prefetch" href="/assets/js/195.e7024b92.js"><link rel="prefetch" href="/assets/js/196.de0f4e92.js"><link rel="prefetch" href="/assets/js/197.5ecff7f5.js"><link rel="prefetch" href="/assets/js/198.10e1c698.js"><link rel="prefetch" href="/assets/js/199.677d3dca.js"><link rel="prefetch" href="/assets/js/20.2296f102.js"><link rel="prefetch" href="/assets/js/200.bb551214.js"><link rel="prefetch" href="/assets/js/201.79efe42c.js"><link rel="prefetch" href="/assets/js/202.2ee52ca4.js"><link rel="prefetch" href="/assets/js/203.874e1959.js"><link rel="prefetch" href="/assets/js/204.08e88994.js"><link rel="prefetch" href="/assets/js/205.edc97c20.js"><link rel="prefetch" href="/assets/js/206.36a455d6.js"><link rel="prefetch" href="/assets/js/207.5ee74906.js"><link rel="prefetch" href="/assets/js/208.886bc7c2.js"><link rel="prefetch" href="/assets/js/209.4b0340d9.js"><link rel="prefetch" href="/assets/js/21.8d13209f.js"><link rel="prefetch" href="/assets/js/210.64455c4f.js"><link rel="prefetch" href="/assets/js/211.c6b7d243.js"><link rel="prefetch" href="/assets/js/212.42c051aa.js"><link rel="prefetch" href="/assets/js/213.5b2a60f4.js"><link rel="prefetch" href="/assets/js/214.661f5321.js"><link rel="prefetch" href="/assets/js/215.42f45005.js"><link rel="prefetch" href="/assets/js/216.f37f7411.js"><link rel="prefetch" href="/assets/js/217.10c5ca12.js"><link rel="prefetch" href="/assets/js/218.d6f3834f.js"><link rel="prefetch" href="/assets/js/219.fd28a873.js"><link rel="prefetch" href="/assets/js/22.23c5024e.js"><link rel="prefetch" href="/assets/js/220.be941ce1.js"><link rel="prefetch" href="/assets/js/221.1c6688c6.js"><link rel="prefetch" href="/assets/js/222.7b63121f.js"><link rel="prefetch" href="/assets/js/223.6614e200.js"><link rel="prefetch" href="/assets/js/224.d49a7523.js"><link rel="prefetch" href="/assets/js/225.6fcd8fad.js"><link rel="prefetch" href="/assets/js/226.9dcb061a.js"><link rel="prefetch" href="/assets/js/227.fe08b736.js"><link rel="prefetch" href="/assets/js/228.691928ed.js"><link rel="prefetch" href="/assets/js/229.63b002f2.js"><link rel="prefetch" href="/assets/js/23.95c4aba8.js"><link rel="prefetch" href="/assets/js/230.f540e919.js"><link rel="prefetch" href="/assets/js/231.d3fb3071.js"><link rel="prefetch" href="/assets/js/232.222b38dd.js"><link rel="prefetch" href="/assets/js/233.b017b884.js"><link rel="prefetch" href="/assets/js/234.2510b9fc.js"><link rel="prefetch" href="/assets/js/235.c2775cfe.js"><link rel="prefetch" href="/assets/js/236.f77331be.js"><link rel="prefetch" href="/assets/js/237.ce8f0a27.js"><link rel="prefetch" href="/assets/js/238.0f3abac6.js"><link rel="prefetch" href="/assets/js/239.76f7d09e.js"><link rel="prefetch" href="/assets/js/24.0d446ccc.js"><link rel="prefetch" href="/assets/js/240.d2071eb0.js"><link rel="prefetch" href="/assets/js/241.23dd9ff1.js"><link rel="prefetch" href="/assets/js/242.b01bf8a3.js"><link rel="prefetch" href="/assets/js/243.b169cabd.js"><link rel="prefetch" href="/assets/js/244.a4c1d04f.js"><link rel="prefetch" href="/assets/js/25.a43cd0e4.js"><link rel="prefetch" href="/assets/js/26.869e0aac.js"><link rel="prefetch" href="/assets/js/27.47e08196.js"><link rel="prefetch" href="/assets/js/28.49524013.js"><link rel="prefetch" href="/assets/js/29.7f02f34a.js"><link rel="prefetch" href="/assets/js/30.0acd0eea.js"><link rel="prefetch" href="/assets/js/31.5e86706f.js"><link rel="prefetch" href="/assets/js/32.0187d938.js"><link rel="prefetch" href="/assets/js/33.1382c27e.js"><link rel="prefetch" href="/assets/js/34.35ee348e.js"><link rel="prefetch" href="/assets/js/35.5cabc4f3.js"><link rel="prefetch" href="/assets/js/36.6f63163b.js"><link rel="prefetch" href="/assets/js/37.642294d8.js"><link rel="prefetch" href="/assets/js/38.4743828b.js"><link rel="prefetch" href="/assets/js/39.a92d2bcc.js"><link rel="prefetch" href="/assets/js/4.63f85c88.js"><link rel="prefetch" href="/assets/js/40.6f620d32.js"><link rel="prefetch" href="/assets/js/41.8ed7b207.js"><link rel="prefetch" href="/assets/js/42.3fc02a7a.js"><link rel="prefetch" href="/assets/js/43.5201305b.js"><link rel="prefetch" href="/assets/js/44.46bfdd20.js"><link rel="prefetch" href="/assets/js/45.24377bbe.js"><link rel="prefetch" href="/assets/js/46.ea754b8c.js"><link rel="prefetch" href="/assets/js/47.1daa5167.js"><link rel="prefetch" href="/assets/js/48.7c287d18.js"><link rel="prefetch" href="/assets/js/49.b6c1bbd4.js"><link rel="prefetch" href="/assets/js/5.ab501ffb.js"><link rel="prefetch" href="/assets/js/50.e8f6f3af.js"><link rel="prefetch" href="/assets/js/51.39efb04d.js"><link rel="prefetch" href="/assets/js/52.4ee4fa19.js"><link rel="prefetch" href="/assets/js/53.26fb63f8.js"><link rel="prefetch" href="/assets/js/54.c0a093c0.js"><link rel="prefetch" href="/assets/js/55.5ce18d6e.js"><link rel="prefetch" href="/assets/js/56.303248b5.js"><link rel="prefetch" href="/assets/js/57.fc398504.js"><link rel="prefetch" href="/assets/js/58.1dd5d7db.js"><link rel="prefetch" href="/assets/js/59.602e5481.js"><link rel="prefetch" href="/assets/js/6.24af21eb.js"><link rel="prefetch" href="/assets/js/60.02556f2c.js"><link rel="prefetch" href="/assets/js/61.2185faaf.js"><link rel="prefetch" href="/assets/js/62.d9e5be74.js"><link rel="prefetch" href="/assets/js/63.b17db042.js"><link rel="prefetch" href="/assets/js/64.2c605e51.js"><link rel="prefetch" href="/assets/js/65.d14b86d6.js"><link rel="prefetch" href="/assets/js/66.a66924bd.js"><link rel="prefetch" href="/assets/js/67.b50dd301.js"><link rel="prefetch" href="/assets/js/68.3ac38668.js"><link rel="prefetch" href="/assets/js/69.a78e9490.js"><link rel="prefetch" href="/assets/js/7.d507b441.js"><link rel="prefetch" href="/assets/js/70.96398e63.js"><link rel="prefetch" href="/assets/js/71.05874360.js"><link rel="prefetch" href="/assets/js/72.69980700.js"><link rel="prefetch" href="/assets/js/73.cb853c74.js"><link rel="prefetch" href="/assets/js/74.926b762d.js"><link rel="prefetch" href="/assets/js/75.e2351f97.js"><link rel="prefetch" href="/assets/js/76.e55fe8c6.js"><link rel="prefetch" href="/assets/js/77.a3e9386f.js"><link rel="prefetch" href="/assets/js/78.328a60cf.js"><link rel="prefetch" href="/assets/js/79.bf39e69e.js"><link rel="prefetch" href="/assets/js/8.6a110e40.js"><link rel="prefetch" href="/assets/js/80.c724ba39.js"><link rel="prefetch" href="/assets/js/81.62a2ab22.js"><link rel="prefetch" href="/assets/js/82.8fd8d358.js"><link rel="prefetch" href="/assets/js/83.18c4fd9b.js"><link rel="prefetch" href="/assets/js/84.e2668675.js"><link rel="prefetch" href="/assets/js/85.48e74cb3.js"><link rel="prefetch" href="/assets/js/86.3395c2c2.js"><link rel="prefetch" href="/assets/js/87.ca7e155f.js"><link rel="prefetch" href="/assets/js/88.8c27e2b1.js"><link rel="prefetch" href="/assets/js/89.cff7ecfe.js"><link rel="prefetch" href="/assets/js/9.54a1e645.js"><link rel="prefetch" href="/assets/js/90.96c608e8.js"><link rel="prefetch" href="/assets/js/91.b1d97b76.js"><link rel="prefetch" href="/assets/js/92.6a75e2bd.js"><link rel="prefetch" href="/assets/js/93.d6bfc085.js"><link rel="prefetch" href="/assets/js/94.faf3fbee.js"><link rel="prefetch" href="/assets/js/95.faa44b7d.js"><link rel="prefetch" href="/assets/js/96.d206267b.js"><link rel="prefetch" href="/assets/js/97.c13f8e4b.js"><link rel="prefetch" href="/assets/js/98.0c71437d.js"><link rel="prefetch" href="/assets/js/99.fcddb01f.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3bb793a0.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-dad8a512><div data-v-dad8a512><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-dad8a512 data-v-dad8a512><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-64685f0e data-v-dad8a512 data-v-dad8a512><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>喵ฅ仙 | BLOG</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>喵ฅ仙 | BLOG</span>
+            
+          <span data-v-64685f0e>2017 - </span>
+          2022
+        </a></span></div></div> <div class="hide" data-v-dad8a512><header class="navbar" data-v-dad8a512><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="喵ฅ仙 | BLOG" class="logo"> <span class="site-name">喵ฅ仙 | BLOG</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Docker/" class="nav-link"><i class="iconfont undefined"></i>
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Element/" class="nav-link"><i class="iconfont undefined"></i>
+  Element
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Java/" class="nav-link"><i class="iconfont undefined"></i>
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Vue/" class="nav-link"><i class="iconfont undefined"></i>
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/大数据/" class="nav-link"><i class="iconfont undefined"></i>
+  大数据
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringBoot/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringBoot
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Git/" class="nav-link"><i class="iconfont undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/categories/JavaScript/" class="nav-link"><i class="iconfont undefined"></i>
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/K8S/" class="nav-link"><i class="iconfont undefined"></i>
+  K8S
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Kafka/" class="nav-link"><i class="iconfont undefined"></i>
+  Kafka
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Linux/" class="nav-link"><i class="iconfont undefined"></i>
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/categories/MyBatis/" class="nav-link"><i class="iconfont undefined"></i>
+  MyBatis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/MongoDB/" class="nav-link"><i class="iconfont undefined"></i>
+  MongoDB
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Mysql/" class="nav-link"><i class="iconfont undefined"></i>
+  Mysql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Nginx/" class="nav-link"><i class="iconfont undefined"></i>
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Node/" class="nav-link"><i class="iconfont undefined"></i>
+  Node
+</a></li><li class="dropdown-item"><!----> <a href="/categories/RabbitMQ/" class="nav-link"><i class="iconfont undefined"></i>
+  RabbitMQ
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Redis/" class="nav-link"><i class="iconfont undefined"></i>
+  Redis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Skywalking/" class="nav-link"><i class="iconfont undefined"></i>
+  Skywalking
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringCloud/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringCloud
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringCloudAlibaba/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringCloudAlibaba
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringSecurity/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringSecurity
+</a></li><li class="dropdown-item"><!----> <a href="/categories/工作区/" class="nav-link"><i class="iconfont undefined"></i>
+  工作区
+</a></li><li class="dropdown-item"><!----> <a href="/categories/ZooKeeper/" class="nav-link"><i class="iconfont undefined"></i>
+  ZooKeeper
+</a></li><li class="dropdown-item"><!----> <a href="/categories/FastDFS/" class="nav-link"><i class="iconfont undefined"></i>
+  FastDFS
+</a></li><li class="dropdown-item"><!----> <a href="/categories/百度网盘/" class="nav-link"><i class="iconfont undefined"></i>
+  百度网盘
+</a></li><li class="dropdown-item"><!----> <a href="/categories/图床/" class="nav-link"><i class="iconfont undefined"></i>
+  图床
+</a></li><li class="dropdown-item"><!----> <a href="/categories/V2Ray/" class="nav-link"><i class="iconfont undefined"></i>
+  V2Ray
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Kail/" class="nav-link"><i class="iconfont undefined"></i>
+  Kail
+</a></li><li class="dropdown-item"><!----> <a href="/categories/免流/" class="nav-link"><i class="iconfont undefined"></i>
+  免流
+</a></li><li class="dropdown-item"><!----> <a href="/categories/学习记/" class="nav-link"><i class="iconfont undefined"></i>
+  学习记
+</a></li><li class="dropdown-item"><!----> <a href="/categories/工具/" class="nav-link"><i class="iconfont undefined"></i>
+  工具
+</a></li><li class="dropdown-item"><!----> <a href="/categories/NoteBook/" class="nav-link"><i class="iconfont undefined"></i>
+  NoteBook
+</a></li><li class="dropdown-item"><!----> <a href="/categories/WorkBook/" class="nav-link"><i class="iconfont undefined"></i>
+  WorkBook
+</a></li><li class="dropdown-item"><!----> <a href="/categories/破解软件/" class="nav-link"><i class="iconfont undefined"></i>
+  破解软件
+</a></li><li class="dropdown-item"><!----> <a href="/categories/青龙/" class="nav-link"><i class="iconfont undefined"></i>
+  青龙
+</a></li><li class="dropdown-item"><!----> <a href="/categories/面试题/" class="nav-link"><i class="iconfont undefined"></i>
+  面试题
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/mukeyeshen" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-dad8a512></div> <aside class="sidebar" data-v-dad8a512><div class="personal-info-wrapper" data-v-ca798c94 data-v-dad8a512><img src="/avatar.png" alt="author-avatar" class="personal-img" data-v-ca798c94> <h3 class="name" data-v-ca798c94>
+    喵ฅ仙 | BLOG
+  </h3> <div class="num" data-v-ca798c94><div data-v-ca798c94><h3 data-v-ca798c94>182</h3> <h6 data-v-ca798c94>文章</h6></div> <div data-v-ca798c94><h3 data-v-ca798c94>67</h3> <h6 data-v-ca798c94>标签</h6></div></div> <hr data-v-ca798c94></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Docker/" class="nav-link"><i class="iconfont undefined"></i>
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Element/" class="nav-link"><i class="iconfont undefined"></i>
+  Element
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Java/" class="nav-link"><i class="iconfont undefined"></i>
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Vue/" class="nav-link"><i class="iconfont undefined"></i>
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/大数据/" class="nav-link"><i class="iconfont undefined"></i>
+  大数据
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringBoot/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringBoot
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Git/" class="nav-link"><i class="iconfont undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/categories/JavaScript/" class="nav-link"><i class="iconfont undefined"></i>
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/K8S/" class="nav-link"><i class="iconfont undefined"></i>
+  K8S
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Kafka/" class="nav-link"><i class="iconfont undefined"></i>
+  Kafka
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Linux/" class="nav-link"><i class="iconfont undefined"></i>
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/categories/MyBatis/" class="nav-link"><i class="iconfont undefined"></i>
+  MyBatis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/MongoDB/" class="nav-link"><i class="iconfont undefined"></i>
+  MongoDB
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Mysql/" class="nav-link"><i class="iconfont undefined"></i>
+  Mysql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Nginx/" class="nav-link"><i class="iconfont undefined"></i>
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Node/" class="nav-link"><i class="iconfont undefined"></i>
+  Node
+</a></li><li class="dropdown-item"><!----> <a href="/categories/RabbitMQ/" class="nav-link"><i class="iconfont undefined"></i>
+  RabbitMQ
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Redis/" class="nav-link"><i class="iconfont undefined"></i>
+  Redis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Skywalking/" class="nav-link"><i class="iconfont undefined"></i>
+  Skywalking
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringCloud/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringCloud
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringCloudAlibaba/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringCloudAlibaba
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringSecurity/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringSecurity
+</a></li><li class="dropdown-item"><!----> <a href="/categories/工作区/" class="nav-link"><i class="iconfont undefined"></i>
+  工作区
+</a></li><li class="dropdown-item"><!----> <a href="/categories/ZooKeeper/" class="nav-link"><i class="iconfont undefined"></i>
+  ZooKeeper
+</a></li><li class="dropdown-item"><!----> <a href="/categories/FastDFS/" class="nav-link"><i class="iconfont undefined"></i>
+  FastDFS
+</a></li><li class="dropdown-item"><!----> <a href="/categories/百度网盘/" class="nav-link"><i class="iconfont undefined"></i>
+  百度网盘
+</a></li><li class="dropdown-item"><!----> <a href="/categories/图床/" class="nav-link"><i class="iconfont undefined"></i>
+  图床
+</a></li><li class="dropdown-item"><!----> <a href="/categories/V2Ray/" class="nav-link"><i class="iconfont undefined"></i>
+  V2Ray
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Kail/" class="nav-link"><i class="iconfont undefined"></i>
+  Kail
+</a></li><li class="dropdown-item"><!----> <a href="/categories/免流/" class="nav-link"><i class="iconfont undefined"></i>
+  免流
+</a></li><li class="dropdown-item"><!----> <a href="/categories/学习记/" class="nav-link"><i class="iconfont undefined"></i>
+  学习记
+</a></li><li class="dropdown-item"><!----> <a href="/categories/工具/" class="nav-link"><i class="iconfont undefined"></i>
+  工具
+</a></li><li class="dropdown-item"><!----> <a href="/categories/NoteBook/" class="nav-link"><i class="iconfont undefined"></i>
+  NoteBook
+</a></li><li class="dropdown-item"><!----> <a href="/categories/WorkBook/" class="nav-link"><i class="iconfont undefined"></i>
+  WorkBook
+</a></li><li class="dropdown-item"><!----> <a href="/categories/破解软件/" class="nav-link"><i class="iconfont undefined"></i>
+  破解软件
+</a></li><li class="dropdown-item"><!----> <a href="/categories/青龙/" class="nav-link"><i class="iconfont undefined"></i>
+  青龙
+</a></li><li class="dropdown-item"><!----> <a href="/categories/面试题/" class="nav-link"><i class="iconfont undefined"></i>
+  面试题
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/mukeyeshen" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-64685f0e data-v-dad8a512><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>Promethus(普罗米修斯）监控</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>喵ฅ仙 | BLOG</span>
+            
+          <span data-v-64685f0e>2017 - </span>
+          2022
+        </a></span></div></div> <div data-v-dad8a512><main class="page"><div class="page-title" style="display:none;"><h1>Promethus(普罗米修斯）监控</h1> <div data-v-3b7f5bdf><i class="iconfont reco-account" data-v-3b7f5bdf><span data-v-3b7f5bdf>喵ฅ仙 | BLOG</span></i> <!----> <i class="iconfont reco-eye" data-v-3b7f5bdf><span id="/docs/Promethus/Promethus%E6%99%AE%E7%BD%97%E7%B1%B3%E4%BF%AE%E6%96%AF%E7%9B%91%E6%8E%A7.html" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-3b7f5bdf><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <i class="iconfont reco-tag tags" data-v-3b7f5bdf><span class="tag-item" data-v-3b7f5bdf>Prometheus</span><span class="tag-item" data-v-3b7f5bdf>Grafana</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><h2 id="系统"><a href="#系统" class="header-anchor">#</a> 系统</h2> <h3 id="学习目标"><a href="#学习目标" class="header-anchor">#</a> 学习目标</h3> <ul><li><p>能够安装prometheus服务器</p></li> <li><p>能够通过安装node_exporter监控远程linux</p></li> <li><p>能够通过安装mysqld_exporter监控远程mysql数据库</p></li> <li><p>能够安装grafana</p></li> <li><p>能够在grafana添加prometheus数据源</p></li> <li><p>能够在grafana添加监控cpu负载的图形</p></li> <li><p>能够在grafana图形显示mysql监控数据</p></li> <li><p>能够通过grafana+onealert实现报警</p></li></ul> <h2 id="任务背景"><a href="#任务背景" class="header-anchor">#</a> 任务背景</h2> <p>某某某公司是一家电商网站，由于公司的业务快速发展，公司要求对现有</p> <p>机器进行业务监控，责成运维部门来实施这个项目。</p> <h2 id="任务要求"><a href="#任务要求" class="header-anchor">#</a> 任务要求</h2> <p>1）部署监控服务器，实现7x24实时监控</p> <p>2）针对公司的业务及研发部门设计监控系统，对监控项和触发器拿出合理</p> <p>意见</p> <p>3）做好问题预警机制，对可能出现的问题要及时告警并形成严格的处理机</p> <p>制</p> <p>4）做好监控告警系统，要求可以实现告警分级一级报警 电话通知</p> <p>二级报警 微信通知</p> <p>三级报警邮件通知</p> <p>5）处理好公司服务器异地集中监控问题，K8S内部使用的监控系统就是普</p> <p>罗米修斯</p> <h2 id="任务分析"><a href="#任务分析" class="header-anchor">#</a> 任务分析</h2> <h4 id="为什么要监控？"><a href="#为什么要监控？" class="header-anchor">#</a> 为什么要监控？</h4> <p>答: 实时收集数据，通过报警及时发现问题，及时处理。数据为优化也可以</p> <p>提供依据。</p> <h4 id="监控四要素："><a href="#监控四要素：" class="header-anchor">#</a> 监控四要素：</h4> <p>监控对象 [主机状态 服务 资源 页面，url]</p> <p>用什么监控 [zabbix-server zabbix-agent] =&gt; 普罗米修斯监控</p> <p>什么时间监控 [7x24 5x8]</p> <p>报警给谁 [管理员]</p> <p>项目选型：</p> <p>mrtg (Multi Router Traffiffiffic Grapher)通过snmp协议得到设备的流量</p> <p>信息，并以包含PNG格式的图形的HTML文档方式显示给用户。</p> <p>cacti (仙人掌) 用php语言实现的一个软件，它的主要功能是用snmp</p> <p>服务获取数据，然后用rrdtool储存和更新数据。官网地址: https://www.cacti.net/</p> <p>ntop 官网地址: https://www.ntop.org/</p> <p>nagios 能够跨平台,插件多,报警功能强大。官网地址: https://www.na</p> <p>gios.org/</p> <p>centreon 底层使用的就是nagios。是一个nagios整合版软件。官网</p> <p>地址:https://www.centreon.com/</p> <p>ganglia 设计用于测量数以千计的节点,资源消耗非常小。官网地址:htt</p> <p>p://ganglia.info/</p> <p>open-falcon 小米发布的运维监控软件，高效率，高可用。时间较</p> <p>短，用户基数小。官网地址: http://open-falcon.org/zabbix 跨平台，画图，多条件告警，多种API接口。使用基数特别</p> <p>大。官网地址: https://www.zabbix.com/</p> <p>prometheus 基于时间序列的数值数据的容器监控解决方案。官网地</p> <p>址: https://prometheus.io/</p> <p>综合分析：Prometheus比较适合公司的监控需求</p> <h2 id="一、普罗米修斯概述"><a href="#一、普罗米修斯概述" class="header-anchor">#</a> 一、普罗米修斯概述</h2> <p>Prometheus(由go语言(golang)开发)是一套开源的监控&amp;报警&amp;时间序列数</p> <p>据库的组合。适合监控docker容器。因为kubernetes(俗称k8s)的流行带动</p> <p>了prometheus的发展。</p> <p>https://prometheus.io/docs/introduction/overview/</p> <h2 id="二、时间序列数据"><a href="#二、时间序列数据" class="header-anchor">#</a> 二、时间序列数据</h2> <h3 id="_1、什么是序列数据"><a href="#_1、什么是序列数据" class="header-anchor">#</a> 1、什么是序列数据</h3> <p>时间序列数据(TimeSeries Data) : 按照时间顺序记录系统、设备状态变化</p> <p>的数据被称为时序数据。</p> <p>应用的场景很多, 如：</p> <p>无人驾驶车辆运行中要记录的经度，纬度，速度，方向，旁边物体的距</p> <p>离等等。每时每刻都要将数据记录下来做分析。</p> <p>某一个地区的各车辆的行驶轨迹数据</p> <p>传统证券行业实时交易数据</p> <p>实时运维监控数据等</p> <h3 id="_2、时间序列数据特点"><a href="#_2、时间序列数据特点" class="header-anchor">#</a> 2、时间序列数据特点</h3> <p>性能好</p> <p>关系型数据库对于大规模数据的处理性能糟糕。NOSQL可以比较好的处理</p> <p>大规模数据，让依然比不上时间序列数据库。</p> <p>存储成本低高效的压缩算法，节省存储空间，有效降低IO</p> <p>Prometheus有着非常高效的时间序列数据存储方法，每个采样数据仅仅占</p> <p>用3.5byte左右空间，上百万条时间序列，30秒间隔，保留60天，大概花了</p> <p>200多G（来自官方数据)</p> <h3 id="_3、prometheus的主要特征"><a href="#_3、prometheus的主要特征" class="header-anchor">#</a> 3、Prometheus的主要特征</h3> <p>多维度数据模型</p> <p>灵活的查询语言</p> <p>不依赖分布式存储，单个服务器节点是自主的</p> <p>以HTTP方式，通过pull模型拉去时间序列数据</p> <p>也可以通过中间网关支持push模型</p> <p>通过服务发现或者静态配置，来发现目标服务对象</p> <p>支持多种多样的图表和界面展示</p> <h3 id="_4、普罗米修斯原理架构图"><a href="#_4、普罗米修斯原理架构图" class="header-anchor">#</a> 4、普罗米修斯原理架构图</h3> <p><img src="https://i.loli.net/2020/01/08/MRzZUCjODXvipSP.png" alt=""></p> <h2 id="三、实验环境准备"><a href="#三、实验环境准备" class="header-anchor">#</a> 三、实验环境准备</h2> <h2 id="_1-静态ip-要求能上外网"><a href="#_1-静态ip-要求能上外网" class="header-anchor">#</a> 1. 静态ip(要求能上外网)</h2> <ol start="2"><li>主机名</li> <li>时间同步(时间同步一定要确认一下)4. 关闭防火墙,selinux</li></ol> <h3 id="_1、安装prometheus"><a href="#_1、安装prometheus" class="header-anchor">#</a> 1、安装prometheus</h3> <p>从 https://prometheus.io/download/ 下载相应版本，安装到服务器上</p> <p>官网提供的是二进制版，解压就能用，不需要编译</p> <p>各自配置好主机名</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>通过浏览器访问http://服务器IP:9090就可以访问到prometheus的主界面</p> <p>默认只监控了本机一台，点Status --》点Targets --》可以看到只监控了本</p> <p>机</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>[root@server ~]# tar xf prometheus-2.5.0.linux
+
+amd64.tar.gz -C /usr/local/
+
+[root@server ~]# mv /usr/local/prometheus-2.5.0.linux
+
+amd64/ /usr/local/prometheus
+
+直接使用默认配置文件启动
+
+[root@server ~]# /usr/local/prometheus/prometheus --
+
+config.file=&quot;/usr/local/prometheus/prometheus.yml&quot; &amp;
+
+确认端口(9090)
+
+[root@server ~]# lsof -i:90903、主机数据展示
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>通过http://服务器IP:9090/metrics可以查看到监控的数据</p> <p>在web主界面可以通过关键字查询监控项4、监控远程Linux主机</p> <h3 id="①-在远程linux主机-被监控端agent1-上安装node-exporter组件"><a href="#①-在远程linux主机-被监控端agent1-上安装node-exporter组件" class="header-anchor">#</a> ① 在远程linux主机(被监控端agent1)上安装node_exporter组件</h3> <p>下载地址: https://prometheus.io/download/</p> <p>扩展: nohup命令: 如果把启动node_exporter的终端给关闭,那么进程也会</p> <p>随之关闭。nohup命令会帮你解决这个问题。</p> <h3 id="②-通过浏览器访问http-被监控端ip-9100-metrics就可以查看到"><a href="#②-通过浏览器访问http-被监控端ip-9100-metrics就可以查看到" class="header-anchor">#</a> ② 通过浏览器访问http://被监控端IP:9100/metrics就可以查看到</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>node_exporter在被监控端收集的监控信息
+
+[root@agent1 ~]# tar xf node_exporter-0.16.0.linux
+
+amd64.tar.gz -C /usr/local/
+
+[root@agent1 ~]# mv /usr/local/node_exporter-0.16.0.linux
+
+amd64/ /usr/local/node_exporter
+
+里面就一个启动命令node_exporter,可以直接使用此命令启动
+
+[root@agent1 ~]# ls /usr/local/node_exporter/
+
+LICENSE node_exporter NOTICE
+
+[root@agent1 ~]# nohup
+
+/usr/local/node_exporter/node_exporter &amp;
+
+确认端口(9100)
+
+[root@agent1 ~]# lsof -i:9100③ 回到prometheus服务器的配置文件里添加被监控机器的配置段
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><h3 id="④-回到web管理界面-》点status-》点targets-》可以看到多了一台监"><a href="#④-回到web管理界面-》点status-》点targets-》可以看到多了一台监" class="header-anchor">#</a> ④ 回到web管理界面 --》点Status --》点Targets --》可以看到多了一台监</h3> <p>控目标</p> <p>在主配置文件最后加上下面三行</p> <p>[root@server ~]# vim /usr/local/prometheus/prometheus.yml</p> <p>- job_name: 'agent1' # 取一个job名称来代</p> <p>表被监控的机器</p> <p>static_configs:</p> <p>- targets: ['10.1.1.14:9100'] # 这里改成被监控机器的IP，后面端口接9100</p> <p>改完配置文件后,重启服务</p> <p>[root@server ~]# pkill prometheus</p> <p>[root@server ~]# lsof -i:9090 # 确认端口没有进程占用</p> <p>[root@server ~]# /usr/local/prometheus/prometheus --</p> <p>config.file=&quot;/usr/local/prometheus/prometheus.yml&quot; &amp;</p> <p>[root@server ~]# lsof -i:9090 # 确认端口被占用，说</p> <p>明重启成功</p> <p>练习: 加上本机prometheus的监控</p> <p>答: 在本机安装node_exporter，也使用上面的方式监控起来。</p> <h3 id="_5、监控远程mysql"><a href="#_5、监控远程mysql" class="header-anchor">#</a> 5、监控远程MySQL</h3> <p>① 在被管理机agent1上安装mysqld_exporter组件</p> <p>下载地址: https://prometheus.io/download/</p> <p><strong>安装mysqld_exporter组件</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>[root@agent1 ~]# tar xf mysqld_exporter-0.11.0.linux
+
+amd64.tar.gz -C /usr/local/
+
+[root@agent1 ~]# mv /usr/local/mysqld_exporter-
+
+0.11.0.linux-amd64/ /usr/local/mysqld_exporter
+
+[root@agent1 ~]# ls /usr/local/mysqld_exporter/
+
+LICENSE mysqld_exporter NOTICE
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>安装mariadb数据库,并授权</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>[root@agent1 ~]# yum install mariadb\* -y
+
+[root@agent1 ~]# systemctl restart mariadb
+
+[root@agent1 ~]# systemctl enable mariadb
+
+[root@agent1 ~]# mysql
+
+MariaDB [(none)]&gt; grant select,replication client,process
+
+ON *.* to 'mysql_monitor'@'localhost' identified by '123';
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>(注意:授权ip为localhost，因为不是prometheus服务器来直接找mariadb</p> <p>获取数据，而是prometheus服务器找mysql_exporter,mysql_exporter</p> <p>再找mariadb。所以这个localhost是指的mysql_exporter的IP)② 回到prometheus服务器的配置文件里添加被监控的mariadb的配置段</p> <h3 id="③-回到web管理界面-》点status-》点targets-》可以看到监控"><a href="#③-回到web管理界面-》点status-》点targets-》可以看到监控" class="header-anchor">#</a> ③ 回到web管理界面 --》点Status --》点Targets --》可以看到监控</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>mariadb了
+
+MariaDB [(none)]&gt; flush privileges;
+
+MariaDB [(none)]&gt; quit
+
+创建一个mariadb配置文件，写上连接的用户名与密码(和上面的授权的用户名
+
+和密码要对应)
+
+[root@agent1 ~]# vim /usr/local/mysqld_exporter/.my.cnf
+
+[client]
+
+user=mysql_monitor
+
+password=123
+
+启动mysqld_exporter
+
+[root@agent1 ~]# nohup
+
+/usr/local/mysqld_exporter/mysqld_exporter --config.my
+
+cnf=/usr/local/mysqld_exporter/.my.cnf &amp;
+
+确认端口(9104)
+
+[root@agent1 ~]# lsof -i:9104
+
+在主配置文件最后再加上下面三行
+
+[root@server ~]# vim /usr/local/prometheus/prometheus.yml
+
+- job_name: 'agent1_mariadb' # 取一个job
+
+名称来代表被监控的mariadb
+
+static_configs:
+
+- targets: ['10.1.1.14:9104'] # 这里改成
+
+被监控机器的IP，后面端口接9104
+
+改完配置文件后,重启服务
+
+[root@server ~]# pkill prometheus
+
+[root@server ~]# lsof -i:9090
+
+[root@server ~]# /usr/local/prometheus/prometheus --
+
+config.file=&quot;/usr/local/prometheus/prometheus.yml&quot; &amp;
+
+[root@server ~]# lsof -i:9090
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br></div></div><h2 id="四、grafana可视化图形工具"><a href="#四、grafana可视化图形工具" class="header-anchor">#</a> 四、Grafana可视化图形工具</h2> <h3 id="_1、什么是grafana"><a href="#_1、什么是grafana" class="header-anchor">#</a> 1、什么是Grafana</h3> <p>Grafana是一个开源的度量分析和可视化工具，可以通过将采集的数据分析，查询，然后进行可视化的展示,并能实现报警。网址: https://grafana.com/</p> <h3 id="_2、使用grafana连接prometheus"><a href="#_2、使用grafana连接prometheus" class="header-anchor">#</a> 2、使用Grafana连接Prometheus</h3> <p>① 在grafana服务器上安装grafana下载地址:https://grafana.com/grafana/download</p> <p>② 通过浏览器访问 http:// grafana服务器IP:3000就到了登录界面,使用默认的admin用户,admin密码就可以登陆了</p> <p>我这里选择的rpm包，下载后直接yum安装就OK</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>[root@grafana ~]# yum installl grafana-5.3.4-1.x86_64.rpm -y
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>启动服务**</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>[root@grafana ~]# systemctl start grafana-server
+
+[root@grafana ~]# systemctl enable grafana-server
+
+确认端口(3000)
+
+[root@grafana ~]# lsof -i:3000
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>③ 下面我们把prometheus服务器收集的数据做为一个数据源添加到grafana,让grafana可以得到prometheus的数据。</p> <p>④ 然后为添加好的数据源做图形显示</p> <p>⑤ 保存</p> <p>⑥ 最后在dashboard可以查看到</p> <p>⑦ 匹配条件显示</p> <h3 id="_3、grafana图形显示mysql监控数据"><a href="#_3、grafana图形显示mysql监控数据" class="header-anchor">#</a> 3、Grafana图形显示MySQL监控数据</h3> <p>① 在grafana上修改配置文件,并下载安装mysql监控的dashboard（包含</p> <p>相关json文件，这些json文件可以看作是开发人员开发的一个监控模板)</p> <p>参考网址: https://github.com/percona/grafana-dashboards</p> <p>② 在grafana图形界面导入相关json文件</p> <p>在grafana配置文件里最后加上以下三行</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>[root@grafana ~]# vim /etc/grafana/grafana.ini
+
+[dashboards.json]
+
+enabled = true
+
+path = /var/lib/grafana/dashboards
+
+[root@grafana ~]# cd /var/lib/grafana/
+
+[root@grafana grafana]# git clone
+
+https://github.com/percona/grafana-dashboards.git
+
+[root@grafana grafana]# cp -r grafana
+
+dashboards/dashboards/ /var/lib/grafana/
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p><strong>重启grafana服务</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>[root@grafana grafana]# systemctl restart grafana-server
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>③ 点import导入后,报prometheus数据源找不到,因为这些json文件里默认</p> <p>要找的就是叫Prometheus的数据源，但我们前面建立的数据源却是叫prometheus_data(坑啊)</p> <p>那么请自行把原来的prometheus_data源改名为Prometheus即可(注意:</p> <p>第一个字母P是大写)</p> <p>然后再回去刷新,就有数据了(如下图所示) ④ 过段时间再看，就会有数据了(如下图所示)</p> <h3 id="_4、grafana-onealert报警"><a href="#_4、grafana-onealert报警" class="header-anchor">#</a> 4、Grafana+onealert报警</h3> <p>prometheus报警需要使用alertmanager这个组件，而且报警规则需要手</p> <p>动编写(对运维来说不友好)。所以我这里选用grafana+onealert报警。</p> <p>注意: 实现报警前把所有机器时间同步再检查一遍.</p> <p>① 先在onealert里添加grafana应用(申请onealert账号在zabbix已经讲过)</p> <p>② 配置通知策略</p> <p>③ 在grafana增加通知通道</p> <p>④ 现在可以去设置一个报警来测试了(这里以我们前面加的cpu负载监控来做测试)</p> <p>⑤ 保存后就可以测试了</p> <p>如果agent1上的cpu负载还没有到0.5，你可以试试0.1,或者运行一些程序把agent1负载调大。最终能测试报警成功。</p> <p>最终的邮件报警效果：测试mysql链接数报警</p> <h3 id="_5、总结报警不成功的可能原因"><a href="#_5、总结报警不成功的可能原因" class="header-anchor">#</a> 5、总结报警不成功的可能原因</h3> <p>各服务器之间时间不同步，这样时序数据会出问题，也会造成报警出问题</p> <p>必须写通知内容，留空内容是不会发报警的</p> <p>修改完报警配置后，记得要点右上角的保存</p> <p>保存配置后，需要由OK状态变为alerting状态才会报警(也就是说，你配置保存后，就已经是alerting状态是不会报警的)</p> <p>grafana与onealert通信有问题</p> <h3 id="_6、课外扩展"><a href="#_6、课外扩展" class="header-anchor">#</a> 6、课外扩展</h3> <p>prometheus目前还在发展中，很多相应的监控都需要开发。但在官网的</p> <p>dashboard库中,也有一些官方和社区开发人员开发的dashboard可以直接</p> <p>拿来用。示例:</p> <p>有兴趣的同学可以下载几个尝试一下(不一定版本兼容,如果不兼容，可多试</p> <p>几个不同版本)</p></div> <footer class="page-edit" style="display:none;"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">2022/2/14 21:41:06</span></div></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div class="Sakura" data-v-017cf06a><canvas id="canvas_sakura" style="z-index:2;" data-v-017cf06a></canvas></div><!----><div class="RibbonAnimation"></div><div></div><!----><!----><div class="vuepress-canvas-nest-element"></div><div class="kanbanniang" data-v-7f9bdc70><div class="banniang-container" style="display:;" data-v-7f9bdc70><div class="messageBox" style="position:fixed;right:80px;bottom:200px;display:none;" data-v-7f9bdc70>
+      欢迎来到 喵ฅ仙 | BLOG
+    </div> <div class="operation" style="bottom:10px;right:60px;display:;" data-v-7f9bdc70><i class="kbnfont kbn-ban-home ban-home" data-v-7f9bdc70></i> <i class="kbnfont kbn-ban-message message" data-v-7f9bdc70></i> <i class="kbnfont kbn-ban-close close" data-v-7f9bdc70></i> <a target="_blank" href="https://vuepress-theme-reco.recoluan.com/views/plugins/kanbanniang.html" data-v-7f9bdc70><i class="kbnfont kbn-ban-info info" data-v-7f9bdc70></i></a> <i class="kbnfont kbn-ban-theme skin" style="display:;" data-v-7f9bdc70></i></div> <canvas id="banniang" width="120" height="280" class="live2d" style="position:fixed;right:120px;bottom:20px;opacity:1.2;" data-v-7f9bdc70></canvas></div> <div class="showBanNiang" style="display:none;" data-v-7f9bdc70>
+    看板娘
+  </div></div><div class="reco-bgm-panel" data-v-b1d3339e><audio id="bgm" src="http://music.163.com/song/media/outer/url?id=29004400.mp3" data-v-b1d3339e></audio> <div class="reco-float-box" style="bottom:200px;z-index:999999;display:none;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><img src="https://i.loli.net/2020/01/06/3gAnevw2xfzk4dY.png" data-v-b1d3339e></div> <div class="reco-bgm-box" style="left:10px;bottom:10px;z-index:999999;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="reco-bgm-cover" style="background-image:url(https://i.loli.net/2020/01/06/3gAnevw2xfzk4dY.png);" data-v-b1d3339e><div class="mini-operation" style="display:none;" data-v-b1d3339e><i class="reco-bgm reco-bgm-pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play" style="display:none;" data-v-b1d3339e></i></div> <div class="falut-message" style="display:none;" data-v-b1d3339e>
+          播放失败
+        </div></div> <div class="reco-bgm-info" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-music music" data-v-b1d3339e></i>烟火里的尘埃</div> <div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-artist" data-v-b1d3339e></i>华晨宇</div> <div class="reco-bgm-progress" data-v-b1d3339e><div class="progress-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div> <div class="reco-bgm-operation" data-v-b1d3339e><i class="reco-bgm reco-bgm-last last" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-pause pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play play" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-next next" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-volume1 volume" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-mute mute" style="display:none;" data-v-b1d3339e></i> <div class="volume-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div></div> <div class="reco-bgm-left-box" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><i class="reco-bgm reco-bgm-left" data-v-b1d3339e></i></div></div></div></div></div>
+    <script src="/assets/js/app.d3414c94.js" defer></script><script src="/assets/js/3.c1cc8b6c.js" defer></script><script src="/assets/js/1.b791f502.js" defer></script><script src="/assets/js/122.3aa9c2ee.js" defer></script>
+  </body>
+</html>
